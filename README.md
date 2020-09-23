@@ -18,4 +18,5 @@ Orientado a consumidores de entre 18 y 35 años.
 * Diego Castellari
 * Felicitas Ortiz
 * David Donati
+
 Trello: https://trello.com/b/dHerA2pz/dh-fullstack
