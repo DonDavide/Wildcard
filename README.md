@@ -11,8 +11,9 @@ Orientado a consumidores de entre 18 y 35 años.
 * https://www.romeazapatos.com.ar/
 * https://us.shein.com/
 * https://www.blue-tomato.com/
-* https://www.digitalsport.com.ar/
+* https://www.cocaox.com.ar/
 * https://www.bizarrostore.com/
+* https://www.roaney.com.ar/
 
 ### Desarrolladores:
 * Diego Castellari
