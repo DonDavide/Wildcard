@@ -1,0 +1,153 @@
+*{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+main{
+    background-color: teal;
+    position: relative;
+}
+.producto{
+    height: 80%;
+    width: 80%;
+    background-color: yellow;
+}
+
+.formularioCompra {
+    height: 80%;
+    width: 19.5%;
+    background-color: orangered;
+}
+.producto, .formularioCompra{
+    display: inline-block;
+    vertical-align: top;
+}
+
+.relacionados{
+    height: 20%;
+    background-color: blue;
+} 
+
+
+/* ----------------   PRODUCTO   ------------- */
+.imagenesProducto, .descripcionProducto{
+    display: inline-block;
+    vertical-align: top;
+}
+.imagenesProducto {
+    line-height: 0;
+    display: inline-block;
+    height: 80%;
+    width: 100%;
+    background-color: red;
+}
+.imagenesProducto .imagenesCarousel{
+    display: inline-block;
+    line-height: 0;
+    width: 19%;
+    background-color: blue;
+}
+.imagenesProducto .imagenesCarousel img{
+    display: inline-block;
+    padding: 2px;
+    height: 25%;
+    width: 100%;
+    background-color: aqua;
+}
+.imagenesProducto .imagenesSelect{
+    display: inline-block;
+    width: 80%;
+    background-color: green;
+}
+.imagenesSelect, .imagenesCarousel{
+    vertical-align: top;
+    height: 100%;
+    padding: 10px;
+}
+
+main .producto .descripcionProducto {
+    display: inline-block;
+    height: 20%;
+    width: 100%;
+}
+
+
+/* -----------------    FORMULARIO    ------------- */
+#nombre{
+    display: inline;
+    margin: 1%;
+    width: 98%;
+    
+}
+#precio{
+    display: inline;
+    margin: 1%;
+    width: 98%;
+    background-color: white;
+}
+#oferta{
+    display: block;
+    margin: 1%;
+    padding: 4%;
+    width: 98%;
+    height: 6%;
+    background-color: white;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.talles{
+    height: 20%;
+}
+.colores, .cantidad, .mediosPago, .mediosEnvio{
+    height: 12%;
+}
+.talles, .colores, .cantidad, .mediosPago, .mediosEnvio{
+    margin: 2%;
+    width: 96%;
+}
+.categoria, #guiaTalles{
+    height: auto;
+    width: auto;
+    position: absolute;
+}
+#guiaTalles{
+    text-align: right;
+    right: 1%;
+}
+.talles button, .colores button, .mediosPago button, .mediosEnvio button{
+    margin-top: 5%;
+    margin-left: 1%;
+    height: 50px;
+    width: 50px;
+    display: inline-block;
+}
+.cantidad #inputCantidad{
+    display: inline;
+    height: 30px;
+    width: 60px;
+    text-align: center;
+}
+
+
+
+main .relacionados title{
+    display: inline;
+    width: 100%;
+    color: aqua;
+}
+main .relacionados div{
+    width: 98%;
+    height: 80%;
+    background-color: green;
+}
+main .relacionados div article{
+    padding: 0.5%;
+    display: inline-block;
+    width: 15%;
+    height: 100%;
+    background-color: yellow;
+}
