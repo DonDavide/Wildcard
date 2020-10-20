@@ -1,153 +1,183 @@
 *{
     padding: 0;
     margin: 0;
-    width: 100%;
-    height: 100%;
     box-sizing: border-box;
 }
 
 main{
-    background-color: teal;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-around;
 }
 .producto{
-    height: 80%;
-    width: 80%;
-    background-color: yellow;
+    position: relative;
+    top: 0%;
+    left: 0%;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
-.formularioCompra {
+.producto .imagenesProducto {
+    position: absolute;
+    top: 0%;
+    left: 0%;
     height: 80%;
-    width: 19.5%;
-    background-color: orangered;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
-.producto, .formularioCompra{
-    display: inline-block;
-    vertical-align: top;
+.producto .descripcionProducto {
+    position: absolute;
+    top: 80%;
+    left: 0%;
+    height: 20%;
+    width: 80%;
+    padding: 10px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 28px;
+}
+.producto .formularioCompra {
+    position: absolute;
+    top: 0%;
+    left: 80%;
+    height: 100%;
+    width: 20%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 
 .relacionados{
-    height: 20%;
-    background-color: blue;
+    width: 100%;
+    height: 40vh;
 } 
 
 
 /* ----------------   PRODUCTO   ------------- */
-.imagenesProducto, .descripcionProducto{
-    display: inline-block;
-    vertical-align: top;
-}
-.imagenesProducto {
-    line-height: 0;
-    display: inline-block;
-    height: 80%;
-    width: 100%;
-    background-color: red;
-}
+
 .imagenesProducto .imagenesCarousel{
-    display: inline-block;
-    line-height: 0;
-    width: 19%;
-    background-color: blue;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    height: 100%;
 }
 .imagenesProducto .imagenesCarousel img{
-    display: inline-block;
-    padding: 2px;
     height: 25%;
     width: 100%;
-    background-color: aqua;
 }
 .imagenesProducto .imagenesSelect{
-    display: inline-block;
-    width: 80%;
-    background-color: green;
-}
-.imagenesSelect, .imagenesCarousel{
-    vertical-align: top;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: 100%;
-    padding: 10px;
+    width: 70%;
 }
-
-main .producto .descripcionProducto {
-    display: inline-block;
-    height: 20%;
+.imagenesProducto .imagenesSelect img{
+    height: 100%;
     width: 100%;
 }
 
+
+/* -----------------    DESCRIPCION    ------------- */
+.descripcionProducto p{
+    margin-left: 1%;
+    width: 95%;
+    font-family: sans-serif;
+    font-size: 20px;
+}
 
 /* -----------------    FORMULARIO    ------------- */
 #nombre{
-    display: inline;
-    margin: 1%;
-    width: 98%;
-    
+    font-size: 35px;
+    font-family: 'Josefin Sans', sans-serif;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 #precio{
-    display: inline;
-    margin: 1%;
-    width: 98%;
-    background-color: white;
+    font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-size: 50px;
+    font-weight: bold; 
+    margin-bottom: 30px;
 }
 #oferta{
-    display: block;
-    margin: 1%;
-    padding: 4%;
-    width: 98%;
-    height: 6%;
+    align-self: center;
     background-color: white;
+    font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-size: 25px;
     text-align: center;
-    border-radius: 5px;
+    padding: 10px 50px;
+    border: 2px solid black;
+    border-radius: 2px;
+    font-family: 'Josefin Sans', sans-serif;
+    margin-bottom: 30px;
 }
 
-.talles{
-    height: 20%;
-}
-.colores, .cantidad, .mediosPago, .mediosEnvio{
-    height: 12%;
-}
 .talles, .colores, .cantidad, .mediosPago, .mediosEnvio{
-    margin: 2%;
-    width: 96%;
+    margin-bottom: 30px;
 }
+
+
 .categoria, #guiaTalles{
-    height: auto;
-    width: auto;
-    position: absolute;
+    font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-size: 20px;
 }
 #guiaTalles{
-    text-align: right;
-    right: 1%;
+    font-style: italic;
+    align-self: flex-end;
 }
-.talles button, .colores button, .mediosPago button, .mediosEnvio button{
-    margin-top: 5%;
-    margin-left: 1%;
+.botontesSelect{
+    padding: 3px;
+}
+.botontesSelect button{
     height: 50px;
     width: 50px;
-    display: inline-block;
+    background-color: white;
+    border: 1px solid grey;
 }
 .cantidad #inputCantidad{
-    display: inline;
     height: 30px;
     width: 60px;
     text-align: center;
 }
 
 
-
+/* -----------------    PRODUCTOS RELACIONADOS    ------------- */
 main .relacionados title{
-    display: inline;
-    width: 100%;
-    color: aqua;
+    display: inline-block;
+    padding: 10px 0px 0px 10px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 28px;
 }
 main .relacionados div{
-    width: 98%;
+    width: 100%;
     height: 80%;
-    background-color: green;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
 }
 main .relacionados div article{
-    padding: 0.5%;
-    display: inline-block;
-    width: 15%;
     height: 100%;
-    background-color: yellow;
+    flex-grow: 1;
+    background-color: cornflowerblue;
+    border: 1px solid coral;
 }
