@@ -8,4 +8,8 @@ router.get('/', function(req, res, next) {
 router.get('/detalleProducto', function(req, res, next) {
   res.render('productDetail', { title: 'Express' });
 });
+router.get('/header', function(req, res, next) {
+  res.render('header.ejs', { title: 'Express' });
+});
+
 module.exports = router;
