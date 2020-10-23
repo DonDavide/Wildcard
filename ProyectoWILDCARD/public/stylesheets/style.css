@@ -181,3 +181,16 @@ h1{
   margin-top: 5px;
 }
 
+/*REGISTER*/
+#entrar {
+  color: white;
+  background-color: black;
+}
+
+#cancelar {
+  color: black;
+  background-color: white;
+}
+main {
+  align-content: center;
+}
