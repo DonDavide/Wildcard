@@ -9,9 +9,13 @@ router.get('localhost:3000', function(req, res, next) {
   res.render('home');
 });
 router.get('/detalleProducto', function(req, res, next) {
-  res.render('productDetail.ejs', { title: 'Express' });
+  res.render('productDetail', { title: 'Express' });
 });
 router.get('/register', function(req, res, next) {
   res.render('register.ejs');
 });
+router.get('/header', function(req, res, next) {
+  res.render('header.ejs', { title: 'Express' });
+});
+
 module.exports = router;

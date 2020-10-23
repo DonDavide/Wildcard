@@ -1,153 +1,210 @@
 *{
     padding: 0;
     margin: 0;
-    width: 100%;
-    height: 100%;
     box-sizing: border-box;
 }
 
 main{
-    background-color: teal;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-around;
 }
 .producto{
-    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.producto .datosProducto{
     width: 80%;
-    background-color: yellow;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.producto .formularioCompra {
+    width: 20%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.producto .datosProducto .imagenesProducto {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.producto .datosProducto .descripcionProducto {
+    width: 100%;
+    padding: 10px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 28px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 
-.formularioCompra {
-    height: 80%;
-    width: 19.5%;
-    background-color: orangered;
-}
-.producto, .formularioCompra{
-    display: inline-block;
-    vertical-align: top;
-}
-
-.relacionados{
-    height: 20%;
-    background-color: blue;
+main .relacionados{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
 } 
 
 
 /* ----------------   PRODUCTO   ------------- */
-.imagenesProducto, .descripcionProducto{
-    display: inline-block;
-    vertical-align: top;
-}
-.imagenesProducto {
-    line-height: 0;
-    display: inline-block;
-    height: 80%;
-    width: 100%;
-    background-color: red;
-}
+
 .imagenesProducto .imagenesCarousel{
-    display: inline-block;
-    line-height: 0;
-    width: 19%;
-    background-color: blue;
+    align-self: center;
+    width: 400px;
+    height: 800px;
+    flex-grow: 1;
+    overflow: auto;
 }
 .imagenesProducto .imagenesCarousel img{
-    display: inline-block;
-    padding: 2px;
-    height: 25%;
-    width: 100%;
-    background-color: aqua;
+    height: 300px;
+    width: 400px;
 }
 .imagenesProducto .imagenesSelect{
-    display: inline-block;
-    width: 80%;
-    background-color: green;
+    height: 800px;
+    width: 70%;
+    flex-grow: 1;
 }
-.imagenesSelect, .imagenesCarousel{
-    vertical-align: top;
+.imagenesProducto .imagenesSelect img{
     height: 100%;
-    padding: 10px;
-}
-
-main .producto .descripcionProducto {
-    display: inline-block;
-    height: 20%;
     width: 100%;
 }
 
+
+/* -----------------    DESCRIPCION    ------------- */
+.descripcionProducto p{
+    margin-left: 1%;
+    width: 95%;
+    font-family: sans-serif;
+    font-size: 20px;
+}
 
 /* -----------------    FORMULARIO    ------------- */
 #nombre{
-    display: inline;
-    margin: 1%;
-    width: 98%;
-    
+    font-size: 25px;
+    font-family: 'Josefin Sans', sans-serif;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 #precio{
-    display: inline;
-    margin: 1%;
-    width: 98%;
-    background-color: white;
+    font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-size: 40px;
+    font-weight: bold; 
+    margin-bottom: 15px;
 }
 #oferta{
-    display: block;
-    margin: 1%;
-    padding: 4%;
-    width: 98%;
-    height: 6%;
+    align-self: center;
     background-color: white;
+    font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-size: 16px;
     text-align: center;
-    border-radius: 5px;
+    padding: 10px 50px;
+    border: 2px solid black;
+    border-radius: 2px;
+    font-family: 'Josefin Sans', sans-serif;
+    margin-bottom: 30px;
 }
 
-.talles{
-    height: 20%;
-}
-.colores, .cantidad, .mediosPago, .mediosEnvio{
-    height: 12%;
-}
 .talles, .colores, .cantidad, .mediosPago, .mediosEnvio{
-    margin: 2%;
-    width: 96%;
+    margin-bottom: 15px;
 }
+.talles p, .colores p, .cantidad p, .mediosPago p, .mediosEnvio p{
+    margin-bottom: 1px;
+}
+
 .categoria, #guiaTalles{
-    height: auto;
-    width: auto;
-    position: absolute;
+    font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+}
+.talles .categoria{
+    display: flex;
+    justify-content: space-between;
 }
 #guiaTalles{
-    text-align: right;
-    right: 1%;
+    font-style: italic;
 }
-.talles button, .colores button, .mediosPago button, .mediosEnvio button{
-    margin-top: 5%;
-    margin-left: 1%;
+.botontesSelect{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 3px;
+}
+.botontesSelect button{
     height: 50px;
     width: 50px;
-    display: inline-block;
+    background-color: white;
+    border: 1px solid grey;
 }
 .cantidad #inputCantidad{
-    display: inline;
     height: 30px;
     width: 60px;
     text-align: center;
 }
+.botonCompra{
+    align-self: center;
+    color: white;
+    background-color: black;
+    font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    text-align: center;
+    padding: 10px 50px;
+    border: 2px solid black;
+    border-radius: 2px;
+    font-family: 'Josefin Sans', sans-serif;
+    margin-top: 30px;
+}
 
 
-
+/* -----------------    PRODUCTOS RELACIONADOS    ------------- */
 main .relacionados title{
-    display: inline;
-    width: 100%;
-    color: aqua;
+    display: inline-block;
+    padding: 10px 0px 0px 10px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 28px;
 }
 main .relacionados div{
-    width: 98%;
-    height: 80%;
-    background-color: green;
+    width: 100%;
+    height: 300px;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
 }
 main .relacionados div article{
-    padding: 0.5%;
-    display: inline-block;
-    width: 15%;
+    display: flex;
+    flex-direction: column;
     height: 100%;
-    background-color: yellow;
+    width: 200px;
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid coral;
+}
+main .relacionados div article img{
+    height: 200px;
+    width: 200px;
+    align-self: center;
+    padding-bottom: 10px;
+}
+main .relacionados div article p{
+    align-self: center;
 }

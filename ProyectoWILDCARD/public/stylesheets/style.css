@@ -1,6 +1,9 @@
 *{
   box-sizing: border-box;
   margin-top: 0px;
+  margin-left: 0%;
+  margin-right: 0%;
+  padding: 0px;
 }
 body {
   padding: 0px;
@@ -14,6 +17,7 @@ a {
   text-decoration: none;
 }
 .container{
+  max-width: 100%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -21,11 +25,13 @@ a {
   justify-content: center;
   position: relative;
   font-family: 'Montserrat', sans-serif;
+  margin: 0px;
+  padding: 0px;
 }
 /*HEADER*/
 .container header{
   background-color: black;
-  width: 100%;
+  width: 99.6%;
   height: 90px;
   display: flex;
   justify-content: space-between;
@@ -68,6 +74,15 @@ a {
   padding: 5px;
   margin-left: 5px;
 }
+.container header .logoArlequin{
+  display: none;
+}
+.container header .barraDeBusqueda{
+  display: none;
+}
+.container header nav{
+  display: none;
+}
 .container header .logo{
   font-family: 'Josefin Sans', sans-serif;
   color: white;  
@@ -90,7 +105,7 @@ h1{
 }
 .container header div.logoWsapp{
   position: fixed;
-  right: 1px;
+  right: 7px;
   bottom: 285px;
   font-size: 30px;
   color: #25D366;
@@ -105,7 +120,14 @@ h1{
   margin: 3px;
   position: relative;
   margin-top: 90px;
+  width: 98%;
 
+}
+.container main div.slider{
+  width: 100%;
+}
+.container main div.slider img{
+  height: 450px;
 }
 
 .container main div img{
@@ -115,14 +137,22 @@ h1{
 }
 .container main div.imagenes{
   position: relative;
+  width: 100%;
+}
+.container main div.imagenes div.contenedorSecciones{
+  display: flex;
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  top: 80%;
+  justify-content: center;
 }
 .container main div.imagenes p{
-  position: absolute;
-  right: 50%;
-  top: 50%;
-  text-align: center;
-  z-index: 0.8;
-}
+  background-color: black;
+  color: white;
+  padding: 5px;
+}  
+
 /* FOOTER*/
 .container footer{
   background-color: black;
@@ -153,6 +183,9 @@ h1{
   flex-direction: column;
   width: 50%;
 
+}
+.container footer div.redesSociales{
+  display: none;
 }
 .container footer .formasDePago{
   background-color: black;
@@ -193,4 +226,222 @@ h1{
 }
 main {
   align-content: center;
+}
+/* TABLET*/
+@media(min-width: 426px){
+  .container{
+    max-width: 100%;
+  }
+  /*MAIN*/
+  .container main div.slider{
+    width: 80%;
+  }
+  /*FOOTER*/
+  .container footer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+  }
+  .container footer div.aboutUs{
+    width: 50%;
+    order: 1;
+  }
+  .container footer div.redesSociales{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+    order: 2;
+  }
+  .container footer div.redesSociales p{
+    padding-top: 5px;
+  }
+  
+  .container footer div.redesSociales i{
+    font-size: 30px;
+    align-self: center;
+    padding-bottom: 3px;
+  }
+  
+  .container footer div.formasDePago{
+    border: none;
+    width: 50%;
+    order: 3;
+  }
+  .container footer div.copyright{
+    width: 50%;
+    order: 4;
+  }
+  .container footer div.copyright i{
+    display: none;
+  }
+}
+/*Modo Escritorio*/
+@media(min-width: 769px){
+  /*header*/
+  .container{
+    width: 100%;
+    max-width: 100%;
+  }
+  .container header menu{
+    display: none;
+  }
+  .container header .logoArlequin{
+    color:white;
+    height: 50px;
+    margin-top: 20px;
+    display: inline-block;
+    padding: 5px;
+    margin-left: 5px;
+    width: 100px;
+  }
+
+  .container header .barraDeBusqueda{
+    display: inline-block;
+    position: absolute;
+    right: 50px;
+    top: 43px;
+    background-color: black;
+    border: 2px black solid;
+    border-radius: 5%;
+    color: white;
+  }
+  .container header .barraDeBusqueda input{
+    background-color: black;
+    color: white;
+  }
+
+  .container header .barraDeBusqueda input:hover{
+    background-color: white;
+    color: black;
+  }
+
+  .container header .carrito{
+    text-align: end;
+    width: 100px;
+    font-size: 25px;
+    margin-top: 35px;
+  }
+  .container header nav{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    align-items: center;
+    margin-top: 90px;
+    background-color: white;
+    width: 100%;
+    border: 2px solid black;
+    position: absolute;
+  }
+  .container header nav ul{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .container header nav ul.menu{
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .container header nav ul.usuario{
+    width: 25%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0%;
+  }
+  .container header nav ul li{
+    list-style: none;
+  }
+  /* MAIN*/
+  .container main{
+    display: flex;
+    margin-top: 136px;
+    width: 100%;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  .container main div.slider  {
+    width: 70%;
+  }
+  
+  .container main div.imagenes {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    width: 33%;
+    height: 360px;
+
+  }
+  .container main div.imagenes div.contenedorSecciones{
+    display: flex;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    top: 80%;
+    justify-content: center;
+  }
+  .container main div.imagenes p{
+    background-color: black;
+    color: white;
+    padding: 5px;
+  }  
+
+  .container main div.imagenes img {
+    border: 2px solid gray;
+    height: 100%;
+  }
+  /* FOOTER */
+  .container footer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+  }
+  .container footer div.aboutUs{
+    width: 25%;
+    order: 3;
+  }
+  .container footer div.redesSociales{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25%;
+    order: 2;
+  }
+  .container footer div.redesSociales p{
+    padding-top: 5px;
+  }
+  
+  .container footer div.redesSociales i{
+    font-size: 30px;
+    align-self: center;
+    padding-bottom: 3px;
+  }
+  .container footer div.formasDePago{
+    border: none;
+    width: 25%;
+    order: 1;
+  }
+  .container footer div.copyright{
+    width: 25%;
+    order: 4;
+  }
+  .container footer div.copyright i{
+    display: none;
+  }
 }
