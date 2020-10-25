@@ -13,11 +13,11 @@ main{
     justify-content: space-around;
 }
 .producto{
-    width: 100%;
+    width: 100vw;
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     align-items: flex-start;
-    flex-direction: row;
     justify-content: space-around;
 }
 .producto .datosProducto{
@@ -57,27 +57,30 @@ main{
 }
 
 main .relacionados{
-    width: 100%;
+    width: 100;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     align-items: flex-start;
-    flex-direction: column;
     justify-content: flex-start;
 } 
 
 
-/* ----------------   PRODUCTO   ------------- */
+/* ----------------- || PRODUCTO    ------------- */
 
 .imagenesProducto .imagenesCarousel{
     align-self: center;
-    width: 400px;
+    width: 30%;
     height: 800px;
     flex-grow: 1;
     overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .imagenesProducto .imagenesCarousel img{
-    height: 300px;
-    width: 400px;
+    height: 250px;
+    width: 350px;
 }
 .imagenesProducto .imagenesSelect{
     height: 800px;
@@ -90,7 +93,8 @@ main .relacionados{
 }
 
 
-/* -----------------    DESCRIPCION    ------------- */
+/* ----------------- || DESCRIPCION    ------------- */
+
 .descripcionProducto p{
     margin-left: 1%;
     width: 95%;
@@ -98,7 +102,9 @@ main .relacionados{
     font-size: 20px;
 }
 
-/* -----------------    FORMULARIO    ------------- */
+
+/* ----------------- || FORMULARIO    ------------- */
+
 #nombre{
     font-size: 25px;
     font-family: 'Josefin Sans', sans-serif;
@@ -174,7 +180,8 @@ main .relacionados{
 }
 
 
-/* -----------------    PRODUCTOS RELACIONADOS    ------------- */
+/* ----------------- || PRODUCTOS RELACIONADOS    ------------- */
+
 main .relacionados title{
     display: inline-block;
     padding: 10px 0px 0px 10px;
@@ -183,7 +190,6 @@ main .relacionados title{
 }
 main .relacionados div{
     width: 100%;
-    height: 300px;
     padding: 10px;
     display: flex;
     flex-wrap: wrap;
@@ -193,7 +199,7 @@ main .relacionados div{
 main .relacionados div article{
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 300px;
     width: 200px;
     flex-grow: 1;
     padding: 10px;
@@ -207,4 +213,146 @@ main .relacionados div article img{
 }
 main .relacionados div article p{
     align-self: center;
+}
+
+
+/* ---------------------------------------------- */
+/* ----------------- || TABLET      ------------- */
+
+@media(max-width: 770px){
+    
+    .producto .datosProducto .imagenesProducto {
+        width: 100%;
+        flex-direction: column-reverse;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    /* ----------------- || PRODUCTO    ------------- */
+
+    .imagenesProducto .imagenesCarousel{
+        align-self: center;
+        height: 150px;
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    .imagenesProducto .imagenesCarousel img{
+        height: 100px;
+        width: 130px;
+    }
+    .imagenesProducto .imagenesSelect{
+        height: 400px;
+        width: 100%;
+    }
+    .imagenesProducto .imagenesSelect img{
+        flex-grow: 1;
+        flex-shrink: 1;
+    }
+
+    /* ----------------- || FORMULARIO    ------------- */
+    .botontesSelect button{
+        height: 35px;
+        width: 35px;
+    }
+
+    /* ----------------- || PRODUCTOS RELACIONADOS    ------------- */
+
+
+}
+ 
+
+/* ---------------------------------------------- */
+/* ----------------- || CELULAR      ------------- */
+
+@media(max-width: 426px){
+    .producto{
+        flex-direction: column-reverse;
+        justify-content: flex-start;
+    }
+   /*  .producto .datosProducto{
+        align-items: ;
+
+    } */
+    .producto .formularioCompra {
+        width: 100%;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+    /* .producto .datosProducto .imagenesProducto {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .producto .datosProducto .descripcionProducto {
+        width: 100%;
+        padding: 10px;
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 28px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: flex-start;
+    } */
+
+
+
+
+
+
+
+    .producto .datosProducto .imagenesProducto {
+        width: 100%;
+        flex-direction: column-reverse;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    /* ----------------- || PRODUCTO    ------------- */
+
+    .imagenesProducto .imagenesCarousel{
+        align-self: center;
+        height: 150px;
+        width: 100vw;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    .imagenesProducto .imagenesCarousel img{
+        height: 100px;
+        width: 130px;
+    }
+    .imagenesProducto .imagenesSelect{
+        height: 400px;
+        width: 100vw;
+    }
+    .imagenesProducto .imagenesSelect img{
+        height: 100%;
+        width: 100%;
+    }
+
+    /* ----------------- || FORMULARIO    ------------- */
+    .botontesSelect button{
+        height: 35px;
+        width: 35px;
+    }
+
+    /* ----------------- || PRODUCTOS RELACIONADOS    ------------- */
+
+    main .relacionados div article{
+        display: flex;
+        flex-direction: column;
+        height: 300px;
+        width: 150px;
+        flex-grow: 1;
+        padding: 10px;
+        border: 1px solid coral;
+    }
 }

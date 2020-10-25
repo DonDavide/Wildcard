@@ -233,6 +233,19 @@ a {
   margin-top: 5px;
 }
 
+/*REGISTER*/
+#entrar {
+  color: white;
+  background-color: black;
+}
+
+#cancelar {
+  color: black;
+  background-color: white;
+}
+main {
+  align-content: center;
+}
 /* TABLET*/
 @media(min-width: 426px){
   .container{
