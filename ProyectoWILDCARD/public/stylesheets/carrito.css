@@ -1,0 +1,479 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+  }
+  body {
+    padding: 0px;
+    font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
+    margin: 0 0 0 0;
+    display: flex;
+  }
+  
+  a {
+    color: black;
+    text-decoration: none;
+  }
+  .container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0px;
+    padding: 0px;
+  }
+  .container main.carrito {
+    position: relative;
+    border: 2px black solid;
+    width: 90%;
+    margin-top: 260px;
+    margin-bottom: 100px;
+    padding: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    
+
+  }
+  .container main.carrito h1{
+    width: 90%;
+    margin-bottom: 20px;
+  }
+  .container main.carrito div.margen{
+    width: 100%;
+    height: 20px;
+  }
+  .container main.carrito div.tarjetas{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 65%;
+  }
+  .container main.carrito div.tarjetas div.tarjetaProducto{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  .container main.carrito div.tarjetas div.tarjetaProducto div.imagen{
+    border: 2px black solid;
+    width: 11vw;
+    height: 20vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(221, 221, 221);
+  }
+  .container main.carrito div.tarjetas div.tarjetaProducto div.imagen img{
+    height: 100%;
+  }
+  .container main.carrito div.tarjetas div.tarjetaProducto div.descripcion{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding-left: 20px;
+    width: 35vw;
+    height: 20vh;
+  }
+  .container main.carrito div.tarjetas div.tarjetaProducto div.descripcion p.cantidad{
+    display: none;
+    text-align: center;
+    border: 2px black solid;
+   
+  }
+  .container main.carrito div.tarjetas div.margen{
+    width: 100%;
+  }
+
+  .container main.carrito div.cantidadSubtotal {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 35%;
+    text-align: center;
+    align-content: flex-start;
+    align-items: flex-start;
+  }
+  
+  .container main.carrito div.cantidadSubtotal div.cantidad{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 50%;
+    text-align: center;
+  }
+  .container main.carrito div.cantidadSubtotal div.cantidad h2.titulo{
+    position: relative;
+    bottom: 3vh;
+  }
+  .container main.carrito div.cantidadSubtotal div.cantidad h2.titulo2{
+    display: none;
+  }
+  .container main.carrito div.cantidadSubtotal div.cantidad div{
+    display: flex;
+    height: 20vh;
+    text-align: center;
+    margin-bottom: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+  .container main.carrito div.cantidadSubtotal div.cantidad div p.cantidad{
+    border: 2px solid black;
+    width: 50%;
+  }
+  .container main.carrito div.cantidadSubtotal div.cantidad p.envio{
+    align-self: stretch;
+    width: 100%;
+  }
+  .container main.carrito div.cantidadSubtotal div.cantidad h2.total{
+    margin-top: 8vh;
+    padding: 10px;
+    font-size: 2.5rem;
+    font-weight: 900;
+  }
+  .container main.carrito div.cantidadSubtotal div.subtotal{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+    padding-left: 15px;
+  }
+  .container main.carrito div.cantidadSubtotal div.subtotal h2.titulo{
+    position: relative;
+    bottom: 3vh;
+  }
+  .container main.carrito div.cantidadSubtotal div.subtotal div.precio{
+    display: flex;
+    height: 20vh;
+    text-align: center;
+    margin-bottom: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+  .container main.carrito div.cantidadSubtotal div.subtotal div.precio p{
+    font-size: 1.6rem;
+    font-weight: 900;
+    padding: 10px;
+  }
+  .container main.carrito div.cantidadSubtotal div.subtotal div.precio i{
+    margin-left: 10px;
+    font-size: 3rem;
+    font-weight: 900;
+    color: black;
+  }
+  .container main.carrito div.cantidadSubtotal div.subtotal div.subtotal2{
+    font-size: 1rem;
+    font-weight: 600;
+    width: 60%;
+    padding: 5px;
+    border: 1px black solid;
+    align-self: center;
+  }
+  .container main.carrito div.cantidadSubtotal div.subtotal h2.total{
+    margin-top: 8vh;
+    padding: 10px;
+    font-size: 2.5rem;
+    font-weight: 900;
+  }
+  .container main.carrito div.cantidadSubtotal div.botones{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .container main.carrito div.cantidadSubtotal div.botones button.mas{
+    font-family: montserrat;
+    width: 40%;
+    margin-left: 0px;
+    background-color: gray;
+    color: whitesmoke;
+    font-size: 1.2rem;
+  }
+  .container main.carrito div.cantidadSubtotal div.botones button{
+    width: 50%;
+    height: 8vh;
+    font-size: 1.2rem;
+    color: white;
+    background-color: black;
+    font-family: montserrat;
+    text-align: center;
+  }
+  /* ------------------------Modo Laptop mediana 1024px-------------------------------------------------*/
+  @media(max-width: 1024px){
+    
+    body{ font-size: 12px;
+
+    }
+    .container main.carrito {
+      
+      margin-top: 160px;
+      
+    }
+    .container main.carrito div.tarjetas div.tarjetaProducto div.imagen {
+      width: 13vw;
+    }
+    .container main.carrito div.cantidadSubtotal div.subtotal div.precio p{
+      font-size: 1.2rem;
+      font-weight: 900;
+      padding: 1px;
+    }
+    .container main.carrito div.cantidadSubtotal div.subtotal div.precio i{
+      margin-left: 10px;
+      font-size: 2rem;
+      font-weight: 900;
+      color: black;
+    }
+    .container main.carrito div.cantidadSubtotal div.subtotal div.subtotal2{
+      font-size: 0.8rem;
+      font-weight: 600;
+      width: 100%;
+      padding: 5px;
+      border: 1px black solid;
+      align-self: center;
+    }
+    .container main.carrito div.cantidadSubtotal div.subtotal h2.total{
+      border-radius: 3%;
+      margin-top: 50px;
+      padding: 7px;
+      font-size: 1.3rem;
+      font-weight: 900;
+    }
+    .container main.carrito div.cantidadSubtotal div.cantidad h2.total{
+      margin-top: 50px;
+      padding: 10px;
+      font-size: 1.3rem;
+      font-weight: 900;
+    }
+    .container main.carrito div.cantidadSubtotal div.cantidad p.envio {
+      align-self: stretch;
+      width: 100%;
+      font-size: 10 rem !important;
+      font-style: italic;
+      font-weight: 600;
+  }
+  .container main.carrito div.cantidadSubtotal div.botones{
+    margin-top: 20px;
+    height: 6vh;
+    margin-bottom: 20px;
+  }
+  .container main.carrito div.cantidadSubtotal div.botones button.mas {
+    width: 100%;
+    color: black;
+    margin-bottom: 20px;
+    margin-left: 0px;
+    background-color: gray;
+    font-family: montserrat;
+    font-size: 1rem;
+}
+  .container main.carrito div.cantidadSubtotal div.botones button {
+    font-family: montserrat;
+    width: 100%;
+    height: 5vh;
+    font-size: 1rem;
+    color: white;
+    background-color: black;
+    margin-bottom: 20px;
+}
+  }
+  /* ------------------------Modo Laptop tablet 820px-------------------------------------------------*/
+  @media(max-width: 820px){
+    
+    .container main.carrito {
+      width: 100%;
+      margin-top: 136px;
+      margin-bottom: 0px;
+    }
+    .container main.carrito div.tarjetas {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 55%;
+      /* border: 1PX BLACK SOLID; */
+  }
+    .container main.carrito div.tarjetas div.tarjetaProducto div.imagen {
+      border: 2px black solid;
+      width: 22vh;
+      height: 15vw;
+  }
+  .container main.carrito div.tarjetas div.tarjetaProducto div.descripcion {
+    border:none;
+    width: 25vw;
+    height: 15vw;
+  }
+  .container main.carrito div.cantidadSubtotal div.cantidad{
+   position: relative;
+}
+   .container main.carrito div.cantidadSubtotal div.cantidad div {
+      height: 15vw;
+  }
+  .container main.carrito div.cantidadSubtotal {
+
+    width: 45%;
+  }
+  .container main.carrito div.cantidadSubtotal div.subtotal div.precio {
+    height: 15VW;
+  }
+  .container main.carrito div.cantidadSubtotal div.subtotal div.precio p {
+    font-size: 1rem;
+    font-weight: 900;
+    padding: 1px;
+  }
+  .container main.carrito div.cantidadSubtotal div.cantidad h2.titulo {
+      opacity: 0;
+  }
+  .container main.carrito div.cantidadSubtotal div.subtotal h2.titulo {
+    color: white;
+}
+  .container main.carrito div.cantidadSubtotal div.cantidad p.envio {
+    position: relative;
+    right: 45vw;
+    top: 2vh;
+  }
+  .container main.carrito div.cantidadSubtotal div.cantidad h2.titulo2 {
+    display: flex;
+    position: relative;
+    right: 45vw;
+    top: 1vh;
+  }
+  .container main.carrito div.cantidadSubtotal div.cantidad h2.total {
+    position: relative;
+    right: 50vw;
+    margin-top: 22px;
+  }
+  .container main.carrito div.cantidadSubtotal div.subtotal h2.total {
+    font-size: 1.2rem;
+  }
+  }
+/* ------------------------Modo tablet chica 571px-------------------------------------------------*/
+  @media(max-width: 571px){
+    body{
+      font-size: 12px
+    }
+    .container main.carrito  {
+      max-width: 100%;
+      margin-top: 89px;
+      padding: 30px;
+      margin-bottom: 20px;
+      width: 100%;
+  }
+    .container main.carrito h1 {
+      width: 90%;
+      margin-bottom: 0;
+      font-size: 1rem;
+      margin-top: 0px
+    }
+    .container main.carrito div.tarjetas {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 65%;
+  }
+  .container main.carrito div.tarjetas div.tarjetaProducto div.imagen {
+    border: 2px black solid;
+    width: 18vw;
+    height: 15vh;
+  }
+  .container main.carrito div.tarjetas div.tarjetaProducto div.imagen img {
+    width: 100%;
+}
+.container main.carrito div.tarjetas div.tarjetaProducto div.descripcion {
+  border: none;
+  width: 30vw;
+  height: 15vh;
+  padding-left: 5px;
+}
+
+  .container main.carrito div.cantidadSubtotal {
+    width: 35%;
+    font-size: 14px;
+    align-items: flex-start;
+  }
+  .container main.carrito div.cantidadSubtotal div.cantidad div {
+    height: 15vh;
+}
+  .container main.carrito div.cantidadSubtotal div.subtotal div.precio p {
+    font-size: 0.8rem;
+  }
+  .container main.carrito div.cantidadSubtotal div.subtotal div.precio i {
+    margin-left: 5px;
+    font-size: 1.2rem;
+}
+.container main.carrito div.cantidadSubtotal div.cantidad {
+  position: relative;
+  width: 30%;
+}
+.container main.carrito div.cantidadSubtotal div.cantidad div {
+  height: 15vh;
+  width: 100%;
+
+}
+.container main.carrito div.cantidadSubtotal div.subtotal h2.titulo {
+  opacity: 0;
+}
+.container main.carrito div.cantidadSubtotal div.subtotal div.precio {
+  height: 15vh;
+  width: 100%;
+
+}
+.container main.carrito div.cantidadSubtotal div.subtotal div.subtotal2 p{
+  font-size: 0.8rem;
+}
+.container main.carrito div.cantidadSubtotal div.subtotal div.subtotal2 {
+  position: relative;
+  font-size: 0.8rem;
+  right: 9vw;
+  width: 20vw;
+}
+.container main.carrito div.cantidadSubtotal div.subtotal h2.total {
+  font-size: 1rem;
+  position: relative;
+  right: 11vw;
+  padding: 0 0 0 0;
+  }
+  .container main.carrito div.cantidadSubtotal div.cantidad p.envio {
+    position: relative;
+    right: 45vw;
+    top: 2vh;
+    font-size: x-small;
+    width: 31vw;
+  }
+  .container main.carrito div.cantidadSubtotal div.cantidad h2.total {
+    right: 46vw;
+    margin-top: 12px;
+  }
+  .container main.carrito div.cantidadSubtotal div.botones button {
+    font-size: 0.5rem;
+  }
+  .container main.carrito div.cantidadSubtotal div.botones button.mas {
+    font-size: 0.5rem;
+  }
+  .container main.carrito div.tarjetas div.tarjetaProducto div.descripcion p.cantidad{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 20vw;
+  }
+  .container main.carrito div.cantidadSubtotal div.cantidad div p.cantidad {
+    display: none;
+}
+.container main.carrito div.cantidadSubtotal div.cantidad h2.titulo2 {
+  font-weight: 500;
+}
+}

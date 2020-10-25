@@ -22,16 +22,20 @@
                 <i class="fas fa-bars"></i></i>
             </menu>
             <div class="logoArlequin">
-                <img src="/img/logoArlequin.jpg" width="100%" alt="Logo Arlequin">
+                <img src="/img/logoArlequin.jpg" height="100%" alt="Logo Arlequin">
             </div>
             <div class="logo">
-                <h1>Wildcard</h1>
+                <h1><a href="/">Wildcard</a></h1>
             </div>
-            <div class="barraDeBusqueda"> 
+            <div class="barraYCarrito">
+                <div class="barraDeBusqueda"> 
                 <form action="/index" method="GET">
                 <input type="text" name="barraDeBusqueda" id="barraDeBusqueda" placeholder="Buscar productos">
             </div>
-            <div class="carrito"><i class="fas fa-shopping-cart"></i></div>
+            <a href="/carrito"><div class="carrito">
+                   <i class="fas fa-shopping-cart"></i>
+                </div></a>
+            </div>
             <nav>
                 <ul class="menu">
                     <li >
@@ -59,7 +63,8 @@
             <div class="logoWsapp"><i class="fab fa-whatsapp"></i></div>
             
         </header>
-        <main>
+
+        <main class="home">
             <div class="slider">
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">

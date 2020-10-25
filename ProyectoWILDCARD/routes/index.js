@@ -11,5 +11,7 @@ router.get('/detalleProducto', function(req, res, next) {
 router.get('/header', function(req, res, next) {
   res.render('header.ejs', { title: 'Express' });
 });
-
+router.get('/carrito', function(req, res, next) {
+  res.render('carrito.ejs', { title: 'Express' });
+});
 module.exports = router;

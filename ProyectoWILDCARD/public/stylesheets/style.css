@@ -1,9 +1,9 @@
 *{
   box-sizing: border-box;
-  margin-top: 0px;
-  margin-left: 0%;
-  margin-right: 0%;
-  padding: 0px;
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
 }
 body {
   padding: 0px;
@@ -27,24 +27,27 @@ a {
   font-family: 'Montserrat', sans-serif;
   margin: 0px;
   padding: 0px;
+  align-items: center;
 }
 /*HEADER*/
 .container header{
   background-color: black;
-  width: 99.6%;
-  height: 90px;
+  width: 100%;
+  height: 15vh;
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   position: fixed;
   top: 0%;
   z-index: 1;
+  text-align: center;
 }
 
 .container header .tituloh2
 {
   background-color: white;
-  position: absolute;
-  top: 0%;
   border: 3px black solid;
   width: 100%;
   display: flex;
@@ -53,7 +56,8 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 20px;
+  text-align: center;
+  height: 3vh;
 }
 .container header .tituloh2 h2{
   font-family: 'Josefin Sans', sans-serif;
@@ -68,11 +72,13 @@ a {
 }
 .container header menu{
   color:white;
-  font-size: 50px;
-  margin-top: 20px;
-  display: inline-block;
-  padding: 5px;
+  font-size: 40px;
+  display: flex;
+  padding: 10px;
   margin-left: 5px;
+  text-align: center;
+  align-items: center;
+  margin: 0 0 0 0;
 }
 .container header .logoArlequin{
   display: none;
@@ -86,20 +92,33 @@ a {
 .container header .logo{
   font-family: 'Josefin Sans', sans-serif;
   color: white;  
-  display: inline-block;
-  font-size: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
-  margin-top: 30px;
   font-weight: 500;
+  text-align: center;
 }
-h1{
+.container header .logo h1{
+  font-family: 'Josefin Sans', sans-serif;
+  align-items: center;
+
+}
+.container header .logo h1 a{
+  font-family: 'Josefin Sans', sans-serif;
+  color: white;  
+  display: inline-block;
+  font-size: 3rem;
+  align-items: center;
   font-weight: 500;
+  text-align: center;
+  margin-top: 10px;
 }
 .container header .carrito{
   color:white;
-  font-size: 50px;
-  margin-top: 20px;
-  display: inline-block;
+  font-size: 30px;
+  display: flex;
   padding: 5px;
   margin-right: 5px;
 }
@@ -111,7 +130,7 @@ h1{
   color: #25D366;
 }
 /* MAIN*/
-.container main{
+.container main.home{
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -123,23 +142,23 @@ h1{
   width: 98%;
 
 }
-.container main div.slider{
+.container main.home div.slider{
   width: 100%;
 }
-.container main div.slider img{
+.container main.home div.slider img{
   height: 450px;
 }
 
-.container main div img{
+.container main.home div img{
   width: 100%;
   border-top: 3px solid white;
   z-index: 0.5;
 }
-.container main div.imagenes{
+.container main.home div.imagenes{
   position: relative;
   width: 100%;
 }
-.container main div.imagenes div.contenedorSecciones{
+.container main.home div.imagenes div.contenedorSecciones{
   display: flex;
   width: 100%;
   position: absolute;
@@ -147,7 +166,7 @@ h1{
   top: 80%;
   justify-content: center;
 }
-.container main div.imagenes p{
+.container main.home div.imagenes p{
   background-color: black;
   color: white;
   padding: 5px;
@@ -220,7 +239,7 @@ h1{
     max-width: 100%;
   }
   /*MAIN*/
-  .container main div.slider{
+  .container main.home div.slider{
     width: 80%;
   }
   /*FOOTER*/
@@ -229,6 +248,7 @@ h1{
     flex-wrap: wrap;
     flex-direction: row;
     width: 100%;
+    border: 1px black solid;
   }
   .container footer div.aboutUs{
     width: 50%;
@@ -265,39 +285,67 @@ h1{
     display: none;
   }
 }
-/*Modo Escritorio*/
+/*----------------------Modo Escritorio 769px---------------------*/
 @media(min-width: 769px){
   /*header*/
+  body {
+    padding: 0px;
+    font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
+    margin: 0px;
+    display: flex;
+  }
   .container{
     width: 100%;
     max-width: 100%;
+  }
+  .container header{
+    height: 20vh;
+  }
+  .container header .tituloh2 h2{
+    font-size: 20px;
+    font-weight: 600;
+    top: 5px;
   }
   .container header menu{
     display: none;
   }
   .container header .logoArlequin{
     color:white;
-    height: 50px;
-    margin-top: 20px;
-    display: inline-block;
+    height: 10vh;
+    display: flex;
     padding: 5px;
     margin-left: 5px;
-    width: 100px;
+    width: 30%;
+  }
+  .container header .logo{
+    font-size: 50px;
   }
 
+  .container header .barraYCarrito{
+    display: flex;
+    width: 30%;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+  }
   .container header .barraDeBusqueda{
-    display: inline-block;
-    position: absolute;
-    right: 50px;
-    top: 43px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
     background-color: black;
     border: 2px black solid;
     border-radius: 5%;
     color: white;
+    height: 5vh;
+    align-content: center;
   }
   .container header .barraDeBusqueda input{
     background-color: black;
     color: white;
+    width: 160px;
+    font-size: 17px;
   }
 
   .container header .barraDeBusqueda input:hover{
@@ -307,9 +355,8 @@ h1{
 
   .container header .carrito{
     text-align: end;
-    width: 100px;
-    font-size: 25px;
-    margin-top: 35px;
+    font-size: 50px;
+    align-self: center;
   }
   .container header nav{
     display: flex;
@@ -319,11 +366,9 @@ h1{
     padding-right: 20px;
     padding-top: 10px;
     align-items: center;
-    margin-top: 90px;
     background-color: white;
     width: 100%;
     border: 2px solid black;
-    position: absolute;
   }
   .container header nav ul{
     display: flex;
@@ -351,19 +396,28 @@ h1{
   .container header nav ul li{
     list-style: none;
   }
+  .container header div.logoWsapp{
+    font-size: 40px;
+  }
   /* MAIN*/
-  .container main{
+  .container main.home{
     display: flex;
     margin-top: 136px;
     width: 100%;
     flex-wrap: wrap;
     flex-direction: row;
   }
-  .container main div.slider  {
+  .container main.home div.slider  {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
     width: 70%;
+    height: 60vh;
+    align-items: center;
   }
   
-  .container main div.imagenes {
+  .container main.home div.imagenes {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -373,7 +427,12 @@ h1{
     height: 360px;
 
   }
-  .container main div.imagenes div.contenedorSecciones{
+
+  .container main.home div.slider img {
+      height: 70vh;
+      width: 70vw!important;
+  }
+  .container main.home div.imagenes div.contenedorSecciones{
     display: flex;
     width: 100%;
     position: absolute;
@@ -381,13 +440,13 @@ h1{
     top: 80%;
     justify-content: center;
   }
-  .container main div.imagenes p{
+  .container main.home div.imagenes p{
     background-color: black;
     color: white;
     padding: 5px;
   }  
 
-  .container main div.imagenes img {
+  .container main.home div.imagenes img {
     border: 2px solid gray;
     height: 100%;
   }
@@ -430,5 +489,18 @@ h1{
   }
   .container footer div.copyright i{
     display: none;
+  }
+}
+/*--------------------Modo Escritorio 1025px-------------------------*/
+@media(min-width: 769px){ .container header .carrito{
+    text-align: end;
+    font-size: 60px;
+    align-self: center;
+  }
+  .container header .barraDeBusqueda input{
+    background-color: black;
+    color: white;
+    width: 250px;
+    font-size: 25px;
   }
 }
