@@ -29,106 +29,7 @@ a {
   padding: 0px;
   align-items: center;
 }
-/*HEADER*/
-.container header{
-  background-color: black;
-  width: 100%;
-  height: 15vh;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  top: 0%;
-  z-index: 1;
-  text-align: center;
-}
 
-.container header .tituloh2
-{
-  background-color: white;
-  border: 3px black solid;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin: 0%;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  height: 3vh;
-}
-.container header .tituloh2 h2{
-  font-family: 'Josefin Sans', sans-serif;
-  background-color: white;
-  font-size: 12px;
-  font-weight: 600;
-  width: 100%;
-  text-align: center;
-  position: relative;
-  top: 5px;
-
-}
-.container header menu{
-  color:white;
-  font-size: 40px;
-  display: flex;
-  padding: 10px;
-  margin-left: 5px;
-  text-align: center;
-  align-items: center;
-  margin: 0 0 0 0;
-}
-.container header .logoArlequin{
-  display: none;
-}
-.container header .barraDeBusqueda{
-  display: none;
-}
-.container header nav{
-  display: none;
-}
-.container header .logo{
-  font-family: 'Josefin Sans', sans-serif;
-  color: white;  
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  font-weight: 500;
-  text-align: center;
-}
-.container header .logo h1{
-  font-family: 'Josefin Sans', sans-serif;
-  align-items: center;
-
-}
-.container header .logo h1 a{
-  font-family: 'Josefin Sans', sans-serif;
-  color: white;  
-  display: inline-block;
-  font-size: 3rem;
-  align-items: center;
-  font-weight: 500;
-  text-align: center;
-  margin-top: 10px;
-}
-.container header .carrito{
-  color:white;
-  font-size: 30px;
-  display: flex;
-  padding: 5px;
-  margin-right: 5px;
-}
-.container header div.logoWsapp{
-  position: fixed;
-  right: 7px;
-  bottom: 285px;
-  font-size: 30px;
-  color: #25D366;
-}
 /* MAIN*/
 .container main.home{
   display: flex;
@@ -151,12 +52,15 @@ a {
 
 .container main.home div img{
   width: 100%;
-  border-top: 3px solid white;
   z-index: 0.5;
 }
 .container main.home div.imagenes{
   position: relative;
   width: 100%;
+  background-color:white;
+    padding:10px 10px 50px 10px;
+    border:1px solid #BFBFBF;
+    box-shadow:10px 10px 30px rgba(0, 0, 0, 0.8);
 }
 .container main.home div.imagenes div.contenedorSecciones{
   display: flex;
@@ -170,68 +74,10 @@ a {
   background-color: black;
   color: white;
   padding: 5px;
+  box-shadow:5px 5px 5px 5px rgba(0, 0, 0, 0.8);
+  border: 1px solid black;
+  border-radius: 50%;
 }  
-
-/* FOOTER*/
-.container footer{
-  background-color: black;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  color: white;
-  border: 2px solid white;
-}
-.container footer div{
-  background-color: black;
-}
-.container footer div.aboutUs{
-  background-color: black;
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
-.container footer div.aboutUs img{
-  background-color: black;
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-
-}
-.container footer div.redesSociales{
-  display: none;
-}
-.container footer .formasDePago{
-  background-color: black;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  border-top: 2px solid white;
-  border-bottom: 2px solid white;
-
-}
-.container footer .formasDePago img{
-  width: 50%;
-}
-.container footer div.copyright{
-  color: white;
-  text-align: center;
-}
-
-.container footer div.copyright i{
-  color: white;
-  text-align: center;
-  font-size: 25px;
-  margin-top: 5px;
-}
 
 /*REGISTER*/
 #entrar {
@@ -255,48 +101,6 @@ main {
   .container main.home div.slider{
     width: 80%;
   }
-  /*FOOTER*/
-  .container footer {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    width: 100%;
-    border: 1px black solid;
-  }
-  .container footer div.aboutUs{
-    width: 50%;
-    order: 1;
-  }
-  .container footer div.redesSociales{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 50%;
-    order: 2;
-  }
-  .container footer div.redesSociales p{
-    padding-top: 5px;
-  }
-  
-  .container footer div.redesSociales i{
-    font-size: 30px;
-    align-self: center;
-    padding-bottom: 3px;
-  }
-  
-  .container footer div.formasDePago{
-    border: none;
-    width: 50%;
-    order: 3;
-  }
-  .container footer div.copyright{
-    width: 50%;
-    order: 4;
-  }
-  .container footer div.copyright i{
-    display: none;
-  }
 }
 /*----------------------Modo Escritorio 769px---------------------*/
 @media(min-width: 769px){
@@ -310,107 +114,6 @@ main {
   .container{
     width: 100%;
     max-width: 100%;
-  }
-  .container header{
-    height: 20vh;
-  }
-  .container header .tituloh2 h2{
-    font-size: 20px;
-    font-weight: 600;
-    top: 5px;
-  }
-  .container header menu{
-    display: none;
-  }
-  .container header .logoArlequin{
-    color:white;
-    height: 10vh;
-    display: flex;
-    padding: 5px;
-    margin-left: 5px;
-    width: 30%;
-  }
-  .container header .logo{
-    font-size: 50px;
-  }
-
-  .container header .barraYCarrito{
-    display: flex;
-    width: 30%;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    text-align: center;
-  }
-  .container header .barraDeBusqueda{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    background-color: black;
-    border: 2px black solid;
-    border-radius: 5%;
-    color: white;
-    height: 5vh;
-    align-content: center;
-  }
-  .container header .barraDeBusqueda input{
-    background-color: black;
-    color: white;
-    width: 160px;
-    font-size: 17px;
-  }
-
-  .container header .barraDeBusqueda input:hover{
-    background-color: white;
-    color: black;
-  }
-
-  .container header .carrito{
-    text-align: end;
-    font-size: 50px;
-    align-self: center;
-  }
-  .container header nav{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 10px;
-    align-items: center;
-    background-color: white;
-    width: 100%;
-    border: 2px solid black;
-  }
-  .container header nav ul{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .container header nav ul.menu{
-    width: 50%;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .container header nav ul.usuario{
-    width: 25%;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0%;
-  }
-  .container header nav ul li{
-    list-style: none;
-  }
-  .container header div.logoWsapp{
-    font-size: 40px;
   }
   /* MAIN*/
   .container main.home{
@@ -462,58 +165,5 @@ main {
   .container main.home div.imagenes img {
     border: 2px solid gray;
     height: 100%;
-  }
-  /* FOOTER */
-  .container footer {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    width: 100%;
-  }
-  .container footer div.aboutUs{
-    width: 25%;
-    order: 3;
-  }
-  .container footer div.redesSociales{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 25%;
-    order: 2;
-  }
-  .container footer div.redesSociales p{
-    padding-top: 5px;
-  }
-  
-  .container footer div.redesSociales i{
-    font-size: 30px;
-    align-self: center;
-    padding-bottom: 3px;
-  }
-  .container footer div.formasDePago{
-    border: none;
-    width: 25%;
-    order: 1;
-  }
-  .container footer div.copyright{
-    width: 25%;
-    order: 4;
-  }
-  .container footer div.copyright i{
-    display: none;
-  }
-}
-/*--------------------Modo Escritorio 1025px-------------------------*/
-@media(min-width: 769px){ .container header .carrito{
-    text-align: end;
-    font-size: 60px;
-    align-self: center;
-  }
-  .container header .barraDeBusqueda input{
-    background-color: black;
-    color: white;
-    width: 250px;
-    font-size: 25px;
   }
 }

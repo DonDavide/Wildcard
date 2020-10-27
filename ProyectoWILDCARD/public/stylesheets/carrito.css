@@ -71,8 +71,13 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    background-color: rgb(221, 221, 221);
+    background-color: white;
+    border:1px solid #BFBFBF;
+    box-shadow:10px 10px 30px rgba(0, 0, 0, 0.8);
+    transition: width 2s, height 2s, margin 2s;
   }
+ 
+
   .container main.carrito div.tarjetas div.tarjetaProducto div.imagen img{
     height: 100%;
   }
@@ -136,11 +141,13 @@
   .container main.carrito div.cantidadSubtotal div.cantidad p.envio{
     align-self: stretch;
     width: 100%;
+    font-size: x-small;
+    height: 6vh;
   }
   .container main.carrito div.cantidadSubtotal div.cantidad h2.total{
     margin-top: 8vh;
     padding: 10px;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 900;
   }
   .container main.carrito div.cantidadSubtotal div.subtotal{
@@ -181,11 +188,12 @@
     padding: 5px;
     border: 1px black solid;
     align-self: center;
+    height: 6vh;
   }
   .container main.carrito div.cantidadSubtotal div.subtotal h2.total{
     margin-top: 8vh;
     padding: 10px;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 900;
   }
   .container main.carrito div.cantidadSubtotal div.botones{
@@ -202,7 +210,7 @@
     margin-left: 0px;
     background-color: gray;
     color: whitesmoke;
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
   .container main.carrito div.cantidadSubtotal div.botones button{
     width: 50%;
@@ -227,6 +235,10 @@
     .container main.carrito div.tarjetas div.tarjetaProducto div.imagen {
       width: 13vw;
     }
+    .container main.carrito div.tarjetas div.tarjetaProducto div.imagen:hover{
+      width:16vw;
+      height: 28vh;
+  }
     .container main.carrito div.cantidadSubtotal div.subtotal div.precio p{
       font-size: 1.2rem;
       font-weight: 900;
@@ -262,7 +274,7 @@
     .container main.carrito div.cantidadSubtotal div.cantidad p.envio {
       align-self: stretch;
       width: 100%;
-      font-size: 10 rem !important;
+      font-size: x-small !important;
       font-style: italic;
       font-weight: 600;
   }
@@ -396,7 +408,7 @@
 .container main.carrito div.tarjetas div.tarjetaProducto div.descripcion {
   border: none;
   width: 30vw;
-  height: 15vh;
+  height: 16vh;
   padding-left: 5px;
 }
 
