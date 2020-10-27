@@ -1,0 +1,68 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+main{
+    position: relative;
+    margin-top: 20vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+
+/* ----------------- || ASIDE    ------------- */
+
+main .aside {
+    background-color: red;
+    height: 70vh;
+    width: 20vw;
+}
+
+
+/* ----------------- || PRODUCTOS    ------------- */
+main .producto {
+    background-color: yellow;
+    width: 78vw;
+    display: flex;
+    flex-wrap: wrap;
+}
+main .producto .calzado{
+    background-color: limegreen;
+    border:2px solid magenta;
+    width: 20%;
+    flex-grow: 1;
+}
+main .producto .calzado p{
+    background-color: limegreen;
+    padding: 5px;
+    line-height: 10px;
+}
+main .producto .calzado .titulo{
+    font-size: 25px;
+    font-family: 'Josefin Sans', sans-serif;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+main .producto .calzado .precio{
+    font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-size: 30px; 
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+main .producto .calzado .precio i{
+    font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-size: 25px;
+    font-weight: bold; 
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+main .producto .calzado img{
+    width: 100%;
+    padding: 0px;
+}

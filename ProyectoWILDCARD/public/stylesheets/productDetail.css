@@ -6,6 +6,7 @@
 
 main{
     position: relative;
+    margin-top: 20vh;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -83,12 +84,14 @@ main .relacionados{
     width: 350px;
 }
 .imagenesProducto .imagenesSelect{
-    height: 800px;
     width: 70%;
     flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    /* align-items: center; */
 }
 .imagenesProducto .imagenesSelect img{
-    height: 100%;
+    /* height: 100%; */
     width: 100%;
 }
 
@@ -189,21 +192,20 @@ main .relacionados title{
     font-size: 28px;
 }
 main .relacionados div{
-    width: 100%;
+    width: 100vw;
     padding: 10px;
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
+    overflow-x: auto;
 }
 main .relacionados div article{
     display: flex;
     flex-direction: column;
     height: 300px;
     width: 200px;
-    flex-grow: 1;
     padding: 10px;
-    border: 1px solid coral;
 }
 main .relacionados div article img{
     height: 200px;
@@ -242,12 +244,11 @@ main .relacionados div article p{
         width: 130px;
     }
     .imagenesProducto .imagenesSelect{
-        height: 400px;
+        /* height: 400px; */
         width: 100%;
     }
     .imagenesProducto .imagenesSelect img{
-        flex-grow: 1;
-        flex-shrink: 1;
+        width: 100%;
     }
 
     /* ----------------- || FORMULARIO    ------------- */
@@ -257,8 +258,9 @@ main .relacionados div article p{
     }
 
     /* ----------------- || PRODUCTOS RELACIONADOS    ------------- */
-
-
+    main .relacionados div{
+        flex-wrap: wrap;
+    }
 }
  
 
@@ -330,7 +332,6 @@ main .relacionados div article p{
         width: 130px;
     }
     .imagenesProducto .imagenesSelect{
-        height: 400px;
         width: 100vw;
     }
     .imagenesProducto .imagenesSelect img{
@@ -345,6 +346,10 @@ main .relacionados div article p{
     }
 
     /* ----------------- || PRODUCTOS RELACIONADOS    ------------- */
+
+    main .relacionados div{
+        flex-wrap: wrap;
+    }
 
     main .relacionados div article{
         display: flex;

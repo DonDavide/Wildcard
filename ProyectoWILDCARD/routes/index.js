@@ -8,6 +8,9 @@ router.get('/', function(req, res, next) {
 router.get('localhost:3000', function(req, res, next) {
   res.render('home');
 });
+router.get('/productos', function(req, res, next) {
+  res.render('productos', { title: 'Express' });
+});
 router.get('/detalleProducto', function(req, res, next) {
   res.render('productDetail', { title: 'Express' });
 });
