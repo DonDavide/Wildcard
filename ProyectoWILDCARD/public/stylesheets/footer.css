@@ -1,0 +1,166 @@
+*{
+    box-sizing: border-box;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+  }
+  body {
+    padding: 0px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    margin: 0px;
+    display: flex;
+  }
+  a {
+    color: black;
+    text-decoration: none;
+  }
+  .container footer{
+    background-color: black;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: white;
+    border: 2px solid white;
+  }
+  .container footer div{
+    background-color: black;
+  }
+  .container footer div.aboutUs{
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  .container footer div.aboutUs img{
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  
+  }
+  .container footer div.redesSociales{
+    display: none;
+  }
+  .container footer .formasDePago{
+    background-color: black;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+  
+  }
+  .container footer .formasDePago img{
+    width: 50%;
+  }
+  .container footer div.copyright{
+    color: white;
+    text-align: center;
+  }
+  
+  .container footer div.copyright i{
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    margin-top: 5px;
+  }
+  @media(min-width: 426px){
+    .container{
+        max-width: 100%;
+      }
+      /*FOOTER*/
+  .container footer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+    border: 1px black solid;
+  }
+  .container footer div.aboutUs{
+    width: 50%;
+    order: 1;
+  }
+  .container footer div.redesSociales{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+    order: 2;
+  }
+  .container footer div.redesSociales p{
+    padding-top: 5px;
+  }
+  
+  .container footer div.redesSociales i{
+    font-size: 30px;
+    align-self: center;
+    padding-bottom: 3px;
+  }
+  
+  .container footer div.formasDePago{
+    border: none;
+    width: 50%;
+    order: 3;
+  }
+  .container footer div.copyright{
+    width: 50%;
+    order: 4;
+  }
+  .container footer div.copyright i{
+    display: none;
+  }
+}
+/*----------------------Modo Escritorio 769px---------------------*/
+@media(min-width: 769px){
+    /* FOOTER */
+  .container footer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+  }
+  .container footer div.aboutUs{
+    width: 25%;
+    order: 3;
+  }
+  .container footer div.redesSociales{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25%;
+    order: 2;
+  }
+  .container footer div.redesSociales p{
+    padding-top: 5px;
+  }
+  
+  .container footer div.redesSociales i{
+    font-size: 30px;
+    align-self: center;
+    padding-bottom: 3px;
+  }
+  .container footer div.formasDePago{
+    border: none;
+    width: 25%;
+    order: 1;
+  }
+  .container footer div.copyright{
+    width: 25%;
+    order: 4;
+  }
+  .container footer div.copyright i{
+    display: none;
+  }
+}  

@@ -1,0 +1,209 @@
+*{
+    box-sizing: border-box;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+  }
+  body {
+    padding: 0px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    margin: 0px;
+    display: flex;
+  }
+
+.container main.newProduct{
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  position: relative;
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 120px;
+  margin-bottom: 10px;
+  padding: 0px;
+  align-items: center;
+}
+.container main.newProduct form{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    width: 90%;
+}
+.container main.newProduct form div.nombre{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    width: 90%;
+    }
+    .container main.newProduct div.nombre{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        width: 90%;
+        }
+.container main.newProduct div.nombre label{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 35%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    justify-content: left;
+}
+.container main.newProduct div.nombre input{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 60%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    justify-content: left;
+    border-radius: 5px;
+}
+
+
+.container main.newProduct div.primerCategoria{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 90%;
+    }
+.container main.newProduct div.primerCategoria div.tipo{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    }
+.container main.newProduct div.primerCategoria div.tipo label.uno {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px; 
+    }
+.container main.newProduct div.primerCategoria div.tipo div{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 30%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 10px;
+    border-radius: 5px; 
+    align-items: center;
+    }
+.container main.newProduct div.primerCategoria div.categoriasCalzado{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 45%;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    }
+.container main.newProduct div.primerCategoria div.categoriasCalzado div{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 70%;
+    padding: 10px;
+    align-items: center;
+    }
+.container main.newProduct div.primerCategoria div.categoriasAccesorio{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 45%;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    }
+    .container main.newProduct div.primerCategoria div.categoriasAccesorio div{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 70%;
+    padding: 10px;
+    align-items: center;
+    }
+.container main.newProduct div.primerCategoria div.esp{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
+    width: 95%;
+    border: 2px solid black;
+    border-radius: 5px; 
+    }
+    .container main.newProduct div.primerCategoria div.esp div{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    }
+    .container main.newProduct div.primerCategoria div.esp div label{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 35%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    justify-content: left;
+    }
+    .container main.newProduct div.primerCategoria div.esp div input{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 60%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    justify-content: left;
+    border-radius: 5px;
+    }
+
+.container main.newProduct div.primerCategoria button.agregarProducto{
+    width: 40%;
+    height: 8vh;
+    font-size: 1.2rem;
+    color: white;
+    background-color: black;
+    font-family: montserrat;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    }
+.container main.newProduct div.primerCategoria button.reset{
+    font-family: montserrat;
+    width: 40%;
+    margin-left: 0px;
+    background-color: gray;
+    color: whitesmoke;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }

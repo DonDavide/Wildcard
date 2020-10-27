@@ -20,4 +20,7 @@ router.get('/header', function(req, res, next) {
 router.get('/carrito', function(req, res, next) {
   res.render('carrito.ejs', { title: 'Express' });
 });
+router.get('/nuevoProducto', function(req, res, next) {
+  res.render('newProduct.ejs', { title: 'Express' });
+});
 module.exports = router;
