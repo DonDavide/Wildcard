@@ -6,8 +6,9 @@
 }
 
 main{
+    background-color: black;
     position: relative;
-    margin-top: 20vh;
+    margin-top: 15vh;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -19,48 +20,85 @@ main{
 /* ----------------- || ASIDE    ------------- */
 
 main .aside {
-    background-color: red;
+    background-color: black;
     height: 70vh;
     width: 20vw;
+}
+
+main .aside .formfiltro{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 16px;
+    color: white;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    /* align-items: center; */
+}
+main .aside .formfiltro div .persona{
+    margin-left: 15px;
+}
+main .aside .formfiltro .submitbutton{
+    font-size: 20px;
+    padding: 5px 25px;
+    font-weight: bold;
+    color: white;
+    background-color: limegreen;
+    border: 1px solid white;
 }
 
 
 /* ----------------- || PRODUCTOS    ------------- */
 main .producto {
-    background-color: yellow;
     width: 78vw;
     display: flex;
     flex-wrap: wrap;
 }
 main .producto .calzado{
-    background-color: limegreen;
-    border:2px solid magenta;
-    width: 20%;
+    position: relative;
+    background-color: white;
+    width: 17%;
     flex-grow: 1;
+    box-shadow: 10px 10px;
+}
+main .producto .calzado:hover{
+    width: 23%;
+    background-color: lightsalmon;
+    border: 3px solid  #661297;
+    /* text-shadow: 0 0 3px goldenrod, 0px 0px 5px yellow; */
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
 }
 main .producto .calzado p{
-    background-color: limegreen;
     padding: 5px;
     line-height: 10px;
 }
 main .producto .calzado .titulo{
     font-size: 25px;
     font-family: 'Josefin Sans', sans-serif;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    text-align: center;
 }
+
 main .producto .calzado .precio{
     font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
-    font-size: 30px; 
-    margin-top: 15px;
-    margin-bottom: 15px;
+    font-size: 35px; 
+    margin: 15px 0px 15px 10px;
+
 }
-main .producto .calzado .precio i{
+main .producto .calzado .oferta{
     font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold; 
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin: 15px 0px 15px 25px;
+    font-style: italic;
+}
+main .producto .calzado .envio{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 15px;
+    margin: 15px 0px 15px 10px;
+
 }
 main .producto .calzado img{
     width: 100%;

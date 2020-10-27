@@ -108,19 +108,19 @@ main .relacionados{
 
 /* ----------------- || FORMULARIO    ------------- */
 
-#nombre{
+.formularioCompra #nombre{
     font-size: 25px;
     font-family: 'Josefin Sans', sans-serif;
     margin-top: 15px;
     margin-bottom: 15px;
 }
-#precio{
+.formularioCompra #precio{
     font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
     font-size: 40px;
     font-weight: bold; 
     margin-bottom: 15px;
 }
-#oferta{
+.formularioCompra #oferta{
     align-self: center;
     background-color: white;
     font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
