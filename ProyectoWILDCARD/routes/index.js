@@ -18,4 +18,8 @@ router.get('/header', function(req, res, next) {
   res.render('header.ejs', { title: 'Express' });
 });
 
+router.get('/login', function(req, res, next) {
+  res.render('login.ejs');
+});
+
 module.exports = router;
