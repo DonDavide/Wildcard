@@ -6,6 +6,7 @@
 
 main{
     position: relative;
+    margin-top: 20vh;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -13,11 +14,11 @@ main{
     justify-content: space-around;
 }
 .producto{
-    width: 100%;
+    width: 100vw;
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     align-items: flex-start;
-    flex-direction: row;
     justify-content: space-around;
 }
 .producto .datosProducto{
@@ -57,40 +58,46 @@ main{
 }
 
 main .relacionados{
-    width: 100%;
+    width: 100;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     align-items: flex-start;
-    flex-direction: column;
     justify-content: flex-start;
 } 
 
 
-/* ----------------   PRODUCTO   ------------- */
+/* ----------------- || PRODUCTO    ------------- */
 
 .imagenesProducto .imagenesCarousel{
     align-self: center;
-    width: 400px;
+    width: 30%;
     height: 800px;
     flex-grow: 1;
     overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .imagenesProducto .imagenesCarousel img{
-    height: 300px;
-    width: 400px;
+    height: 250px;
+    width: 350px;
 }
 .imagenesProducto .imagenesSelect{
-    height: 800px;
     width: 70%;
     flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    /* align-items: center; */
 }
 .imagenesProducto .imagenesSelect img{
-    height: 100%;
+    /* height: 100%; */
     width: 100%;
 }
 
 
-/* -----------------    DESCRIPCION    ------------- */
+/* ----------------- || DESCRIPCION    ------------- */
+
 .descripcionProducto p{
     margin-left: 1%;
     width: 95%;
@@ -98,20 +105,22 @@ main .relacionados{
     font-size: 20px;
 }
 
-/* -----------------    FORMULARIO    ------------- */
-#nombre{
+
+/* ----------------- || FORMULARIO    ------------- */
+
+.formularioCompra #nombre{
     font-size: 25px;
     font-family: 'Josefin Sans', sans-serif;
     margin-top: 15px;
     margin-bottom: 15px;
 }
-#precio{
+.formularioCompra #precio{
     font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
     font-size: 40px;
     font-weight: bold; 
     margin-bottom: 15px;
 }
-#oferta{
+.formularioCompra #oferta{
     align-self: center;
     background-color: white;
     font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -174,7 +183,8 @@ main .relacionados{
 }
 
 
-/* -----------------    PRODUCTOS RELACIONADOS    ------------- */
+/* ----------------- || PRODUCTOS RELACIONADOS    ------------- */
+
 main .relacionados title{
     display: inline-block;
     padding: 10px 0px 0px 10px;
@@ -182,22 +192,20 @@ main .relacionados title{
     font-size: 28px;
 }
 main .relacionados div{
-    width: 100%;
-    height: 300px;
+    width: 100vw;
     padding: 10px;
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
+    overflow-x: auto;
 }
 main .relacionados div article{
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 300px;
     width: 200px;
-    flex-grow: 1;
     padding: 10px;
-    border: 1px solid coral;
 }
 main .relacionados div article img{
     height: 200px;
@@ -207,4 +215,149 @@ main .relacionados div article img{
 }
 main .relacionados div article p{
     align-self: center;
+}
+
+
+/* ---------------------------------------------- */
+/* ----------------- || TABLET      ------------- */
+
+@media(max-width: 770px){
+    
+    .producto .datosProducto .imagenesProducto {
+        width: 100%;
+        flex-direction: column-reverse;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    /* ----------------- || PRODUCTO    ------------- */
+
+    .imagenesProducto .imagenesCarousel{
+        align-self: center;
+        height: 150px;
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    .imagenesProducto .imagenesCarousel img{
+        height: 100px;
+        width: 130px;
+    }
+    .imagenesProducto .imagenesSelect{
+        /* height: 400px; */
+        width: 100%;
+    }
+    .imagenesProducto .imagenesSelect img{
+        width: 100%;
+    }
+
+    /* ----------------- || FORMULARIO    ------------- */
+    .botontesSelect button{
+        height: 35px;
+        width: 35px;
+    }
+
+    /* ----------------- || PRODUCTOS RELACIONADOS    ------------- */
+    main .relacionados div{
+        flex-wrap: wrap;
+    }
+}
+ 
+
+/* ---------------------------------------------- */
+/* ----------------- || CELULAR      ------------- */
+
+@media(max-width: 426px){
+    .producto{
+        flex-direction: column-reverse;
+        justify-content: flex-start;
+    }
+   /*  .producto .datosProducto{
+        align-items: ;
+
+    } */
+    .producto .formularioCompra {
+        width: 100%;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+    /* .producto .datosProducto .imagenesProducto {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .producto .datosProducto .descripcionProducto {
+        width: 100%;
+        padding: 10px;
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 28px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: flex-start;
+    } */
+
+
+
+
+
+
+
+    .producto .datosProducto .imagenesProducto {
+        width: 100%;
+        flex-direction: column-reverse;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    /* ----------------- || PRODUCTO    ------------- */
+
+    .imagenesProducto .imagenesCarousel{
+        align-self: center;
+        height: 150px;
+        width: 100vw;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    .imagenesProducto .imagenesCarousel img{
+        height: 100px;
+        width: 130px;
+    }
+    .imagenesProducto .imagenesSelect{
+        width: 100vw;
+    }
+    .imagenesProducto .imagenesSelect img{
+        height: 100%;
+        width: 100%;
+    }
+
+    /* ----------------- || FORMULARIO    ------------- */
+    .botontesSelect button{
+        height: 35px;
+        width: 35px;
+    }
+
+    /* ----------------- || PRODUCTOS RELACIONADOS    ------------- */
+
+    main .relacionados div{
+        flex-wrap: wrap;
+    }
+
+    main .relacionados div article{
+        display: flex;
+        flex-direction: column;
+        height: 300px;
+        width: 150px;
+        flex-grow: 1;
+        padding: 10px;
+        border: 1px solid coral;
+    }
 }

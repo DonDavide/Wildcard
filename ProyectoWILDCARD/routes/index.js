@@ -8,6 +8,9 @@ router.get('/', function(req, res, next) {
 router.get('localhost:3000', function(req, res, next) {
   res.render('home');
 });
+router.get('/productos', function(req, res, next) {
+  res.render('productos', { title: 'Express' });
+});
 router.get('/detalleProducto', function(req, res, next) {
   res.render('productDetail', { title: 'Express' });
 });
@@ -22,4 +25,10 @@ router.get('/login', function(req, res, next) {
   res.render('login.ejs');
 });
 
+router.get('/carrito', function(req, res, next) {
+  res.render('carrito.ejs', { title: 'Express' });
+});
+router.get('/nuevoProducto', function(req, res, next) {
+  res.render('newProduct.ejs', { title: 'Express' });
+});
 module.exports = router;
