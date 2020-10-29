@@ -79,7 +79,6 @@ a {
   border-radius: 50%;
 }  
 
-<<<<<<< HEAD
 /* FOOTER*/
 .container footer{
   background-color: black;
@@ -141,21 +140,6 @@ a {
   margin-top: 5px;
 }
 
-=======
-/*REGISTER*/
-#entrar {
-  color: white;
-  background-color: black;
-}
-
-#cancelar {
-  color: black;
-  background-color: white;
-}
-main {
-  align-content: center;
-}
->>>>>>> 40dec44bf6a91a234e39e44046bd3361f6ee858a
 /* TABLET*/
 @media(min-width: 426px){
   .container{

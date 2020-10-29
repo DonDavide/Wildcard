@@ -11,12 +11,12 @@
 </head>
 <body>
     <div class="container">
-        <header>
+        <!--<header>
             <div class="tituloh2">
                 <h2>ENVÍOS A TODO EL PAÍS</h2>
             </div>
             <menu>
-                <i class="fas fa-bars"></i></i>
+                <i class="fas fa-bars"></i>
             </menu>
             <div class="logoArlequin">
                 <img src="/img/logoArlequin.jpg" width="100%" alt="Logo Arlequin">
@@ -54,15 +54,25 @@
                 </ul>
             </nav>
             <div class="logoWsapp"><i class="fab fa-whatsapp"></i></div>
-        </header>
+        </header> -->
         <main>
-            <div class="subheader"><a href="/home">Inicio</a> / <p>Iniciar sesión</p></div>
-            <label for="email">EMAIL</label>
-            <input type="email" name="email" id="email"> <br>
-            <label for="password">CONTRASEÑA</label>
-            <input type="password" name="password" id="password"> <br>
-
-            <button id="entrar" type="submit">INCIAR SESIÓN</button> <br>
+            <div class="subheader">
+                <p><a href="#">Inicio</a> > Iniciar sesión</p>
+            </div>
+            <div class="inputsContainer">
+                <div class="auxiliarInputsContainer">
+                    <div class="emailInputContainer">
+                        <label for="email">EMAIL</label>
+                        <input type="email" name="email" id="email">
+                    </div>
+                    <div class="passwordInputContainer">
+                        <label for="password">CONTRASEÑA</label>
+                        <input type="password" name="password" id="password">
+                        <a class="forgotPassword" href="#">¿Olvidaste tu contraseña?</a>
+                    </div>
+                    <button id="entrar" type="submit">INCIAR SESIÓN</button>
+                </div>
+            </div>
         </main>
         <footer>
             <div class="aboutUs"><img src="/img/logoArlequin.jpg" alt="logo"><p>Acerca de WILDCARD</p></div>
