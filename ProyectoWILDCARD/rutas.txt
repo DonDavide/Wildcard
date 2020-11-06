@@ -1,0 +1,11 @@
+http://localhost:3000/  => HOME
+
+http://localhost:3000/users/register
+http://localhost:3000/users/login
+http://localhost:3000/users/carrito
+
+http://localhost:3000/productos/productos
+http://localhost:3000/productos/detalleProductos
+
+http://localhost:3000/admin/nuevoProducto
+http://localhost:3000/admin/editarProducto

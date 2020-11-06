@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head') %>
+    <link rel='stylesheet' href='/stylesheets/carrito.css' />
+</head>
+<body>
+    <div class="container">
+        
+        <%- include('../partials/header') %>
+        <main class="carrito">
+            <h1>Carrito de compras(cantidad de productos)</h1>
+
+            <div class="tarjetas">
+                <div class="margen"></div>
+                <div class="tarjetaProducto">
+                    <div class="imagen">
+                        <img src="/img/zandalias.jpg" alt="zandalias">
+                    </div>
+                    <div class="descripcion">
+                        <h3>Nombre del Producto</h3>
+                        <p>Pequeña descripcion</p>
+                        <p class="cantidad">1</p>
+                    </div>
+            </div>
+            <div class="tarjetaProducto">
+                <div class="imagen">
+                    <img src="/img/zapatos.jpg" alt="">
+                </div>
+                <div class="descripcion">
+                    <h3>Nombre del Producto</h3>
+                    <p>Pequeña descripcion</p>
+                    <p class="cantidad">1</p>
+                </div>
+                </div>
+            </div>
+
+            <div class="cantidadSubtotal">
+                <div class="cantidad">
+                    <h2 class="titulo">Cantidad</h2>
+                    <div>
+                        <p class="cantidad">1</p>
+                    </div>
+                    <div>
+                        <p class="cantidad">1</p>
+                    </div>
+                    <h2 class="titulo2">Subtotal</h2>
+                    <p class="envio">Calcular tiempos y costo de envío.</p>
+                    
+                    <h2 class="total">Total</h2>
+                </div>
+                <div class="subtotal">
+                    <h2 class="titulo">Subtotal</h2>
+                    <div class="precio"><p class="precio">$1.500,00</p>
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+                    <div class="precio">
+                        <p class="precio">$2.000,00</p>
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+                    <div class="subtotal2">
+                        <p>$ 3.500,00</p>
+                    </div>
+                    <h2 class="total">$ 3.500,00</h2>
+                    </div>
+                    <div class="botones">
+                        <button>INICIAR COMPRA</button>
+                        <button class="mas">SEGUIR COMPRANDO</button>
+                        
+                    </div>
+                </div>
+            
+        </main>
+        <%- include('../partials/footer') %>
+    </div>
+    </body>
+</html>

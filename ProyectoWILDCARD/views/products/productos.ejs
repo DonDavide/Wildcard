@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head') %>
+    <link rel="stylesheet" href="/stylesheets/productos.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <%- include('../partials/header') %>
+
+        <main>
+            <aside class="aside">
+                <div class="formfiltro">
+                    <div>
+                        <input class="persona" type="radio" name="persona" value="M" id="Mujer"><label for="Mujer">Mujer</label> 
+                        <input class="persona" type="radio" name="persona" value="H" id="Hombre"><label for="Hombre">Hombre</label> 
+                        <input class="persona" type="radio" name="persona" value="N" id="Nino"><label for="Nino">Niño</label> 
+                    </div>
+                    <br>
+                    <div>
+                        <label for="preciomin">Precio Mínimo</label> / <label for="preciomax">Precio Máximo</label><br>
+                        <input type="number" name="preciomin" id="preciomin" size="10"> / <input type="text" name="preciomax" id="preciomax" size="10">
+                    </div>                   
+                    <br>
+                    <button class="submitbutton" type="submit">Aplicar</button>
+                </div>
+            </aside>
+            <section class="producto">
+                <% for(let i=0; i<15; i++){ %>
+                <div class="calzado">
+                    <p class="titulo">Zapato</p> 
+                    <img src="/img/ZapatoPrueba.jpg" alt="">
+                    <p class="precio">$1.500</p> 
+                    <p class="oferta">(10% OFF)</p>
+                    <p class="envio">Envio</p> 
+                </div>
+                <% } %>
+            </section>
+            
+        </main>
+
+        <%- include('../partials/footer') %>
+
+    </div>
+</body>
+</html>
