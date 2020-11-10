@@ -14,6 +14,8 @@
         <main>
             <aside class="aside">
                 
+                <a href="/admin/nuevoProducto"><button class="buttonAgregar">Agregar Producto</button></a>
+                <br>
                 <div class="formfiltro">
                     <div>
                         <input class="persona" type="radio" name="persona" value="M" id="Mujer"><label for="Mujer">Mujer</label> 
@@ -68,22 +70,20 @@
                     <br><br>
                     <div>
                         <label for="">Marca</label> <br><br> 
-                        <input class="persona" type="checkbox" name="color" value="Marca1" id="Marca1"><label for="Marca1">Marca1</label>
-                        <input class="persona" type="checkbox" name="color" value="Marca2" id="Marca2"><label for="Marca2">Marca2</label>
-                        <input class="persona" type="checkbox" name="color" value="Marca3" id="Marca3"><label for="Marca3">Marca3</label>
                     </div>
                     <br><br>
                     <button class="submitbutton" type="submit">Aplicar</button>
                 </div>
             </aside>
-            <section class="producto" onclick="javascript:location.href='/productos/detalleProducto'">
+            <section class="producto">
                 <% for(let i=0; i<15; i++){ %>
-                <div class="calzado">
+                <div class="calzado" onclick="javascript:location.href='/productos/detalleProducto'">
                     <p class="titulo">Zapato</p> 
                     <img src="/img/ZapatoPrueba.jpg" alt="">
                     <p class="precio">$1.500</p> 
                     <p class="oferta">(10% OFF)</p>
                     <p class="envio">Envio</p> 
+                    <a href="admin/editarProducto"><button class="buttonEdit">Editar</button></a><a href="admin/editarProducto"><button class="buttonDelete">Borrar</button></a>
                 </div>
                 <% } %>
             </section>

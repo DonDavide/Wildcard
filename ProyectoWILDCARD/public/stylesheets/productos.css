@@ -8,7 +8,7 @@
 main{
     background-color: black;
     position: relative;
-    margin-top: 15vh;
+    margin-top: 10vh;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -23,6 +23,16 @@ main .aside {
     background-color: black;
     height: 70vh;
     width: 20vw;
+}
+
+main .aside .buttonAgregar{
+    font-size: 20px;
+    padding: 5px 25px;
+    margin: 30px 30px;
+    font-weight: bold;
+    color: black;
+    background-color: lightsalmon;
+    border: 1px solid white;
 }
 
 main .aside .formfiltro{
@@ -44,7 +54,7 @@ main .aside .formfiltro .submitbutton{
     padding: 5px 25px;
     font-weight: bold;
     color: white;
-    background-color: limegreen;
+    background-color: #661297;
     border: 1px solid white;
 }
 
@@ -54,6 +64,7 @@ main .producto {
     width: 78vw;
     display: flex;
     flex-wrap: wrap;
+    background-color: white;
 }
 main .producto .calzado{
     position: relative;
@@ -103,4 +114,37 @@ main .producto .calzado .envio{
 main .producto .calzado img{
     width: 100%;
     padding: 0px;
+}
+
+main .producto .calzado .buttonEdit{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 14px;
+    padding: 5px 15px;
+    /* font-weight: bold; */
+    color: white;
+    background-color: #661297;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+main .producto .calzado .buttonDelete{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 14px;
+    padding: 5px 15px;
+    font-weight: bold;
+    color: white;
+    background-color: #FF0000;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+main .producto .calzado .buttonEdit:hover{
+    color: #661297;
+    font-weight: bold;
+    background-color: #e4c1f8;
+    border: 2px solid #661297;
+}
+main .producto .calzado .buttonDelete:hover{
+    color: #FF0000;
+    font-weight: bold;
+    background-color: white;
+    border: 2px solid #FF0000;
 }
