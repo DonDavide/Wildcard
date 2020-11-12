@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head') %>
+    <link rel='stylesheet' href='/stylesheets/newProduct.css' />
+</head>
+<body>
+    <div class="container">
+        <%- include('../partials/header') %>  
+        <main class="newProduct">
+            <form action="/home" method="GET">
+                <div class="nombre">
+                    <label for="nombreNuevoProducto">NOMBRE DE NUEVO PRODUCTO</label> <input type="text" name="nombreNuevoProducto" id="nombreNuevoProducto" placeholder="Nombre del nuevo producto">
+                </div>
+                <div class="primerCategoria">
+                    <div class="tipo">                
+                        <label class="uno" for="categoria">CATEGORIA DEL PRODUCTO</label>
+                        <div><label for="calzado">CALZADO</label><input  class="check" type="radio" name="categoria" id="calzado" value="calzado"></div>
+                        <div><label for="accesorios">ACCESORIOS</label><input  class="check" type="radio" name="categoria" id="accesorios" value="accesorios"></div>
+                    </div>
+                    <div class="categoriasCalzado">
+                        <label for="categoria">CATEGORIAS DE CALZADOS</label>
+                        <div><label for="zapatillas">ZAPATILLAS</label><input class="check" type="radio" name="categoriasCalzado" id="zapatillas" value="zapatillas"></div>  
+                        <div><label for="botas">BOTAS</label><input class="check" type="radio" name="categoriasCalzado" id="botas" value="botas"></div>
+                        <div><label for="zapatos">ZAPATOS</label><input class="check" type="radio" name="categoriasCalzado" id="zapatos" value="zapatos"></div>
+                        <div><label for="suecos">SUECOS</label><input class="check" type="radio" name="categoriasCalzado" id="suecos" value="suecos"></div>
+                        <div><label for="zandalias">ZANDALIAS</label><input class="check" type="radio" name="categoriasCalzado" id="zandalias" value="zandalias"></div>
+                        <div><label for="chatas">CHATAS</label><input class="check" type="radio" name="categoriasCalzado" id="chatas" value="chatas"></div>
+                        <div><label for="ojotas">OJOTAS</label><input class="check" type="radio" name="categoriasCalzado" id="ojotas" value="ojotas"></div>
+                    </div>
+                    <div class="categoriasAccesorio">
+                        <label for="categoria">CATEGORIAS DE ACCESORIOS</label>
+                        <div><label for="categoriasaccesorios">CARTERAS</label><input class="check" type="radio" name="categoriasAccesorios" id="carteras" value="carteras"></div> 
+                        <div><label for="categoriasaccesorios">PAÑUELOS</label><input class="check" type="radio" name="categoriasAccesorios" id="pañuelos" value="pañuelos"></div>
+                        <div><label for="categoriasaccesorios">PULSERAS Y COLLARES</label><input class="check" type="radio" name="categoriasAccesorios" id="pulserasYCollares" value="pulserasYCollares"></div>
+                        <div><label for="categoriasaccesorios">CINTOS</label><input class="check" type="radio" name="categoriasAccesorios" id="cintos" value="cintos"></div>
+                        <div><label for="categoriasaccesorios">MOCHILAS</label><input class="check" type="radio" name="categoriasAccesorios" id="mochilas" value="mochilas"></div>
+                    </div>
+                    
+                    <div class="esp">
+                        <div><label for="marca">MARCA :</label> <input type="text" name="marca" id="marca" placeholder="Marca del producto"></div>
+                        <div><label for="talle">TALLE :</label> <input type="text" name="talle" id="talle" placeholder="Talle del producto"></div>
+                        <div><label for="color">COLOR :</label> <input type="text" name="color" id="color" placeholder="Color del producto"></div>
+                        <div><label for="precio">PRECIO :</label> <input type="number" name="precio" id="precio" placeholder="Precio del producto"></div>
+                        <div><label for="descripcion">DESCRIPCION :</label> <input type="text" name="descripcion" id="descripcion" placeholder="Descripcion del producto"></div>
+                        <div><label for="imagen1">AGREGAR PRIMER IMAGEN :</label><input class="agregarImagen1" type="file" name="agregarImagen1" value="agregarImagen1"></div>
+                        <div><label for="imagen1">AGREGAR SEGUNDA IMAGEN :</label><input class="agregarImagen2" type="file" name="agregarImagen2" value="agregarImagen2"></div>
+                        <div><label for="imagen1">AGREGAR TERCER IMAGEN :</label><input class="agregarImagen3" type="file" name="agregarImagen3" value="agregarImagen3"></div>
+                        <div><label for="imagen1">AGREGAR CUARTA IMAGEN :</label><input class="agregarImagen4" type="file" name="agregarImagen4" value="agregarImagen4"></div>
+                    </div>
+                    <button class="reset" type="reset">Resetear Carga</button> 
+                    <button class="agregarProducto" type="submit">Agregar Producto</button>
+                </div>
+        </main>
+        <%- include('../partials/footer') %>
+    </div>
+</body>
+</html>

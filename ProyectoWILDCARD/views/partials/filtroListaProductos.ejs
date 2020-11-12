@@ -1,0 +1,61 @@
+<form action="/home" method="GET" class="formfiltro">
+    <div>
+        <input class="persona" type="radio" name="persona" value="M" id="Mujer"><label for="Mujer">Mujer</label> 
+        <input class="persona" type="radio" name="persona" value="H" id="Hombre"><label for="Hombre">Hombre</label> 
+        <input class="persona" type="radio" name="persona" value="N" id="Nino"><label for="Nino">Niño</label> 
+    </div>
+    <br><br>
+    <div>
+        <label for="">Categorías</label> <br><br>
+        <input class="persona" type="checkbox" name="categoria" value="Zapatillas" id="Zapatillas"><label for="Zapatillas">Zapatillas</label><br>
+        <input class="persona" type="checkbox" name="categoria" value="Botas" id="Botas"><label for="Botas">Botas</label><br>
+        <input class="persona" type="checkbox" name="categoria" value="Zapatos" id="Zapatos"><label for="Zapatos">Zapatos</label><br> 
+        <input class="persona" type="checkbox" name="categoria" value="Suecos" id="Suecos"><label for="Suecos">Suecos</label><br>
+        <input class="persona" type="checkbox" name="categoria" value="Zandalias" id="Zandalias"><label for="Zandalias">Zandalias</label><br>
+        <input class="persona" type="checkbox" name="categoria" value="Chatas" id="Chatas"><label for="Chatas">Chatas</label><br>
+        <input class="persona" type="checkbox" name="categoria" value="Ojotas" id="Ojotas"><label for="Ojotas">Ojotas</label><br>
+        <input class="persona" type="checkbox" name="categoria" value="Carteras" id="Carteras"><label for="Carteras">Carteras</label><br> 
+        <input class="persona" type="checkbox" name="categoria" value="Panuelos" id="Panuelos"><label for="Panuelos">Pañuelos</label><br>
+        <input class="persona" type="checkbox" name="categoria" value="Pulceras" id="Pulceras"><label for="Pulceras">Pulceras y Collares</label><br>
+        <input class="persona" type="checkbox" name="categoria" value="Cintos" id="Cintos"><label for="Cintos">Cintos</label><br>
+        <input class="persona" type="checkbox" name="categoria" value="Mochilas" id="Mochilas"><label for="Mochilas">Mochilas</label> 
+    </div>
+    <br><br>
+    <div>
+        <label for="preciomin">Precio Mínimo</label> / <label for="preciomax">Precio Máximo</label><br>
+        <input type="number" name="preciomin" id="preciomin" size="10"> / <input type="text" name="preciomax" id="preciomax" size="10">
+    </div>                   
+    <br><br>
+    <div>
+        <label for="">Talle</label>
+        <p id="guiaTalles" onclick="javascript:location.href='/ayuda'">Ver guía de talles</p>
+        <input class="persona" type="checkbox" name="talle" value="35" id="35"><label for="35">35</label>
+        <input class="persona" type="checkbox" name="talle" value="36" id="36"><label for="36">36</label>
+        <input class="persona" type="checkbox" name="talle" value="37" id="37"><label for="37">37</label> 
+        <input class="persona" type="checkbox" name="talle" value="38" id="38"><label for="38">38</label><br>
+        <input class="persona" type="checkbox" name="talle" value="39" id="39"><label for="39">39</label>
+        <input class="persona" type="checkbox" name="talle" value="40" id="40"><label for="40">40</label>
+        <input class="persona" type="checkbox" name="talle" value="41" id="41"><label for="41">41</label>
+        <input class="persona" type="checkbox" name="talle" value="42" id="42"><label for="42">42</label><br> 
+        <input class="persona" type="checkbox" name="talle" value="43" id="43"><label for="43">43</label>
+        <input class="persona" type="checkbox" name="talle" value="44" id="44"><label for="44">44</label>
+        <input class="persona" type="checkbox" name="talle" value="45" id="45"><label for="45">45</label>
+        <input class="persona" type="checkbox" name="talle" value="46" id="46"><label for="46">46</label> 
+    </div>
+    <br><br>
+    <div>
+        <label for="">Color</label> <br><br> 
+        <input class="persona" type="checkbox" name="color" value="Rojo" id="Rojo"><label for="Rojo">Rojo</label>
+        <input class="persona" type="checkbox" name="color" value="Negro" id="Negro"><label for="Negro">Negro</label>
+        <input class="persona" type="checkbox" name="color" value="Marrón" id="Marrón"><label for="Marrón">Marrón</label>
+    </div>
+    <br><br>
+    <div>
+        <label for="">Marca</label> <br><br> 
+        <input class="persona" type="checkbox" name="color" value="Marca1" id="Marca1"><label for="Marca1">Marca1</label>
+        <input class="persona" type="checkbox" name="color" value="Marca2" id="Marca2"><label for="Marca2">Marca2</label>
+        <input class="persona" type="checkbox" name="color" value="Marca3" id="Marca3"><label for="Marca3">Marca3</label>
+    </div>
+    <br><br>
+    <button class="submitbutton" type="submit">Aplicar</button>
+</form>

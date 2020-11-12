@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head') %>
+    <link rel="stylesheet" href="/stylesheets/productos.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <%- include('../partials/header') %>
+
+        <main>
+            <aside class="aside">
+                <%- include('../partials/filtroListaProductos') %>
+            </aside>
+            <section class="producto" onclick="javascript:location.href='/productos/detalleProducto'">
+                <% for(let i=0; i<15; i++){ %>
+                <div class="calzado">
+                    <p class="titulo">Zapato</p> 
+                    <img src="/img/ZapatoPrueba.jpg" alt="">
+                    <p class="precio">$1.500</p> 
+                    <p class="oferta">(10% OFF)</p>
+                    <p class="envio">Envio</p> 
+                </div>
+                <% } %>
+            </section>
+            
+        </main>
+
+        <%- include('../partials/footer') %>
+
+    </div>
+</body>
+</html>

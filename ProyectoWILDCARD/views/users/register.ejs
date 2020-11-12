@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head') %>
+    <link rel="stylesheet" href='/stylesheets/__register.css'/>
+</head>
+<body>
+    <div class="container">
+        <%- include('../partials/header') %>
+        <main>
+            <div class="subheader">
+                <p><a href="#">Inicio</a> > Crear Cuenta</p>
+            </div>
+            <div class="inputsContainer">
+                <div class="auxiliarInputsContainer">
+                    <div class="fullnameInputContainer"><label for="fullname">NOMBRE Y APELLIDO</label>
+                    <input type="text" name="fullname" id="fullname">
+                    </div> <br>
+                    <label for="email">EMAIL</label>
+                    <input type="email" name="email" id="email"> <br>
+                    <label for="text">TELÉFONO (OPCIONAL)</label>
+                    <input type="text" name="telefono" id="telefono"> <br>
+                    <label for="password">CONTRASEÑA</label>
+                    <input type="password" name="password" id="password"> <br>
+                    <label for="password">CONFIRMAR CONTRASEÑA</label>
+                    <input type="password" name="confirmpassword" id="confirmpassword"> <br>
+
+                    <button type="submit" id="entrar">CREAR CUENTA</button> <br>
+                    <button type="reset" id="cancelar">CANCELAR</button>
+                </div> 
+                
+            </div>
+
+            <%- include('../partials/footer') %>
+        </main>
+    </div>
+</body>
+</html>

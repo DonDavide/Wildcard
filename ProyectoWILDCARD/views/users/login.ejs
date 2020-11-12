@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head') %>
+    <link rel="stylesheet" href='/stylesheets/__register.css'/>
+</head>
+<body>
+    <div class="container">
+        <%- include('../partials/header') %>
+        <main>
+            <div class="subheader">
+                <p><a href="#">Inicio</a> > Iniciar sesión</p>
+            </div>
+            <div class="inputsContainer">
+                <div class="auxiliarInputsContainer">
+                    <div class="emailInputContainer">
+                        <label for="email">EMAIL</label>
+                        <input type="email" name="email" id="email">
+                    </div>
+                    <div class="passwordInputContainer">
+                        <label for="password">CONTRASEÑA</label>
+                        <input type="password" name="password" id="password">
+                        <a class="forgotPassword" href="#">¿Olvidaste tu contraseña?</a>
+                    </div>
+                    <button id="entrar" type="submit">INCIAR SESIÓN</button>
+                </div>
+            </div>
+        </main>
+        <%- include('../partials/footer') %>
+    </div>
+    
+</body>
+</html>
