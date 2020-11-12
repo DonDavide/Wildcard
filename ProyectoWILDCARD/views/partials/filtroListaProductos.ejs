@@ -23,7 +23,7 @@
     <br><br>
     <div>
         <label for="preciomin">Precio Mínimo</label> / <label for="preciomax">Precio Máximo</label><br>
-        <input type="number" name="preciomin" id="preciomin" size="10"> / <input type="text" name="preciomax" id="preciomax" size="10">
+        <input type="number" name="preciomin" id="preciomin" size="10" min="0" style="width:100px"> / <input type="number" name="preciomax" id="preciomax" size="10" min="0" style="width:100px">
     </div>                   
     <br><br>
     <div>
@@ -57,5 +57,6 @@
         <input class="persona" type="checkbox" name="color" value="Marca3" id="Marca3"><label for="Marca3">Marca3</label>
     </div>
     <br><br>
+    <button class="submitbutton" style="background-color: white; color: black;" type="reset">Limpiar</button><br>
     <button class="submitbutton" type="submit">Aplicar</button>
 </form>
