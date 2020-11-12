@@ -1,11 +1,13 @@
 var express = require('express');
 var router = express.Router();
+const indexController = require("../controllers/indexController");
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('home', { title: 'Express' });
-});
-router.get('localhost:3000', function(req, res, next) {
+router.get('/', indexController.home);
+router.get('/ayuda', indexController.ayuda);
+router.get('/contactanos', indexController.contacto);
+
+/* router.get('localhost:3000', function(req, res, next) {
   res.render('home');
 });
 
@@ -34,5 +36,5 @@ router.get('/carrito', function(req, res, next) {
 
 router.get('/nuevoProducto', function(req, res, next) {
   res.render('newProduct.ejs', { title: 'Express' });
-});
+}); */
 module.exports = router;

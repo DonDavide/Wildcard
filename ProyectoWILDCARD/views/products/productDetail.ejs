@@ -13,6 +13,7 @@
         
         <main>
             <section class="producto">
+                
                 <div class="datosProducto">
                     <article class="imagenesProducto">
                         <div class="imagenesCarousel">
@@ -30,8 +31,8 @@
                         </p>
                     </article>
                 </div>
-           
-                <div class="formularioCompra">
+
+                <form action="/home" method="GET" class="formularioCompra">
                     <tittle id="nombre">ZAPATOS X</tittle>
                     <p id="precio">$1.500</p>
                     <p id="oferta">3 Cuotas SIN INTERÉS</p>
@@ -41,27 +42,18 @@
                             <p id="guiaTalles">Ver guía de talles</p>
                         </div>
                         <div class="botontesSelect">
-                            <button>35</button>
-                            <button>36</button>
-                            <button>37</button>
-                            <button>38</button>
-                            <button>39</button>
-                            <button>40</button>
-                            <button>41</button>
-                            <button>42</button>
-                            <button>43</button>
-                            <button>44</button>
-                            <button>45</button>
-                            <button>46</button>
+                            <% for ( let i=35; i<47; i++ ){ %>
+                            <button type="button"> <%= i %> </button>
+                            <% } %>
                         </div>
                     </div>
                     <div class="colores">
                         <p class="categoria">Color: <b>Rojo</b></p>
                         <div class="botontesSelect">
-                            <button style="background-color: red;"></button>
-                            <button style="background-color: black;"></button>
-                            <button style="background-color: brown;"></button>
-                            <button style="background-color: burlywood;"></button>
+                            <button type="button" style="background-color: red;"></button>
+                            <button type="button" style="background-color: black;"></button>
+                            <button type="button" style="background-color: brown;"></button>
+                            <button type="button" style="background-color: burlywood;"></button>
                         </div>
                     </div>
                     <div class="cantidad">
@@ -71,28 +63,28 @@
                     <div class="mediosPago">
                         <p class="categoria">Medio de Pago: </p>
                         <div class="botontesSelect">
-                            <button>1</button>
-                            <button>2</button>
-                            <button>3</button>
-                            <button>4</button>
+                            <button type="button">1</button>
+                            <button type="button">2</button>
+                            <button type="button">3</button>
+                            <button type="button">4</button>
                         </div>
                     </div>
                     <div class="mediosEnvio">
                         <p class="categoria">Medio de envío: </p>
                         <div class="botontesSelect">
-                            <button>1</button>
-                            <button>2</button>
-                            <button>3</button>
-                            <button>4</button>
+                            <button type="button">1</button>
+                            <button type="button">2</button>
+                            <button type="button">3</button>
+                            <button type="button">4</button>
                         </div>
                     </div>
                     <button class="botonCompra" type="submit">Comprar</button>
-                </div>
+                </form>
             </section>
             
             <section class="relacionados">
                 <title>Productos relacionados</title>
-                <div>
+                <div class="relacionadosProductos">
                     <% for(let i=0; i<10; i++){ %>
                         <article>
                             <img src="/img/ZapatoPrueba.jpg" alt="">
