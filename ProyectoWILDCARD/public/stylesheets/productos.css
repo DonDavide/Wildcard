@@ -21,7 +21,7 @@ main{
 
 main .aside {
     background-color: black;
-    height: 70vh;
+/*     height: 70vh; */
     width: 20vw;
 }
 
@@ -46,9 +46,70 @@ main .aside .formfiltro{
     justify-content: flex-start;
     /* align-items: center; */
 }
+
+main .aside .formfiltro .categoriaFiltro{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+main .aside .formfiltro .filtroPersona{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+main .aside .formfiltro .filtroCategoria{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+main .aside .formfiltro .filtroPrecio{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+main .aside .formfiltro .filtroTalle{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+main .aside .formfiltro .labels{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+main .aside .formfiltro .filtroTalle div{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+main .aside .formfiltro .filtroColor{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+main .aside .formfiltro .filtroMarca{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+main .aside .formfiltro .filtro div{
+    padding-bottom: 2px;
+}
+
 main .aside .formfiltro div .persona{
     margin-left: 15px;
 }
+
 main .aside .formfiltro .submitbutton{
     font-size: 20px;
     padding: 5px 25px;
@@ -147,4 +208,67 @@ main .producto .calzado .buttonDelete:hover{
     font-weight: bold;
     background-color: white;
     border: 2px solid #FF0000;
+}
+
+
+
+
+/* ---------------------------------------------- */
+/* ----------------- || TABLET      ------------- */
+
+@media(max-width: 770px){
+    
+    
+    /* ----------------- || ASIDE    ------------- */
+    /* main .aside {
+        height: 70vh;
+        width: 100vw;
+    } */
+
+    /* ----------------- || PRODUCTOS    ------------- */
+    main .producto {
+        width: 78vw;
+        display: flex;
+        flex-wrap: wrap;
+        background-color: white;
+    }
+    main .producto .calzado{
+        position: relative;
+        background-color: white;
+        width: 32%;
+        flex-grow: 1;
+        box-shadow: 10px 10px;
+    }
+    main .aside .formfiltro .filtro{
+        font-size: 14px;
+    }
+}
+
+
+
+
+/* ---------------------------------------------- */
+/* ----------------- || CELULAR      ------------- */
+
+@media(max-width: 426px){
+    main{
+        flex-direction: column;
+    }
+
+    /* ----------------- || ASIDE    ------------- */
+    main .aside {
+        width: 100vw;
+    }
+
+    /* ----------------- || PRODUCTOS    ------------- */
+    main .producto {
+        width: 100vw;
+    }
+    main .producto .calzado{
+        position: relative;
+        background-color: white;
+        width: 49%;
+        flex-grow: 1;
+        box-shadow: 10px 10px;
+    }
 }
