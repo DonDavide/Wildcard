@@ -39,7 +39,7 @@ a {
   align-items: center;
   margin: 3px;
   position: relative;
-  margin-top: 90px;
+  margin-top: 40px;
   width: 98%;
 
 }
@@ -166,7 +166,7 @@ a {
   /* MAIN*/
   .container main.home{
     display: flex;
-    margin-top: 136px;
+    margin-top: 40px;
     width: 100%;
     flex-wrap: wrap;
     flex-direction: row;

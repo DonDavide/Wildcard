@@ -12,23 +12,26 @@
                 <p><a href="#">Inicio</a> > Crear Cuenta</p>
             </div>
             <div class="inputsContainer">
-                <div class="auxiliarInputsContainer">
-                    <div class="fullnameInputContainer"><label for="fullname">NOMBRE Y APELLIDO</label>
-                    <input type="text" name="fullname" id="fullname">
-                    </div> <br>
-                    <label for="email">EMAIL</label>
-                    <input type="email" name="email" id="email"> <br>
-                    <label for="text">TELÉFONO (OPCIONAL)</label>
-                    <input type="text" name="telefono" id="telefono"> <br>
-                    <label for="password">CONTRASEÑA</label>
-                    <input type="password" name="password" id="password"> <br>
-                    <label for="password">CONFIRMAR CONTRASEÑA</label>
-                    <input type="password" name="confirmpassword" id="confirmpassword"> <br>
+                <form action="/users/register" method="post">
+                    <div class="auxiliarInputsContainer">
+                        
+                        <div class="fullnameInputContainer"><label for="id">ID: </label><input type="number" name="id" value="<%= nuevoId %>" readonly ><label for="fullname">NOMBRE Y APELLIDO</label>
+                        <input type="text" name="fullname" id="fullname">
+                        </div> <br>
+                        <label for="email">EMAIL</label>
+                        <input type="email" name="email" id="email"> <br>
+                        <label for="text">TELÉFONO (OPCIONAL)</label>
+                        <input type="text" name="telefono" id="telefono"> <br>
+                        <label for="password">CONTRASEÑA</label>
+                        <input type="password" name="password" id="password"> <br>
+                        <label for="password">CONFIRMAR CONTRASEÑA</label>
+                        <input type="password" name="confirmpassword" id="confirmpassword"> <br>
 
-                    <button type="submit" id="entrar">CREAR CUENTA</button> <br>
-                    <button type="reset" id="cancelar">CANCELAR</button>
-                </div> 
-                
+                        <button type="submit" id="entrar">CREAR CUENTA</button> <br>
+                        <button type="reset" id="cancelar">CANCELAR</button>
+                    
+                    </div> 
+                </form>
             </div>
 
             <%- include('../partials/footer') %>
