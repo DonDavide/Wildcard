@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+}
+  
+main .contacto {
+  height: 80%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main .contacto .contactoForm{
+  width: 400px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.botonEnviar {
+  height: 35px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  font-weight: 600;
+}
