@@ -14,20 +14,33 @@
         <main>
             <aside class="aside">
                 
-                <a href="/admin/nuevoProducto"><button class="buttonAgregar">Agregar Producto</button></a>
+                <a href="/admin/products/create"><button class="buttonAgregar">Agregar Producto</button></a>
                 <br>
                 <%- include('../partials/filtroListaProductos') %>
             </aside>
             <section class="producto">
-                <% for(let i=0; i<15; i++){ %>
-                <div class="calzado" onclick="javascript:location.href='/productos/detalleProducto'">
-                    <p class="titulo">Zapato</p> 
-                    <img src="/img/ZapatoPrueba.jpg" alt="">
-                    <p class="precio">$1.500</p> 
-                    <p class="oferta">(10% OFF)</p>
-                    <p class="envio">Envio</p> 
-                    <a href="/admin/editarProducto"><button class="buttonEdit">Editar</button></a><a href="/admin/editarProducto"><button class="buttonDelete">Borrar</button></a>
-                </div>
+                <% if (listaProductos.length >= 15){ %>
+                    <% for(let i=0; i<15; i++){ %>
+                    <div class="calzado" onclick="javascript:location.href='/products/<%= listaProductos[i].id %>'">
+                        <p class="titulo"><%= listaProductos[i].nombre %></p> 
+                        <img src="/img/products/<%= listaProductos[i].imagen1 %>" alt="">
+                        <p class="precio"><%= listaProductos[i].precio %></p> 
+                        <p class="oferta">(10% OFF)</p>
+                        <p class="envio">Envio</p> 
+                        <a href="/admin/editarProducto/<%= listaProductos[i].id %>"><button class="buttonEdit">Editar</button></a><a href="/admin/editarProducto/<%= listaProductos[i].id %>"><button class="buttonDelete">Borrar</button></a>
+                    </div>
+                    <% } %>
+                <% } else if (listaProductos.length < 15){ %>
+                    <% for(let i=0; i<listaProductos.length; i++){ %>
+                    <div class="calzado" onclick="javascript:location.href='/products/<%= listaProductos[i].id %>'">
+                        <p class="titulo"><%= listaProductos[i].nombre %></p> 
+                        <img src="/img/products/<%= listaProductos[i].imagen1 %>" alt="">
+                        <p class="precio"><%= listaProductos[i].precio %></p> 
+                        <p class="oferta">(10% OFF)</p>
+                        <p class="envio">Envio</p> 
+                        <a href="/admin/products/<%= listaProductos[i].id %>/edit"><button class="buttonEdit">Editar</button></a><a href="/admin/editarProducto/<%= listaProductos[i].id %>"><button class="buttonDelete">Borrar</button></a>
+                    </div>
+                    <% } %>
                 <% } %>
             </section>
             

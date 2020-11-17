@@ -8,9 +8,9 @@
     <div class="container">
         <%- include('../partials/header') %>  
         <main class="newProduct">
-            <form action="/home" method="GET">
+            <form action="/admin/products" method="POST" enctype="multipart/form-data">
                 <div class="nombre">
-                    <label for="nombreNuevoProducto">NOMBRE DE NUEVO PRODUCTO</label> <input type="text" name="nombreNuevoProducto" id="nombreNuevoProducto" placeholder="Nombre del nuevo producto">
+                    <label for="nombre">NOMBRE DE NUEVO PRODUCTO</label> <input type="text" name="nombre" id="nombre" placeholder="Nombre del producto">
                 </div>
                 <div class="primerCategoria">
                     <div class="tipo">                
@@ -20,21 +20,21 @@
                     </div>
                     <div class="categoriasCalzado">
                         <label for="categoria">CATEGORIAS DE CALZADOS</label>
-                        <div><label for="zapatillas">ZAPATILLAS</label><input class="check" type="radio" name="categoriasCalzado" id="zapatillas" value="zapatillas"></div>  
-                        <div><label for="botas">BOTAS</label><input class="check" type="radio" name="categoriasCalzado" id="botas" value="botas"></div>
-                        <div><label for="zapatos">ZAPATOS</label><input class="check" type="radio" name="categoriasCalzado" id="zapatos" value="zapatos"></div>
-                        <div><label for="suecos">SUECOS</label><input class="check" type="radio" name="categoriasCalzado" id="suecos" value="suecos"></div>
-                        <div><label for="zandalias">ZANDALIAS</label><input class="check" type="radio" name="categoriasCalzado" id="zandalias" value="zandalias"></div>
-                        <div><label for="chatas">CHATAS</label><input class="check" type="radio" name="categoriasCalzado" id="chatas" value="chatas"></div>
-                        <div><label for="ojotas">OJOTAS</label><input class="check" type="radio" name="categoriasCalzado" id="ojotas" value="ojotas"></div>
+                        <div><label for="zapatillas">ZAPATILLAS</label><input class="check" type="radio" name="categorias" id="zapatillas" value="zapatillas"></div>  
+                        <div><label for="botas">BOTAS</label><input class="check" type="radio" name="categorias" id="botas" value="botas"></div>
+                        <div><label for="zapatos">ZAPATOS</label><input class="check" type="radio" name="categorias" id="zapatos" value="zapatos"></div>
+                        <div><label for="suecos">SUECOS</label><input class="check" type="radio" name="categorias" id="suecos" value="suecos"></div>
+                        <div><label for="zandalias">ZANDALIAS</label><input class="check" type="radio" name="categorias" id="zandalias" value="zandalias"></div>
+                        <div><label for="chatas">CHATAS</label><input class="check" type="radio" name="categorias" id="chatas" value="chatas"></div>
+                        <div><label for="ojotas">OJOTAS</label><input class="check" type="radio" name="categorias" id="ojotas" value="ojotas"></div>
                     </div>
                     <div class="categoriasAccesorio">
                         <label for="categoria">CATEGORIAS DE ACCESORIOS</label>
-                        <div><label for="categoriasaccesorios">CARTERAS</label><input class="check" type="radio" name="categoriasAccesorios" id="carteras" value="carteras"></div> 
-                        <div><label for="categoriasaccesorios">PAÑUELOS</label><input class="check" type="radio" name="categoriasAccesorios" id="pañuelos" value="pañuelos"></div>
-                        <div><label for="categoriasaccesorios">PULSERAS Y COLLARES</label><input class="check" type="radio" name="categoriasAccesorios" id="pulserasYCollares" value="pulserasYCollares"></div>
-                        <div><label for="categoriasaccesorios">CINTOS</label><input class="check" type="radio" name="categoriasAccesorios" id="cintos" value="cintos"></div>
-                        <div><label for="categoriasaccesorios">MOCHILAS</label><input class="check" type="radio" name="categoriasAccesorios" id="mochilas" value="mochilas"></div>
+                        <div><label for="carteras">CARTERAS</label><input class="check" type="radio" name="categorias" id="carteras" value="carteras"></div> 
+                        <div><label for="pañuelos">PAÑUELOS</label><input class="check" type="radio" name="categorias" id="pañuelos" value="pañuelos"></div>
+                        <div><label for="pulserasYCollares">PULSERAS Y COLLARES</label><input class="check" type="radio" name="categorias" id="pulserasYCollares" value="pulserasYCollares"></div>
+                        <div><label for="cintos">CINTOS</label><input class="check" type="radio" name="categorias" id="cintos" value="cintos"></div>
+                        <div><label for="mochilas">MOCHILAS</label><input class="check" type="radio" name="categorias" id="mochilas" value="mochilas"></div>
                     </div>
                     
                     <div class="esp">
@@ -43,14 +43,19 @@
                         <div><label for="color">COLOR :</label> <input type="text" name="color" id="color" placeholder="Color del producto"></div>
                         <div><label for="precio">PRECIO :</label> <input type="number" name="precio" id="precio" placeholder="Precio del producto"></div>
                         <div><label for="descripcion">DESCRIPCION :</label> <input type="text" name="descripcion" id="descripcion" placeholder="Descripcion del producto"></div>
-                        <div><label for="imagen1">AGREGAR PRIMER IMAGEN :</label><input class="agregarImagen1" type="file" name="agregarImagen1" value="agregarImagen1"></div>
-                        <div><label for="imagen1">AGREGAR SEGUNDA IMAGEN :</label><input class="agregarImagen2" type="file" name="agregarImagen2" value="agregarImagen2"></div>
-                        <div><label for="imagen1">AGREGAR TERCER IMAGEN :</label><input class="agregarImagen3" type="file" name="agregarImagen3" value="agregarImagen3"></div>
-                        <div><label for="imagen1">AGREGAR CUARTA IMAGEN :</label><input class="agregarImagen4" type="file" name="agregarImagen4" value="agregarImagen4"></div>
+                        <div><label for="Imagen1">AGREGAR IMAGEN :</label><input class="agregarImagen1" type="file" name="Imagen1" ></div>
+                        <div><label for="Imagen2">AGREGAR IMAGEN :</label><input class="agregarImagen2" type="file" name="Imagen2" ></div>
+                        <div><label for="Imagen3">AGREGAR IMAGEN :</label><input class="agregarImagen3" type="file" name="Imagen3" ></div>
+                        <div><label for="Imagen4">AGREGAR IMAGEN :</label><input class="agregarImagen4" type="file" name="Imagen4" ></div>
+                        <div><label for="Imagen5">AGREGAR IMAGEN :</label><input class="agregarImagen5" type="file" name="Imagen5" ></div>
+                        <div><label for="Imagen6">AGREGAR IMAGEN :</label><input class="agregarImagen6" type="file" name="Imagen6" ></div>
+                        <div><label for="Imagen7">AGREGAR IMAGEN :</label><input class="agregarImagen7" type="file" name="Imagen7" ></div>
+                        <div><label for="Imagen8">AGREGAR IMAGEN :</label><input class="agregarImagen8" type="file" name="Imagen8" ></div>
                     </div>
                     <button class="reset" type="reset">Resetear Carga</button> 
                     <button class="agregarProducto" type="submit">Agregar Producto</button>
                 </div>
+            </form>
         </main>
         <%- include('../partials/footer') %>
     </div>
