@@ -19,7 +19,7 @@
                 <%- include('../partials/filtroListaProductos') %>
             </aside>
             <section class="producto">
-                <% if (listaProductos.length >= 15){ %>
+                <% if (listaProductos.length >= 25){ %>
                     <% for(let i=0; i<15; i++){ %>
                     <div class="calzado" onclick="javascript:location.href='/products/<%= listaProductos[i].id %>'">
                         <p class="titulo"><%= listaProductos[i].nombre %></p> 
@@ -30,7 +30,7 @@
                         <a href="/admin/editarProducto/<%= listaProductos[i].id %>"><button class="buttonEdit">Editar</button></a><a href="/admin/editarProducto/<%= listaProductos[i].id %>"><button class="buttonDelete">Borrar</button></a>
                     </div>
                     <% } %>
-                <% } else if (listaProductos.length < 15){ %>
+                <% } else if (listaProductos.length < 25){ %>
                     <% for(let i=0; i<listaProductos.length; i++){ %>
                     <div class="calzado" onclick="javascript:location.href='/products/<%= listaProductos[i].id %>'">
                         <p class="titulo"><%= listaProductos[i].nombre %></p> 

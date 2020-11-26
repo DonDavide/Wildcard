@@ -57,7 +57,7 @@
 
                 <form action="/home" method="GET" class="formularioCompra">
                     <tittle id="nombre"> <%= productSelect.nombre %> </tittle>
-                    <p id="precio"> $ <%= productSelect.precio %> </p>
+                    <p id="precio"> $ <%= toThousand(productSelect.precio) %> </p>
                     <p id="oferta">3 Cuotas SIN INTERÉS</p>
                     <div class="talles">
                         <div class="categoria">
@@ -65,18 +65,18 @@
                             <p id="guiaTalles" onclick="javascript:location.href='/ayuda'">Ver guía de talles</p>
                         </div>
                         <div class="botontesSelect">
-                            <% for ( let i=35; i<47; i++ ){ %>
-                            <button type="button"> <%= i %> </button>
+                            <% for ( let i= 0; i< productSelect.talles.length; i++ ){ %>
+                            <button type="button"> <%= productSelect.talles[i] %> </button>
                             <% } %>
                         </div>
                     </div>
                     <div class="colores">
-                        <p class="categoria">Color: <b>Rojo</b></p>
+                        <p class="categoria">Colores: <b></b></p>
                         <div class="botontesSelect">
-                            <button type="button" style="background-color: red;"></button>
-                            <button type="button" style="background-color: black;"></button>
-                            <button type="button" style="background-color: brown;"></button>
-                            <button type="button" style="background-color: burlywood;"></button>
+                            <% for ( let i= 0; i< productSelect.colores.length; i++ ){ %>
+                            <button type="button" style="background-color:<%= productSelect.colores[i]%>"></button>
+                            
+                            <% } %>
                         </div>
                     </div>
                     <div class="cantidad">
@@ -108,11 +108,12 @@
             <section class="relacionados">
                 <title>Productos relacionados</title>
                 <div class="relacionadosProductos">
-                    <% for(let i=0; i<10; i++){ %>
+                    <% for(i=0; i< productRel.length; i++){ %>
                         <article>
-                            <img src="/img/ZapatoPrueba.jpg" alt="">
-                            <p>Zapato</p>
-                            <p>Precio</p>
+                            <img src=" /img/products/<%= productRel[i].imagen1 %> " alt="">
+                            <p><%= productRel[i].nombre %></p>
+                            <p>$ <%= toThousand(productRel[i].precio) %></p>
+                            <p><a href="/products/<%=productRel[i].id%>">Ver Producto</a></p>
                         </article>
                     <% } %>
                 </div>

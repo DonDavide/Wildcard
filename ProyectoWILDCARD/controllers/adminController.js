@@ -15,6 +15,7 @@ const adminController = {
     },
     nuevoProductoPost: (req, res, next) => {
         let productoNuevo = req.body;
+        console.log(req.body);
         productoNuevo.id = listaProductos.length;
         if (req.files.length >= 1){
             productoNuevo.imagen1 = req.files[0].filename;
@@ -42,7 +43,7 @@ const adminController = {
         } 
 
         listaProductos.push(productoNuevo);
-        let listaProductosString = JSON.stringify(listaProductos);
+        let listaProductosString = JSON.stringify(listaProductos, null, 2);
         fs.writeFileSync(__dirname + "/../data/products.json", listaProductosString);
         
         res.render('admin/listProducts', {

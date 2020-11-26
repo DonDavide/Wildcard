@@ -1,1 +1,351 @@
-[{"nombre":"Pelota","marca":"Spalding","talle":"456","color":"Rojo","precio":"3456","descripcion":"Pelota Spalding profesional","id":"0","imagen1":"Imagen1-1605643518247.jpg","imagen2":"Imagen2-1605643518250.jpg","imagen3":"Imagen3-1605643518256.jpg","imagen4":"Imagen4-1605643518259.jpg","imagen5":"Imagen5-1605643518262.jpg"},{"nombre":"Raqueta","marca":"dd","talle":"54","color":"Rojo","precio":"4564","descripcion":"asdasdasda","id":"1","imagen1":"Imagen1-1605643551039.jpg","imagen2":"Imagen2-1605643551042.jpg","imagen3":"Imagen3-1605643551048.jpg","imagen4":"Imagen4-1605643551056.jpg"},{"nombre":"TV","marca":"SONY","talle":"42","color":"Azul","precio":"456","descripcion":"TV HD 1080 ","id":"2","imagen1":"Imagen1-1605643582832.jpg","imagen2":"Imagen2-1605643582840.jpg","imagen3":"Imagen3-1605643582850.jpg","imagen4":"Imagen4-1605643582854.jpg","imagen5":"Imagen5-1605643582857.jpg","imagen6":"Imagen6-1605643582859.jpg"},{"nombre":"Zapatilla","categoria":"calzado","categorias":"zapatillas","marca":"Adidas","talle":"44","color":"Amarillo","precio":"345","descripcion":"asdasdasda","id":3,"imagen1":"Imagen1-1605643639600.jpg","imagen2":"Imagen2-1605643639602.jpg","imagen3":"Imagen3-1605643639610.jpg","imagen4":"Imagen4-1605643639615.jpg"}]
+[
+  {
+    "nombre": "Pelota",
+    "marca": "Spalding",
+    "talle": "456",
+    "color": "Rojo",
+    "precio": "3456",
+    "descripcion": "Pelota Spalding profesional",
+    "id": "0",
+    "talles":["36","37"],
+    "colores":["grey","broun","beige"],
+    "descuento": "20",
+    "imagen1": "Imagen1-1605643518247.jpg",
+    "imagen2": "Imagen2-1605643518250.jpg",
+    "imagen3": "Imagen3-1605643518256.jpg",
+    "imagen4": "Imagen4-1605643518259.jpg",
+    "imagen5": "Imagen5-1605643518262.jpg"
+  },
+  {
+    "nombre": "Raqueta",
+    "marca": "dd",
+    "talle": "54",
+    "color": "Rojo",
+    "precio": "4564",
+    "talles":["36","37"],
+    "colores":["grey","broun","beige"],
+    "descripcion": "asdasdasda",
+    "id": "1",
+    "descuento": "10",
+    "imagen1": "Imagen1-1605643551039.jpg",
+    "imagen2": "Imagen2-1605643551042.jpg",
+    "imagen3": "Imagen3-1605643551048.jpg",
+    "imagen4": "Imagen4-1605643551056.jpg"
+  },
+  {
+    "nombre": "TV",
+    "marca": "SONY",
+    "talle": "42",
+    "color": "Azul",
+    "precio": "456",
+    "talles":["36","37"],
+    "colores":["grey","broun","beige"],
+    "descripcion": "TV HD 1080 ",
+    "id": "2",
+    "descuento": "10",
+    "imagen1": "Imagen1-1605643582832.jpg",
+    "imagen2": "Imagen2-1605643582840.jpg",
+    "imagen3": "Imagen3-1605643582850.jpg",
+    "imagen4": "Imagen4-1605643582854.jpg",
+    "imagen5": "Imagen5-1605643582857.jpg",
+    "imagen6": "Imagen6-1605643582859.jpg"
+  },
+  {
+    "nombre": "Zapatilla",
+    "categoria": "calzado",
+    "categorias": "zapatillas",
+    "marca": "Adidas",
+    "talles":["36","37"],
+    "colores":["grey","broun","beige"],
+    "precio": "345",
+    "descripcion": "asdasdasda",
+    "id": 3,
+    "imagen1": "Imagen1-1605643639600.jpg",
+    "imagen2": "Imagen2-1605643639602.jpg",
+    "imagen3": "Imagen3-1605643639610.jpg",
+    "descuento": "10",
+    "imagen4": "Imagen4-1605643639615.jpg"
+  },
+  {
+    "nombre": "Zandalias",
+    "categoria": "calzado",
+    "categorias": "zandalias",
+    "marca": "Nike",
+    "talles":["36","37"],
+    "colores":["grey","broun","beige"],
+    "precio": "12500",
+    "descripcion": "Zandalias cortas de cuero.",
+    "id": 4,
+    "imagen1": "Imagen1-1605646377650.jpg",
+    "descuento": "10"
+  },
+  {
+    "nombre": "Botas",
+    "categoria": "calzado",
+    "categorias": "botas",
+    "marca": "Texas Maiden",
+    "talles":["36","37"],
+    "colores":["grey","broun","beige"],
+    "precio": "15000",
+    "descripcion": "Botas color negro de cuero ecologico.",
+    "id": 5,
+    "imagen1": "Imagen1-1605647953949.jpg",
+    "descuento": "10"
+  },
+  {
+    "nombre": "PANCHAS",
+    "categoria": "calzado",
+    "categorias": "zandalias",
+    "marca": "Wilcard",
+    "talles":["36","37"],
+    "colores":["grey","broun","beige"],
+    "precio": "4000",
+    "descuento": "10",
+    "descripcion": "Zandalias para verano",
+    "id": 7,
+    "imagen1": "Imagen1-1605898137806.jpg"
+  },
+  {
+    "nombre": "GARDA",
+    "categoria": "calzado",
+    "categorias": "zandalias",
+    "marca": "Wilcard",
+    "talles":["36","37"],
+    "colores":["grey","broun","beige"],
+    "precio": "4000",
+    "descuento": "10",
+    "descripcion": "Zandalias para verano",
+    "id": 8,
+    "imagen1": "Imagen1-1605898319108.jpg"
+  },
+  {
+    "nombre": "GARDA",
+    "categoria": "calzado",
+    "categorias": "zandalias",
+    "marca": "Wilcard",
+    "talles":["36","37"],
+    "colores":["grey","broun","beige"],
+    "precio": "4000",
+    "descuento": "10",
+    "descripcion": "Zandalias para verano",
+    "id": 9,
+    "imagen1": "Imagen1-1605898323978.jpg"
+  },
+  {
+    "nombre": "GARDA",
+    "categoria": "calzado",
+    "categorias": "zandalias",
+    "marca": "Wilcard",
+    "talles":["36","37"],
+    "colores":["grey","broun","beige"],
+    "precio": "4000",
+    "descuento": "10",
+    "descripcion": "Zandalias para verano",
+    "id": 10,
+    "imagen1": "Imagen1-1605898326691.jpg"
+  },
+  {
+    "nombre": "Chanclas",
+    "categoria": "calzado",
+    "categorias": "zandalias",
+    "marca": "Wilcard",
+    "talles":["36","37"],
+    "colores":["grey","broun","beige"],
+    "precio": "4000",
+    "descuento": "10",
+    "descripcion": "Zandalias para verano",
+    "id": 11,
+    "imagen1": "Imagen1-1605898328206.jpg"
+  },
+  {
+    "nombre": "Pantuflas",
+    "categoria": "calzado",
+    "categorias": "zandalias",
+    "marca": "Wilcard",
+    "talles":["36","37"],
+    "colores":["grey","broun","beige"],
+    "precio": "4000",
+    "descuento": "10",
+    "descripcion": "Zandalias para verano",
+    "id": 12,
+    "imagen1": "Imagen1-1605898329238.jpg"
+  },
+  {
+    "nombre": "Ojotas",
+    "categoria": "calzado",
+    "categorias": "zandalias",
+    "marca": "Wilcard",
+    "talles":["36","37"],
+    "colores":["grey","broun","beige"],
+    "precio": "4000",
+    "descuento": "10",
+    "descripcion": "Zandalias para verano",
+    "id": 13,
+    "imagen1": "Imagen1-1605898330046.jpg"
+  },
+  {
+    "nombre": "GARDA",
+    "categoria": "calzado",
+    "categorias": "zapatos",
+    "marca": "Wilcard",
+    "talles":["36","37"],
+    "colores":["grey","broun","beige"],
+    "precio": "4000",
+    "descuento": "10",
+    "descripcion": "Zandalias para verano",
+    "id": 14,
+    "imagen1": "Imagen1-1605898331719.jpg"
+  },
+  {
+    "nombre": "GARDA",
+    "categoria": "calzado",
+    "categorias": "zapatos",
+    "marca": "Wilcard",
+    "talles":["36","37"],
+    "colores":["grey","broun","beige"],
+    "precio": "4000",
+    "descuento": "10",
+    "descripcion": "Zandalias para verano",
+    "id": 15,
+    "imagen1": "Imagen1-1605898332950.jpg"
+  },
+  {
+    "nombre": "",
+    "marca": "",
+    "precio": "",
+    "descripcion": "",
+    "id": 15
+  },
+  {
+    "nombre": "ZANDALIAS DEPORTIVAS ",
+    "categoria": "calzado",
+    "categorias": "zandalias",
+    "talles":["36","37"],
+    "colores":["grey","broun","beige"],
+    "marca": "ADIDAS",
+    "precio": "5400",
+    "descripcion": "ZANDALIAS DEPORTIVAS PARA VERANO",
+    "id": 16,
+    "imagen1": "Imagen1-1606256193611.jpg",
+    "imagen2": "Imagen2-1606256193681.jpg",
+    "imagen3": "Imagen3-1606256193684.jpg"
+  },
+  {
+    "nombre": "ZANDALIAS DEPORTIVAS ",
+    "categoria": "calzado",
+    "categorias": "zandalias",
+    "marca": "ADIDAS",
+    "precio": "5400",
+    "descripcion": "ZANDALIAS DEPORTIVAS PARA VERANO",
+    "id": 17,
+    "talles": [
+      "36",
+      "37"
+    ],
+    "colores": [
+      "grey",
+      "broun",
+      "beige"
+    ],
+    "imagen1": "Imagen1-1606256325786.jpg",
+    "imagen2": "Imagen2-1606256325792.jpg",
+    "imagen3": "Imagen3-1606256325794.jpg"
+  },
+  {
+    "nombre": "ZANDALIAS DEPORTIVAS ",
+    "categoria": "calzado",
+    "categorias": "zandalias",
+    "marca": "ADIDAS",
+    "precio": "5400",
+    "descripcion": "ZANDALIAS DEPORTIVAS PARA VERANO",
+    "id": 18,
+    "imagen1": "Imagen1-1606256447959.jpg",
+    "imagen2": "Imagen2-1606256447966.jpg",
+    "imagen3": "Imagen3-1606256447969.jpg"
+  },
+  {
+    "nombre": "wrewer",
+    "marca": "",
+    "talles": [
+      "36",
+      "37"
+    ],
+    "colores": [
+      "grey",
+      "broun",
+      "beige"
+    ],
+    "precio": "",
+    "descripcion": "",
+    "id": 19
+  },
+  {
+    "nombre": "wrewer",
+    "marca": "",
+    "talles": [
+      "36",
+      "37"
+    ],
+    "colores": [
+      "grey",
+      "broun",
+      "beige"
+    ],
+    "precio": "",
+    "descripcion": "",
+    "id": 20
+  },
+  {
+    "nombre": "wrewer",
+    "marca": "",
+    "talles": [
+      "36",
+      "37"
+    ],
+    "colores": [
+      "grey",
+      "broun",
+      "beige"
+    ],
+    "precio": "",
+    "descripcion": "",
+    "id": 21
+  },
+  {
+    "nombre": "wrewer",
+    "marca": "",
+    "talles": [
+      "36",
+      "37"
+    ],
+    "colores": [
+      "grey",
+      "broun",
+      "beige"
+    ],
+    "precio": "",
+    "descripcion": "",
+    "id": 22
+  },
+  {
+    "nombre": "Botas",
+    "categoria": "calzado",
+    "categorias": "botas",
+    "marca": "Topper",
+    "talles": [
+      "35",
+      "36",
+      "42"
+    ],
+    "colores": [
+      "black",
+      "grey",
+      "red"
+    ],
+    "precio": "3424",
+    "descripcion": "Botas color negro de cuero ecologico.",
+    "id": 23,
+    "imagen1": "Imagen1-1606258320269.jpg",
+    "imagen2": "Imagen2-1606258320279.jpg"
+  }
+]
