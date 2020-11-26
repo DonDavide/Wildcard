@@ -1,0 +1,95 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'PT Sans', sans-serif;
+}
+.howToBuy {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #E2DEDD;
+    height: 400px;
+}
+
+ .howToBuySection {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.howToBuySteps {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    top: 80px;
+}
+
+.howToBuy .howToBuySection .hTBTitle h1 {
+    display: block;
+    justify-content: center;
+    position: relative;
+    top: -70px;
+}
+
+.howToBuy .howToBuySection .hTBTitle .hTBSubtitle {
+    position: relative;
+    top: -40px;
+}
+
+.howToBuy .howToBuySteps .steps {
+    display: block;
+    justify-content: center;
+    width: 250px;
+    padding: 20px;
+    position: relative;
+    top: -50px;
+}
+
+.howToBuySteps .steps .step-text {
+    font-size: smaller;
+    color: #686666;
+}
+
+.howToBuySteps .steps i {
+    color: #686666;
+}
+
+.questions {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 500px;
+}
+
+.questions h2 {
+    position: relative;
+    top: 40px;
+}
+
+.questions .list {
+    position: relative;
+    top: 70px;
+}
+
+.questions .list .item {
+    height: 85px;
+}
+
+.questions .list .item h3 {
+    font-weight: lighter;
+}
+
+.questions .list .item .answer {
+    position: relative;
+    top: 20px;
+    color: #686666;
+    font-size: small;
+    font-weight: lighter;
+}

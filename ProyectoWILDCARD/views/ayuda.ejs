@@ -2,14 +2,63 @@
 <html lang="en">
 <head>
     <%- include('partials/head') %>
+    <link rel="stylesheet" href="/stylesheets/ayuda.css">
 </head>
 <body>
     <div class="container">
         <%- include('partials/header') %>
         
         <main>
-            <br><br><br><br><br><br><br><br><br><br>
-            <h1>CREAR VISTA DE AYUDA</h1><br>
+            <div class="howToBuy">
+                <div class="howToBuySection">
+                    <div class="hTBTitle">
+                        <h1>Cómo comprar</h1>
+                        <p class="hTBSubtitle">
+                            Realizar una compra en
+                            <strong>Wildcard</strong>
+                            es muy simple. Sólo seguí estos pasos:
+                        </p>
+                    </div>
+                </div>
+                <div class="howToBuySteps">
+                    <div class="steps">
+                        <i class="fas fa-store"></i>
+                        <h2>Elegí</h2>
+                        <p class="step-text">Seleccioná el o los productos que quieras y agregalos al carrito</p>
+                    </div>
+                    <div class="steps">
+                        <i class="far fa-credit-card"></i>
+                        <h2>Pagá</h2>
+                        <p class="step-text">Procesamos tu compra en nuestra tienda utilizando la tecnología de Mercado Libre. Te llevaremos para que realices el pago de forma ágil y segura a través de pagos con débito, crédito y efectivo.</p>
+                    </div>
+                    <div class="steps">
+                        <i class="fas fa-gift"></i>
+                        <h2>Recibí</h2>
+                        <p class="step-text">Elegí la forma de entrega que prefieras ¡y listo!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="questions">
+                <h2 class="pregsFrecuentes">Preguntas Frecuentes</h2>
+                <ul class="list">
+                    <li class="item">
+                        <h3 class="¿?">¿Còmo realizo el pago si no tengo cuenta en Mercado Libre?</h3>
+                        <h4 class="answer">¡Crear una cuenta es muy fàcil! Al momento de comprar, te redirigiremos a Mercado Libre para que la crees. Sòlo tenès que ingresar un e-mail, una clave y continuar con tu compra.</h4>
+                    </li>
+                    <li class="item">
+                        <h3 class="¿?">¿Dònde veo el costo de envìo y el tiempo de entrega?</h3>
+                        <h4 class="answer">En la página del producto que quieras comprar verás la opción de calcular cuándo llega, con la información sobre el costo de envío y calcular cuándo llega.</h4>
+                    </li>
+                    <li class="item">
+                        <h3 class="¿?">¿Puedo pagar en cuotas?</h3>
+                        <h4 class="answer">Podrás ver en la página del producto si se puede pagar en cuotas y con qué medios. Si decidís comprarlo, antes de pagar podrás elegir la cantidad de cuotas y te informaremos el valor de cada una.</h4>
+                    </li>
+                    <li class="item">
+                        <h3 class="¿?">¿Cómo puedo realizar cambios y devoluciones?</h3>
+                        <h4 class="answer">Los cambios y devoluciones de productos se realizan a través de Mercado Libre. Podés hacerlo en tu computadora o en la aplicación desde la sección Mis Compras, seleccionando el producto y luego eligiendo la opción Devolver el producto. Te daremos una etiqueta de envío para que imprimas y pegues en el paquete para llevarlo al correo ¿y listo!</h4>
+                    </li>
+                </ul>
+            </div>
         </main>
         
         <%- include('partials/footer') %>
