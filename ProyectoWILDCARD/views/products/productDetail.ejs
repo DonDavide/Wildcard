@@ -17,24 +17,47 @@
                 <div class="datosProducto">
                     <article class="imagenesProducto">
                         <div class="imagenesCarousel">
-                            <% for(let i=0; i<7; i++){ %>
+                            <!-- <% for(let i=0; i<7; i++){ %>
                                 <img src="/img/ZapatoPrueba.jpg" alt="">
+                            <% } %> -->
+                            <% if ( productSelect.imagen1 ){ %>
+                                <img src="/img/products/<%= productSelect.imagen1 %>" alt="">
+                            <% } %>
+                            <% if ( productSelect.imagen2 ){ %>
+                                <img src="/img/products/<%= productSelect.imagen2 %>" alt="">
+                            <% } %>
+                            <% if ( productSelect.imagen3 ){ %>
+                                <img src="/img/products/<%= productSelect.imagen3 %>" alt="">
+                            <% } %>
+                            <% if ( productSelect.imagen4 ){ %>
+                                <img src="/img/products/<%= productSelect.imagen4 %>" alt="">
+                            <% } %>
+                            <% if ( productSelect.imagen5 ){ %>
+                                <img src="/img/products/<%= productSelect.imagen5 %>" alt="">
+                            <% } %>
+                            <% if ( productSelect.imagen6 ){ %>
+                                <img src="/img/products/<%= productSelect.imagen6 %>" alt="">
+                            <% } %>
+                            <% if ( productSelect.imagen7 ){ %>
+                                <img src="/img/products/<%= productSelect.imagen7 %>" alt="">
+                            <% } %>
+                            <% if ( productSelect.imagen8 ){ %>
+                                <img src="/img/products/<%= productSelect.imagen8 %>" alt="">
                             <% } %>
                         </div>
                         <div class="imagenesSelect">
-                            <img src="/img/ZapatoPrueba.jpg" alt="">
+                            <img src="/img/products/<%= productSelect.imagen1 %>" alt="">
                         </div>
                     </article>
                     <article class="descripcionProducto">
                         Detalles del producto
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto temporibus molestiae, iste a ipsam ab ratione dolorum voluptate libero. Nobis, ducimus nesciunt voluptatibus ipsam iusto sequi nihil eveniet error sint?Sapiente officiis rerum ducimus ut fugiat nihil reprehenderit doloribus hic iusto necessitatibus fugit nam animi est deserunt, molestiae quas mollitia eligendi dolorum facilis repudiandae non! Eius nemo et deserunt expedita? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto temporibus molestiae, iste a ipsam ab ratione dolorum voluptate libero. Nobis, ducimus nesciunt voluptatibus ipsam iusto sequi nihil eveniet error sint?Sapiente officiis rerum ducimus ut fugiat nihil reprehenderit doloribus hic iusto necessitatibus fugit nam animi est deserunt, molestiae quas mollitia eligendi dolorum facilis repudiandae non! Eius nemo et deserunt expedita? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto temporibus molestiae, iste a ipsam ab ratione dolorum voluptate libero. Nobis, ducimus nesciunt voluptatibus ipsam iusto sequi nihil eveniet error sint?Sapiente officiis rerum ducimus ut fugiat nihil reprehenderit doloribus hic iusto necessitatibus fugit nam animi est deserunt, molestiae quas mollitia eligendi dolorum facilis repudiandae non! Eius nemo et deserunt expedita?
-                        </p>
+                        <p> <%= productSelect.descripcion %> </p>
                     </article>
                 </div>
 
                 <form action="/home" method="GET" class="formularioCompra">
-                    <tittle id="nombre">ZAPATOS X</tittle>
-                    <p id="precio">$1.500</p>
+                    <tittle id="nombre"> <%= productSelect.nombre %> </tittle>
+                    <p id="precio"> $ <%= toThousand(productSelect.precio) %> </p>
                     <p id="oferta">3 Cuotas SIN INTERÉS</p>
                     <div class="talles">
                         <div class="categoria">
@@ -42,18 +65,18 @@
                             <p id="guiaTalles" onclick="javascript:location.href='/ayuda'">Ver guía de talles</p>
                         </div>
                         <div class="botontesSelect">
-                            <% for ( let i=35; i<47; i++ ){ %>
-                            <button type="button"> <%= i %> </button>
+                            <% for ( let i= 0; i< productSelect.talles.length; i++ ){ %>
+                            <button type="button"> <%= productSelect.talles[i] %> </button>
                             <% } %>
                         </div>
                     </div>
                     <div class="colores">
-                        <p class="categoria">Color: <b>Rojo</b></p>
+                        <p class="categoria">Colores: <b></b></p>
                         <div class="botontesSelect">
-                            <button type="button" style="background-color: red;"></button>
-                            <button type="button" style="background-color: black;"></button>
-                            <button type="button" style="background-color: brown;"></button>
-                            <button type="button" style="background-color: burlywood;"></button>
+                            <% for ( let i= 0; i< productSelect.colores.length; i++ ){ %>
+                            <button type="button" style="background-color:<%= productSelect.colores[i]%>"></button>
+                            
+                            <% } %>
                         </div>
                     </div>
                     <div class="cantidad">
@@ -85,11 +108,12 @@
             <section class="relacionados">
                 <title>Productos relacionados</title>
                 <div class="relacionadosProductos">
-                    <% for(let i=0; i<10; i++){ %>
+                    <% for(i=0; i< productRel.length; i++){ %>
                         <article>
-                            <img src="/img/ZapatoPrueba.jpg" alt="">
-                            <p>Zapato</p>
-                            <p>Precio</p>
+                            <img src=" /img/products/<%= productRel[i].imagen1 %> " alt="">
+                            <p><%= productRel[i].nombre %></p>
+                            <p>$ <%= toThousand(productRel[i].precio) %></p>
+                            <p><a href="/products/<%=productRel[i].id%>">Ver Producto</a></p>
                         </article>
                     <% } %>
                 </div>
@@ -100,7 +124,5 @@
         <%- include('../partials/footer') %>
 
     </div>
-    
-
 </body>
 </html>
