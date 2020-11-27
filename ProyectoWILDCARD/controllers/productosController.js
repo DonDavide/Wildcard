@@ -8,7 +8,7 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const productoController = {
     productos: (req, res, next) => {
         res.render('products/productos', {
-            listaProductos
+            listaProductos, toThousand
         });
     },
     detalleProducto: (req, res, next) => {

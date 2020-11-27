@@ -130,12 +130,10 @@ main .producto {
 main .producto .calzado{
     position: relative;
     background-color: white;
-    width: 17%;
-    flex-grow: 1;
-    box-shadow: 10px 10px;
+    width: 20%;
 }
 main .producto .calzado:hover{
-    width: 23%;
+    width: 25%;
     background-color: lightsalmon;
     border: 3px solid  #661297;
     /* text-shadow: 0 0 3px goldenrod, 0px 0px 5px yellow; */

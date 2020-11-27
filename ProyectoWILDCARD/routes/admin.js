@@ -26,7 +26,7 @@ router.post('/products', upload.any(), adminController.nuevoProductoPost); //Acc
 router.get('/products/:id/edit', adminController.editarProducto);
 router.post('/products/:id', upload.any(), adminController.editarProductoPost);
 
-// borrar get
-// borrar post
+router.get('/products/delete/:id', adminController.destroy); 
+
 
 module.exports = router;

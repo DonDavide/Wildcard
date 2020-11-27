@@ -20,14 +20,14 @@
             </aside>
             <section class="producto">
                 <% if (listaProductos.length >= 25){ %>
-                    <% for(let i=0; i<15; i++){ %>
+                    <% for(let i=0; i<50; i++){ %>
                     <div class="calzado" onclick="javascript:location.href='/products/<%= listaProductos[i].id %>'">
                         <p class="titulo"><%= listaProductos[i].nombre %></p> 
                         <img src="/img/products/<%= listaProductos[i].imagen1 %>" alt="">
-                        <p class="precio"><%= listaProductos[i].precio %></p> 
-                        <p class="oferta">(10% OFF)</p>
+                        <p class="precio">$ <%= toThousand(listaProductos[i].precio) %></p> 
+                        <p class="oferta">(<%= listaProductos[i].descuento %>% OFF)</p>
                         <p class="envio">Envio</p> 
-                        <a href="/admin/editarProducto/<%= listaProductos[i].id %>"><button class="buttonEdit">Editar</button></a><a href="/admin/editarProducto/<%= listaProductos[i].id %>"><button class="buttonDelete">Borrar</button></a>
+                        <a href="/admin/products/<%= listaProductos[i].id %>/edit"><button class="buttonEdit">Editar</button></a><a href="/admin/products/delete/<%= listaProductos[i].id %>"><button class="buttonDelete">Borrar</button></a>
                     </div>
                     <% } %>
                 <% } else if (listaProductos.length < 25){ %>
@@ -35,10 +35,10 @@
                     <div class="calzado" onclick="javascript:location.href='/products/<%= listaProductos[i].id %>'">
                         <p class="titulo"><%= listaProductos[i].nombre %></p> 
                         <img src="/img/products/<%= listaProductos[i].imagen1 %>" alt="">
-                        <p class="precio"><%= listaProductos[i].precio %></p> 
-                        <p class="oferta">(10% OFF)</p>
+                        <p class="precio">$ <%= toThousand(listaProductos[i].precio) %></p> 
+                        <p class="oferta">(<%= listaProductos[i].descuento %>% OFF)</p>
                         <p class="envio">Envio</p> 
-                        <a href="/admin/products/<%= listaProductos[i].id %>/edit"><button class="buttonEdit">Editar</button></a><a href="/admin/editarProducto/<%= listaProductos[i].id %>"><button class="buttonDelete">Borrar</button></a>
+                        <a href="/admin/products/<%= listaProductos[i].id %>/edit"><button class="buttonEdit">Editar</button></a><a href="/admin/products/delete/<%= listaProductos[i].id %>"><button class="buttonDelete">Borrar</button></a>
                     </div>
                     <% } %>
                 <% } %>
