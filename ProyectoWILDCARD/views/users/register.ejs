@@ -15,7 +15,8 @@
                 <form action="/users/register" method="post">
                     <div class="auxiliarInputsContainer">
                         
-                        <div class="fullnameInputContainer"><label for="id">ID: </label><input type="number" name="id" value="<%= nuevoId %>" readonly ><label for="fullname">NOMBRE Y APELLIDO</label>
+                        <div class="fullnameInputContainer">
+                        <label for="fullname">NOMBRE Y APELLIDO</label>
                         <input type="text" name="fullname" id="fullname">
                         </div> <br>
                         <label for="email">EMAIL</label>
@@ -28,7 +29,7 @@
                         <input type="password" name="confirmpassword" id="confirmpassword"> <br>
 
                         <button type="submit" id="entrar">CREAR CUENTA</button> <br>
-                        <button type="reset" id="cancelar">CANCELAR</button>
+                        <button type="reset" id="cancelar"><a href="/">CANCELAR</a></button>
                     
                     </div> 
                 </form>

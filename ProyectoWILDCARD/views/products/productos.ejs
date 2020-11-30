@@ -16,23 +16,23 @@
                 <%- include('../partials/filtroListaProductos') %>
             </aside>
             <section class="producto"  >
-                <% if (listaProductos.length >= 15){ %>
-                    <% for(let i=0; i<15; i++){ %>
+                <% if (listaProductos.length >= 50){ %>
+                    <% for(let i=0; i<50; i++){ %>
                     <div class="calzado" onclick="javascript:location.href='/products/<%= listaProductos[i].id %>'">
                         <p class="titulo"><%= listaProductos[i].nombre %></p> 
                         <img src="/img/products/<%= listaProductos[i].imagen1 %>" alt="">
-                        <p class="precio"><%= listaProductos[i].precio %></p> 
-                        <p class="oferta">(10% OFF)</p>
+                        <p class="precio">$ <%= toThousand(listaProductos[i].precio) %></p> 
+                        <p class="oferta">(<%= listaProductos[i].descuento %>% OFF)</p>
                         <p class="envio">Envio</p> 
                     </div>
                     <% } %>
-                <% } else if (listaProductos.length < 15){ %>
+                <% } else if (listaProductos.length < 50){ %>
                     <% for(let i=0; i<listaProductos.length; i++){ %>
                     <div class="calzado" onclick="javascript:location.href='/products/<%= listaProductos[i].id %>'">
                         <p class="titulo"><%= listaProductos[i].nombre %></p> 
                         <img src="/img/products/<%= listaProductos[i].imagen1 %>" alt="">
-                        <p class="precio"><%= listaProductos[i].precio %></p> 
-                        <p class="oferta">(10% OFF)</p>
+                        <p class="precio">$ <%= toThousand(listaProductos[i].precio) %></p> 
+                        <p class="oferta">(<%= listaProductos[i].descuento %>% OFF)</p>
                         <p class="envio">Envio</p> 
                     </div>
                     <% } %>
