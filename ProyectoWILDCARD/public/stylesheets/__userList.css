@@ -1,0 +1,124 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    padding: 0px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    margin: 0px;
+    display: flex;
+  }
+  
+  a {
+    color: black;
+    text-decoration: none;
+  }
+  .container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    min-height: 100vh;
+    width: 100%;
+    max-width: 100%;
+    justify-content: space-between;
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  a {
+    color: black;
+    text-decoration: none;
+  }
+  h1{
+      text-align: center;
+  }
+  h2{
+      display: flex;
+      height: 40px;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      
+      
+      
+  }
+  .container main{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+    max-width: 100%;
+    justify-content: space-between;
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0px;
+    padding: 30px;
+  }
+.container main .id{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 5%;
+    max-width: 100%;
+    
+}
+.container main .fullname{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 25%;
+    max-width: 100%;
+}
+.container main .email{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 25%;
+    max-width: 100%;
+}
+.container main .telefono{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 25%;
+    max-width: 100%;
+}
+h2:nth-child(2n+0) {
+    font-size: 20px;
+    color: #FFFFFF;
+    background-color: #6b6b6b;
+    
+  }
+  .container main .editar{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 10%;
+    max-width: 100%;
+}
+.container main .editar h1{
+  opacity: 0;
+}
+.container main .borrar{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 10%;
+    max-width: 100%;
+}
+.container main .borrar h1{
+    opacity: 0;
+  }
+  .container main .borrar a{
+    color: red;
+  }

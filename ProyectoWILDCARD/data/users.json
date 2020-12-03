@@ -14,31 +14,38 @@
     "password": "123456578"
   },
   {
-    "id": "3",
-    "fullname": "",
-    "email": "",
-    "telefono": "",
-    "password": ""
-  },
-  {
-    "id": 4,
+    "id": 3,
     "fullname": "juan perez",
     "email": "perezdos@gmail.com",
     "telefono": "3413058603",
     "password": "12345678"
   },
   {
-    "id": 5,
+    "id": 4,
     "fullname": "juan perez",
     "email": "perezdos@gmail.com",
     "telefono": "3413058603",
     "password": "12345"
   },
   {
-    "id": 6,
+    "id": 5,
     "fullname": "juan perez",
     "email": "perezdos111@gmail.com",
-    "telefono": "3413058603",
+    "telefono": "3413033603",
     "password": "1111"
+  },
+  {
+    "id": 6,
+    "fullname": "juan lopez",
+    "email": "lopez@gmail.com",
+    "telefono": "341344333",
+    "password": "12345"
+  },
+  {
+    "id": 7,
+    "fullname": "Juana Vojtacek",
+    "email": "jaunalaloca@juana.com.ar",
+    "telefono": "1112223344",
+    "password": "$2b$10$etQrMfaT68vqwEFBoYVt8ur8ZYfpqot8/pfmYIA1RB2s0./uD5H02"
   }
 ]

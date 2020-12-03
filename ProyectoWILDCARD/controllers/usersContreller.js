@@ -1,5 +1,7 @@
 const fs = require('fs');
+const { UnsupportedMediaType } = require('http-errors');
 const path = require('path');
+const bcrypt = require("bcrypt")
 
 var usersFilePath = path.join(__dirname, '../data/users.json');
 var users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
@@ -38,7 +40,7 @@ const usersController = {
             fullname: req.body.fullname,
             email: req.body.email,
             telefono: req.body.telefono,
-            password: req.body.password
+            password:  bcrypt.hashSync(req.body.password, 10)//encripto la contraseña
         }
 
         users.push(nuevoUser);//capturo los datos del formulario y los inserto en el array users.
@@ -52,6 +54,50 @@ const usersController = {
     },
     login: (req, res, next) => {
         res.render('users/login.ejs');
+    },
+    list: (req, res, next) => {
+        console.log(users);
+        res.render('users/userList.ejs', {users : users});
+    },
+    destroy : (req, res) => {
+		var idUsers = req.params.id;
+		var userDestroy = users.filter(function(user){
+			return user.id!=idUsers; 
+		})
+		var userDestroyJSON = JSON.stringify(userDestroy, null, 2);
+		fs.writeFileSync(__dirname + '/../data/users.json', userDestroyJSON);
+		
+		
+		return res.redirect("/users/userList")
+    },
+    editarUsuario: (req, res, next) => {
+        let userID = req.params.id;
+        let userEdit = {};
+        for (let i=0; i<users.length; i++){
+            if (users[i].id == userID){
+                userEdit = users[i];
+            }
+        }
+
+        res.render('users/userEdit.ejs', {
+            userEdit
+        })
+    } , editarUsuarioPost: (req, res) => {
+		var idUser = req.params.id;
+		console.log(req.params.id);
+		var editUser = users.map(function(user){
+			if(user.id == idUser){
+				return req.body; 
+			}
+			return user;
+		});
+		editUserJSON = JSON.stringify(editUser, null, 2);
+		fs.writeFileSync(__dirname + '/../data/users.json', editUserJSON);	
+		console.log(req.body);
+		var userEditado = req.body;
+		
+		res.send("usuario editado")
+		
     },
     carrito: (req, res, next) => {
         res.render('users/carrito.ejs');
