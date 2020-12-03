@@ -13,7 +13,7 @@
     ],
     "colores": [
       "grey",
-      "broun",
+      "brown",
       "beige"
     ],
     "descuento": "20",
@@ -33,7 +33,7 @@
     ],
     "colores": [
       "grey",
-      "broun",
+      "brown",
       "beige"
     ],
     "precio": "4564",
@@ -53,7 +53,7 @@
     ],
     "colores": [
       "grey",
-      "broun",
+      "brown",
       "beige"
     ],
     "precio": "456",
@@ -77,7 +77,7 @@
     ],
     "colores": [
       "grey",
-      "broun",
+      "brown",
       "beige"
     ],
     "precio": "345",
@@ -90,9 +90,9 @@
     "imagen4": "Imagen4-1605643639615.jpg"
   },
   {
-    "nombre": "Zandalias",
+    "nombre": "Sandalias",
     "categoria": "calzado",
-    "categorias": "zandalias",
+    "categorias": "sandalias",
     "marca": "Nike",
     "talles": [
       "36",
@@ -100,11 +100,11 @@
     ],
     "colores": [
       "grey",
-      "broun",
+      "brown",
       "beige"
     ],
     "precio": "12500",
-    "descripcion": "Zandalias cortas de cuero.",
+    "descripcion": "Sandalias cortas de cuero.",
     "id": 4,
     "imagen1": "Imagen1-1605646377650.jpg",
     "descuento": "10"
@@ -120,7 +120,7 @@
     ],
     "colores": [
       "grey",
-      "broun",
+      "brown",
       "beige"
     ],
     "precio": "15000",
@@ -132,7 +132,7 @@
   {
     "nombre": "PANCHAS",
     "categoria": "calzado",
-    "categorias": "zandalias",
+    "categorias": "sandalias",
     "marca": "Wilcard",
     "talles": [
       "36",
@@ -140,18 +140,18 @@
     ],
     "colores": [
       "grey",
-      "broun",
+      "brown",
       "beige"
     ],
     "precio": "4000",
     "descuento": "10",
-    "descripcion": "Zandalias para verano",
+    "descripcion": "Sandalias para verano",
     "id": 7,
     "imagen1": "Imagen1-1605898137806.jpg"
   },
   {
     "nombre": "GARDA",
-    "categorias": "zandalias",
+    "categorias": "sandalias",
     "marca": "Wilcard",
     "talles": [
       "36",
@@ -159,18 +159,18 @@
     ],
     "colores": [
       "grey",
-      "broun",
+      "brown",
       "beige"
     ],
     "precio": "4000",
-    "descripcion": "Zandalias para verano",
+    "descripcion": "Sandalias para verano",
     "id": "8",
     "imagen1": "Imagen1-1605898319108.jpg"
   },
   {
     "nombre": "GARDA",
     "categoria": "calzado",
-    "categorias": "zandalias",
+    "categorias": "sandalias",
     "marca": "Wilcard",
     "talles": [
       "36",
@@ -178,19 +178,19 @@
     ],
     "colores": [
       "grey",
-      "broun",
+      "brown",
       "beige"
     ],
     "precio": "4000",
     "descuento": "10",
-    "descripcion": "Zandalias para verano",
+    "descripcion": "Sandalias para verano",
     "id": 10,
     "imagen1": "Imagen1-1605898326691.jpg"
   },
   {
     "nombre": "Chanclas",
     "categoria": "calzado",
-    "categorias": "zandalias",
+    "categorias": "sandalias",
     "marca": "Wilcard",
     "talles": [
       "36",
@@ -198,18 +198,18 @@
     ],
     "colores": [
       "grey",
-      "broun",
+      "brown",
       "beige"
     ],
     "precio": "4000",
     "descuento": "50",
-    "descripcion": "Zandalias para verano",
+    "descripcion": "Sandalias para verano",
     "id": 11,
     "imagen1": "Imagen1-1605898328206.jpg"
   },
   {
     "nombre": "Pantuflas",
-    "categorias": "zandalias",
+    "categorias": "sandalias",
     "marca": "Wilcard",
     "talles": [
       "36",
@@ -217,17 +217,17 @@
     ],
     "colores": [
       "grey",
-      "broun",
+      "brown",
       "beige"
     ],
     "precio": "4000",
-    "descripcion": "Zandalias para verano",
+    "descripcion": "Sandalias para verano",
     "id": "12",
     "imagen1": "Imagen1-1605898329238.jpg"
   },
   {
     "nombre": "Ojotas",
-    "categorias": "zandalias",
+    "categorias": "sandalias",
     "marca": "Wilcard",
     "talles": [
       "36",
@@ -236,11 +236,11 @@
     ],
     "colores": [
       "grey",
-      "broun",
+      "brown",
       "beige"
     ],
     "precio": "4000",
-    "descripcion": "Zandalias para verano",
+    "descripcion": "Sandalias para verano",
     "id": "13",
     "imagen1": "Imagen1-1605898330046.jpg"
   },

@@ -115,7 +115,7 @@ main .aside .formfiltro .submitbutton{
     padding: 5px 25px;
     font-weight: bold;
     color: white;
-    background-color: #661297;
+    background-color:#5F7F92; /* #4E4D4D;*/
     border: 1px solid white;
 }
 
@@ -134,10 +134,10 @@ main .producto .calzado{
 }
 main .producto .calzado:hover{
     width: 25%;
-    background-color: lightsalmon;
-    border: 3px solid  #661297;
+    background-color: #DBDDDE;
+    border: 3px solid #D2ECFC;
     /* text-shadow: 0 0 3px goldenrod, 0px 0px 5px yellow; */
-    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+    /* text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF; */
 }
 main .producto .calzado p{
     padding: 5px;
