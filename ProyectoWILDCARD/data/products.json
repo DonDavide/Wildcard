@@ -1,1 +1,268 @@
-[{"nombre":"Pelota","marca":"Spalding","talle":"456","color":"Rojo","precio":"3456","descripcion":"Pelota Spalding profesional","id":"0","imagen1":"Imagen1-1605643518247.jpg","imagen2":"Imagen2-1605643518250.jpg","imagen3":"Imagen3-1605643518256.jpg","imagen4":"Imagen4-1605643518259.jpg","imagen5":"Imagen5-1605643518262.jpg"},{"nombre":"Raqueta","marca":"dd","talle":"54","color":"Rojo","precio":"4564","descripcion":"asdasdasda","id":"1","imagen1":"Imagen1-1605643551039.jpg","imagen2":"Imagen2-1605643551042.jpg","imagen3":"Imagen3-1605643551048.jpg","imagen4":"Imagen4-1605643551056.jpg"},{"nombre":"TV","marca":"SONY","talle":"42","color":"Azul","precio":"456","descripcion":"TV HD 1080 ","id":"2","imagen1":"Imagen1-1605643582832.jpg","imagen2":"Imagen2-1605643582840.jpg","imagen3":"Imagen3-1605643582850.jpg","imagen4":"Imagen4-1605643582854.jpg","imagen5":"Imagen5-1605643582857.jpg","imagen6":"Imagen6-1605643582859.jpg"},{"nombre":"Zapatilla","categoria":"calzado","categorias":"zapatillas","marca":"Adidas","talle":"44","color":"Amarillo","precio":"345","descripcion":"asdasdasda","id":3,"imagen1":"Imagen1-1605643639600.jpg","imagen2":"Imagen2-1605643639602.jpg","imagen3":"Imagen3-1605643639610.jpg","imagen4":"Imagen4-1605643639615.jpg"}]
+[
+  {
+    "nombre": "Pelota",
+    "marca": "Spalding",
+    "talle": "456",
+    "color": "Rojo",
+    "precio": "3456",
+    "descripcion": "Pelota Spalding profesional",
+    "id": "0",
+    "talles": [
+      "36",
+      "37"
+    ],
+    "colores": [
+      "grey",
+      "brown",
+      "beige"
+    ],
+    "descuento": "20",
+    "imagen1": "Imagen1-1605643518247.jpg",
+    "imagen2": "Imagen2-1605643518250.jpg",
+    "imagen3": "Imagen3-1605643518256.jpg",
+    "imagen4": "Imagen4-1605643518259.jpg",
+    "imagen5": "Imagen5-1605643518262.jpg"
+  },
+  {
+    "nombre": "Raqueta",
+    "categorias": "mochilas",
+    "marca": "dd",
+    "talles": [
+      "36",
+      "37"
+    ],
+    "colores": [
+      "grey",
+      "brown",
+      "beige"
+    ],
+    "precio": "4564",
+    "descripcion": "Botas color negro de cuero ecologico.",
+    "id": "1",
+    "imagen1": "Imagen1-1605643551039.jpg",
+    "imagen2": "Imagen2-1605643551042.jpg",
+    "imagen3": "Imagen3-1605643551048.jpg",
+    "imagen4": "Imagen4-1605643551056.jpg"
+  },
+  {
+    "nombre": "TV SONY",
+    "marca": "SONY",
+    "talles": [
+      "36",
+      "37"
+    ],
+    "colores": [
+      "grey",
+      "brown",
+      "beige"
+    ],
+    "precio": "456",
+    "descripcion": "TV HD 1080 ",
+    "id": "2",
+    "imagen1": "Imagen1-1605643582832.jpg",
+    "imagen2": "Imagen2-1605643582840.jpg",
+    "imagen3": "Imagen3-1605643582850.jpg",
+    "imagen4": "Imagen4-1605643582854.jpg",
+    "imagen5": "Imagen5-1605643582857.jpg",
+    "imagen6": "Imagen6-1605643582859.jpg"
+  },
+  {
+    "nombre": "Zapatilla",
+    "categoria": "calzado",
+    "categorias": "zapatillas",
+    "marca": "Adidas",
+    "talles": [
+      "36",
+      "37"
+    ],
+    "colores": [
+      "grey",
+      "brown",
+      "beige"
+    ],
+    "precio": "345",
+    "descripcion": "asdasdasda",
+    "id": 3,
+    "imagen1": "Imagen1-1605643639600.jpg",
+    "imagen2": "Imagen2-1605643639602.jpg",
+    "imagen3": "Imagen3-1605643639610.jpg",
+    "descuento": "10",
+    "imagen4": "Imagen4-1605643639615.jpg"
+  },
+  {
+    "nombre": "Sandalias",
+    "categoria": "calzado",
+    "categorias": "sandalias",
+    "marca": "Nike",
+    "talles": [
+      "36",
+      "37"
+    ],
+    "colores": [
+      "grey",
+      "brown",
+      "beige"
+    ],
+    "precio": "12500",
+    "descripcion": "Sandalias cortas de cuero.",
+    "id": 4,
+    "imagen1": "Imagen1-1605646377650.jpg",
+    "descuento": "10"
+  },
+  {
+    "nombre": "Botas",
+    "categoria": "calzado",
+    "categorias": "botas",
+    "marca": "Texas Maiden",
+    "talles": [
+      "36",
+      "37"
+    ],
+    "colores": [
+      "grey",
+      "brown",
+      "beige"
+    ],
+    "precio": "15000",
+    "descripcion": "Botas color negro de cuero ecologico.",
+    "id": 5,
+    "imagen1": "Imagen1-1605647953949.jpg",
+    "descuento": "10"
+  },
+  {
+    "nombre": "PANCHAS",
+    "categoria": "calzado",
+    "categorias": "sandalias",
+    "marca": "Wilcard",
+    "talles": [
+      "36",
+      "37"
+    ],
+    "colores": [
+      "grey",
+      "brown",
+      "beige"
+    ],
+    "precio": "4000",
+    "descuento": "10",
+    "descripcion": "Sandalias para verano",
+    "id": 7,
+    "imagen1": "Imagen1-1605898137806.jpg"
+  },
+  {
+    "nombre": "GARDA",
+    "categorias": "sandalias",
+    "marca": "Wilcard",
+    "talles": [
+      "36",
+      "37"
+    ],
+    "colores": [
+      "grey",
+      "brown",
+      "beige"
+    ],
+    "precio": "4000",
+    "descripcion": "Sandalias para verano",
+    "id": "8",
+    "imagen1": "Imagen1-1605898319108.jpg"
+  },
+  {
+    "nombre": "GARDA",
+    "categoria": "calzado",
+    "categorias": "sandalias",
+    "marca": "Wilcard",
+    "talles": [
+      "36",
+      "37"
+    ],
+    "colores": [
+      "grey",
+      "brown",
+      "beige"
+    ],
+    "precio": "4000",
+    "descuento": "10",
+    "descripcion": "Sandalias para verano",
+    "id": 10,
+    "imagen1": "Imagen1-1605898326691.jpg"
+  },
+  {
+    "nombre": "Chanclas",
+    "categoria": "calzado",
+    "categorias": "sandalias",
+    "marca": "Wilcard",
+    "talles": [
+      "36",
+      "37"
+    ],
+    "colores": [
+      "grey",
+      "brown",
+      "beige"
+    ],
+    "precio": "4000",
+    "descuento": "50",
+    "descripcion": "Sandalias para verano",
+    "id": 11,
+    "imagen1": "Imagen1-1605898328206.jpg"
+  },
+  {
+    "nombre": "Pantuflas",
+    "categorias": "sandalias",
+    "marca": "Wilcard",
+    "talles": [
+      "36",
+      "37"
+    ],
+    "colores": [
+      "grey",
+      "brown",
+      "beige"
+    ],
+    "precio": "4000",
+    "descripcion": "Sandalias para verano",
+    "id": "12",
+    "imagen1": "Imagen1-1605898329238.jpg"
+  },
+  {
+    "nombre": "Ojotas",
+    "categorias": "sandalias",
+    "marca": "Wilcard",
+    "talles": [
+      "36",
+      "37",
+      "large"
+    ],
+    "colores": [
+      "grey",
+      "brown",
+      "beige"
+    ],
+    "precio": "4000",
+    "descripcion": "Sandalias para verano",
+    "id": "13",
+    "imagen1": "Imagen1-1605898330046.jpg"
+  },
+  {
+    "nombre": "Botas",
+    "categorias": "botas",
+    "marca": "Topper",
+    "talles": [
+      "35",
+      "36",
+      "42"
+    ],
+    "colores": [
+      "black",
+      "grey",
+      "red"
+    ],
+    "precio": "3424",
+    "descuento": "",
+    "descripcion": "Botas color negro de cuero ecologico.",
+    "id": "23",
+    "imagen1": "Imagen1-1606258320269.jpg",
+    "imagen2": "Imagen2-1606258320279.jpg"
+  }
+]

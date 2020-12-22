@@ -9,27 +9,27 @@
         <%- include('../partials/header') %>
         <main>
             <div class="subheader">
-                <p><a href="#">Inicio</a> > Crear Cuenta</p>
+                <p><a href="#">Inicio</a> > Editar Cuenta</p>
             </div>
             <div class="inputsContainer">
-                <form action="/users/register" method="post">
+                <form action="/users/userList/edit/<%= userEdit.id %>" method="post">
                     <div class="auxiliarInputsContainer">
                         
                         <div class="fullnameInputContainer">
+                        <label for="Id">ID</label>
+                        <input type="number" name="id" id="id" value="<%= userEdit.id%>" readonly>   
                         <label for="fullname">NOMBRE Y APELLIDO</label>
-                        <input type="text" name="fullname" id="fullname">
+                        <input type="text" name="fullname" id="fullname" value="<%= userEdit.fullname %>">
                         </div> <br>
                         <label for="email">EMAIL</label>
-                        <input type="email" name="email" id="email"> <br>
+                        <input type="email" name="email" id="email" value="<%= userEdit.email %>" > <br>
                         <label for="text">TELÉFONO (OPCIONAL)</label>
-                        <input type="text" name="telefono" id="telefono"> <br>
+                        <input type="text" name="telefono" id="telefono" value="<%= userEdit.telefono %>"> <br>
                         <label for="password">CONTRASEÑA</label>
-                        <input type="password" name="password" id="password"> <br>
-                        <label for="password">CONFIRMAR CONTRASEÑA</label>
-                        <input type="password" name="confirmpassword" id="confirmpassword"> <br>
+                        <input type="password" name="password" id="password" value="<%= userEdit.password %>" readonly> <br>
 
-                        <button type="submit" id="entrar">CREAR CUENTA</button> <br>
-                        <button type="reset" id="cancelar"><a href="/">CANCELAR</a></button>
+                        <button type="submit" id="entrar">EDITAR Cuenta</button> <br>
+                        <button type="reset" id="cancelar"><a href="users/userList">CANCELAR</a></button>
                     
                     </div> 
                 </form>

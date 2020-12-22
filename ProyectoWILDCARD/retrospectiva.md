@@ -5,6 +5,7 @@ Distribuir las tarjetas al principio del sprint, tomando cada uno las etiquetas 
 Realizar las pruebas de las vistas y archivos subidos por compañeros que quedan en el apartado testing del trello.
 Verificar que al avanzar nos nos queden tareas pendientes.
 Atomizar el proyecto para poder dividir mejor el trabajo.
+Comentar el codigo escrito para facilitar el analisis del mismo.
 3. Continuar haciendo
 Mantener el ritmo de trabajo.
 Mantener la flexibilidad de las tareas a realizar.

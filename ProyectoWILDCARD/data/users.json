@@ -1,0 +1,51 @@
+[
+  {
+    "id": "1",
+    "fullname": "David Donati",
+    "email": "daviddonati730@gmail.com",
+    "telefono": "3413664932",
+    "password": "1234567"
+  },
+  {
+    "id": "2",
+    "fullname": "juan perez",
+    "email": "perezdos@gmail.com",
+    "telefono": "2343244354",
+    "password": "123456578"
+  },
+  {
+    "id": 3,
+    "fullname": "juan perez",
+    "email": "perezdos@gmail.com",
+    "telefono": "3413058603",
+    "password": "12345678"
+  },
+  {
+    "id": 4,
+    "fullname": "juan perez",
+    "email": "perezdos@gmail.com",
+    "telefono": "3413058603",
+    "password": "12345"
+  },
+  {
+    "id": 5,
+    "fullname": "juan perez",
+    "email": "perezdos111@gmail.com",
+    "telefono": "3413033603",
+    "password": "1111"
+  },
+  {
+    "id": 6,
+    "fullname": "juan lopez",
+    "email": "lopez@gmail.com",
+    "telefono": "341344333",
+    "password": "12345"
+  },
+  {
+    "id": 7,
+    "fullname": "Juana Vojtacek",
+    "email": "jaunalaloca@juana.com.ar",
+    "telefono": "1112223344",
+    "password": "$2b$10$etQrMfaT68vqwEFBoYVt8ur8ZYfpqot8/pfmYIA1RB2s0./uD5H02"
+  }
+]

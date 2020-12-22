@@ -2,11 +2,12 @@ var fs = require('fs');
 
 var rawdata = fs.readFileSync(__dirname + "/../data/products.json");
 let listaProductos = JSON.parse(rawdata);
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const adminController = {
     listaProducto: (req, res, next) => {
         res.render('admin/listProducts', {
-            listaProductos
+            listaProductos, toThousand
         });
     },
 
@@ -42,7 +43,7 @@ const adminController = {
         } 
 
         listaProductos.push(productoNuevo);
-        let listaProductosString = JSON.stringify(listaProductos);
+        let listaProductosString = JSON.stringify(listaProductos, null, 2);
         fs.writeFileSync(__dirname + "/../data/products.json", listaProductosString);
         
         res.render('admin/listProducts', {
@@ -104,15 +105,29 @@ const adminController = {
                 listaProductosEditada.push(listaProductos[i]);
             }
         }
+        var productRel = listaProductos.filter(function(producto){//crear variable para enviar productos relacionados.
+            return producto.categorias==productNewEdit.categorias
+        });
 
-        let listaProductosString = JSON.stringify(listaProductosEditada);
+        let listaProductosString = JSON.stringify(listaProductosEditada, null, 2);
         fs.writeFileSync(__dirname + "/../data/products.json", listaProductosString);
 
         res.render('products/productDetail', {
             productSelect: productNewEdit,
-            productEdit: productNewEdit
+            productEdit: productNewEdit, productRel, toThousand
         });
     },
+    destroy : (req, res) => {
+		var idProduct = req.params.id;
+		var productDestroy = listaProductos.filter(function(Product){
+			return Product.id!=idProduct; 
+		})
+		var productDestroyJSON = JSON.stringify(productDestroy, null, 2);
+		fs.writeFileSync(__dirname + '/../data/products.json', productDestroyJSON);
+		
+		
+		res.redirect("/admin/products")
+	}
 }
 
 module.exports = adminController;

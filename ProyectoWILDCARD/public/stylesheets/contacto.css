@@ -26,6 +26,10 @@ main .contacto .contactoForm{
   flex-direction: column;
 }
 
+main .contacto .contactoForm .inputt {
+  height: 35px;
+}
+
 .botonEnviar {
   height: 35px;
   background-color: #000;
