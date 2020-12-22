@@ -2,6 +2,7 @@ const fs = require('fs');
 const { UnsupportedMediaType } = require('http-errors');
 const path = require('path');
 const bcrypt = require("bcrypt")
+const db = require("../database/models");
 
 var usersFilePath = path.join(__dirname, '../data/users.json');
 var users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
@@ -14,7 +15,21 @@ const usersController = {
         res.render('users/register.ejs')
     },
     store: (req, res, next) => {
-        var allIds=[];
+
+        if(req.body.password != req.body.confirmpassword){
+            return res.send("La contraseña y la confirmacion de contraseña deben ser iguales")
+        }
+
+        db.Usuarios.create({
+            nombre: req.body.fullname,
+            email: req.body.email,
+            telefono: req.body.telefono,
+            password:  bcrypt.hashSync(req.body.password, 10), //encripto la contraseña
+            permiso: "externo"
+        })
+        res.send('bienvenido '+req.body.fullname);
+
+        /* var allIds=[];
 		for (i = 0 ; i < users.length; i ++){
 			if(users[i].id){
 				allIds.push(parseInt(users[i].id)); //Inserto todos los IDS del objeto products en un array.
@@ -50,7 +65,7 @@ const usersController = {
         carritos.push({id : nuevoId, products:[]});//capturo el ID para crear carrito con mismo ID que el usuario
         carritosJSON = JSON.stringify(carritos, null, 2);//convierto el array carritos en un archivo JSON
         fs.writeFileSync(__dirname + '/../data/carritos.json', carritosJSON)//escribo el JSON con el carrito y el id del usuario nuevo.
-        res.send('bienvenido '+req.body.fullname);
+        res.send('bienvenido '+req.body.fullname); */
     },
     login: (req, res, next) => {
         res.render('users/login.ejs');
@@ -82,7 +97,8 @@ const usersController = {
         res.render('users/userEdit.ejs', {
             userEdit
         })
-    } , editarUsuarioPost: (req, res) => {
+    }, 
+    editarUsuarioPost: (req, res) => {
 		var idUser = req.params.id;
 		console.log(req.params.id);
 		var editUser = users.map(function(user){

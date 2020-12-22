@@ -1,4 +1,5 @@
 var fs = require('fs');
+const db = require("../database/models");
 
 var rawdata = fs.readFileSync(__dirname + "/../data/products.json");
 let listaProductos = JSON.parse(rawdata);
@@ -15,7 +16,18 @@ const adminController = {
         res.render('admin/newProduct');
     },
     nuevoProductoPost: (req, res, next) => {
-        let productoNuevo = req.body;
+
+        db.Productos.create({
+            nombre: req.body.nombre,
+            precio: req.body.precio,
+            descuento: req.body.descuento,
+            tipo: req.body.categoria,
+            categoria:  req.body.categorias,
+            descripcion: req.body.descripcion
+        })
+        res.send('Producto creado '+req.body.nombre);
+
+        /* let productoNuevo = req.body;
         productoNuevo.id = listaProductos.length;
         if (req.files.length >= 1){
             productoNuevo.imagen1 = req.files[0].filename;
@@ -48,7 +60,7 @@ const adminController = {
         
         res.render('admin/listProducts', {
             listaProductos
-        });
+        }); */
     },
 
     editarProducto: (req, res, next) => {
