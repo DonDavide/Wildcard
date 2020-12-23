@@ -21,22 +21,15 @@
     "password": "12345678"
   },
   {
-    "id": 4,
-    "fullname": "juan perez",
-    "email": "perezdos@gmail.com",
-    "telefono": "3413058603",
+    "id": "4",
+    "fullname": "Pepe Garcia",
+    "email": "pepegarcia@gmail.com",
+    "telefono": "3413111234",
     "password": "12345"
   },
   {
-    "id": 5,
-    "fullname": "juan perez",
-    "email": "perezdos111@gmail.com",
-    "telefono": "3413033603",
-    "password": "1111"
-  },
-  {
-    "id": 6,
-    "fullname": "juan lopez",
+    "id": "6",
+    "fullname": "Jose lopez",
     "email": "lopez@gmail.com",
     "telefono": "341344333",
     "password": "12345"
@@ -47,5 +40,12 @@
     "email": "jaunalaloca@juana.com.ar",
     "telefono": "1112223344",
     "password": "$2b$10$etQrMfaT68vqwEFBoYVt8ur8ZYfpqot8/pfmYIA1RB2s0./uD5H02"
+  },
+  {
+    "id": 8,
+    "fullname": "Diego Armando Maradona",
+    "email": "lamanoded10s@maradona.com",
+    "telefono": "0800346231",
+    "password": "$2b$10$c3yhOGHRv/DXVTJIq2LTMuJoEi3by3PwRAA/nWjDUn8Fa9Ur1uEdC"
   }
 ]

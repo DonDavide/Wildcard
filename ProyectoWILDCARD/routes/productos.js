@@ -4,7 +4,10 @@ const productoController = require('../controllers/productosController')
 
 router.get('/', productoController.productos);
 // post
-router.get('/:id', productoController.detalleProducto);
 // post
+router.post('/search/', productoController.busquedaProductos);//ver si se hace por GET
+
+
+router.get('/:id', productoController.detalleProducto);
 
 module.exports = router;

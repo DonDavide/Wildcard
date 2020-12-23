@@ -2,21 +2,19 @@
   {
     "nombre": "Pelota",
     "marca": "Spalding",
-    "talle": "456",
-    "color": "Rojo",
-    "precio": "3456",
-    "descripcion": "Pelota Spalding profesional",
-    "id": "0",
     "talles": [
       "36",
       "37"
     ],
     "colores": [
       "grey",
-      "brown",
+      "broun",
       "beige"
     ],
+    "precio": "3456",
     "descuento": "20",
+    "descripcion": "Pelota Spalding profesional",
+    "id": "0",
     "imagen1": "Imagen1-1605643518247.jpg",
     "imagen2": "Imagen2-1605643518250.jpg",
     "imagen3": "Imagen3-1605643518256.jpg",
