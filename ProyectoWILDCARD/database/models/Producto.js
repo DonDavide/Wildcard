@@ -27,6 +27,9 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING(1000),
             allowNull: true
         },
+        usuario: {
+            type: DataTypes.STRING
+        },
         createdAt: {
             type: DataTypes.DATE
         },
@@ -61,18 +64,14 @@ module.exports = (sequelize, DataTypes) => {
             otherKey: "id_talle",
             timestamps: false
         });
-        Productos.belongsToMany(modelos.Marcas, {
+        Productos.belongsTo(modelos.Marcas, {
             as: "marcas",
-            through: "producto_marca",
-            foreignKey: "id_producto",
-            otherKey: "id_marca",
+            foreignKey: "id_marca",
             timestamps: false
         });
-        Productos.belongsToMany(modelos.Imagenes, {
+        Productos.hasMany(modelos.Imagenes, {
             as: "imagenes",
-            through: "producto_imagen",
             foreignKey: "id_producto",
-            otherKey: "id_imagen",
             timestamps: false
         });    
     } 

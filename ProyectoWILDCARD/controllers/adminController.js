@@ -13,7 +13,11 @@ const adminController = {
     },
 
     nuevoProducto: (req, res, next) => {
-        res.render('admin/newProduct');
+        db.Marcas.findAll()
+        .then(function(marcas){
+            res.render('admin/newProduct', {marcas})
+        })
+        ;
     },
     nuevoProductoPost: (req, res, next) => {
 
@@ -22,10 +26,54 @@ const adminController = {
             precio: req.body.precio,
             descuento: req.body.descuento,
             tipo: req.body.categoria,
+            usuario: req.body.usuario,
             categoria:  req.body.categorias,
-            descripcion: req.body.descripcion
+            descripcion: req.body.descripcion,
+            id_marca: req.body.marca
+            
         })
-        res.send('Producto creado '+req.body.nombre);
+        .then(function(){
+            db.Productos.max('id').then(resultado => {
+                for (var i = 0 ; i < req.body.talles.length ; i ++){
+                    db.Producto_talle.create({
+                        id_producto : resultado,
+                        id_talle : req.body.talles[i]
+                    })
+                }
+                }) 
+        })
+        .then(function(){
+            db.Productos.max('id').then(resultado => {
+                for (var i = 0 ; i < req.body.colores.length ; i ++){
+                    db.Producto_color.create({
+                        id_producto : resultado,
+                        id_color : req.body.colores[i]
+                    })
+                }
+                }) 
+        })
+        .then(function(){
+            db.Productos.max('id').then(resultado => {
+                for (var i = 0 ; i < req.files.length ; i ++){
+                    db.Imagenes.create({
+                       id_producto : resultado,
+                        path : req.files[i].filename,
+                       nombre : req.files[i].originalname
+                    })
+                }
+                }) 
+        })
+        .then(function(){
+            db.Productos.findAll({
+                order: [
+                    ['nombre', 'ASC'],
+                    ],
+            })
+        })
+        .then(function(productos){
+
+            res.redirect('/products');
+        }) 
 
         /* let productoNuevo = req.body;
         productoNuevo.id = listaProductos.length;

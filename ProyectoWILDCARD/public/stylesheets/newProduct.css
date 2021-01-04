@@ -84,14 +84,23 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-around;
-    width: 100%;
+    width: 95%;
     }
 .container main.newProduct div.primerCategoria div.tipo label.uno {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: flex-start;
-    width: 100%;
+    width: 30%;
+    padding: 10px;
+    border-radius: 5px; 
+    }
+.container main.newProduct div.primerCategoria div.tipo select {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 70%;
     padding: 10px;
     border-radius: 5px; 
     }
@@ -258,7 +267,7 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: flex-end;
-    width: 35%;
+    width: 20%;
     margin-top: 20px;
     margin-bottom: 20px;
     padding: 10px;
@@ -276,6 +285,30 @@
     justify-content: left;
     border-radius: 5px;
     }
+    .container main.newProduct div.primerCategoria div.esp div select{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: flex-end;
+        width: 50%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding: 10px;
+        justify-content: left;
+        border-radius: 5px;
+        }
+        .container main.newProduct div.primerCategoria div.esp div a{
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: flex-end;
+            width: 15%;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding: 10px;
+            justify-content: left;
+            border-radius: 5px;
+            }
 
 .container main.newProduct div.primerCategoria button.agregarProducto{
     width: 40%;

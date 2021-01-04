@@ -1,8 +1,9 @@
-<form action="/home" method="GET" class="formfiltro">
+<form action="../products/filtro" method="POST" class="formfiltro">
     <div class="filtro filtroPersona">
-        <div><input class="persona" type="radio" name="persona" value="M" id="Mujer"><label for="Mujer">Mujer</label> </div>
-        <div><input class="persona" type="radio" name="persona" value="H" id="Hombre"><label for="Hombre">Hombre</label> </div>
-        <div><input class="persona" type="radio" name="persona" value="N" id="Nino"><label for="Nino">Niño</label></div>
+        <div><input class="persona" type="radio" name="persona" value="" id="Todos" checked><label for="Todos">Todos</label> </div>
+        <div><input class="persona" type="radio" name="persona" value="mujer" id="Mujer"><label for="Mujer">Mujer</label> </div>
+        <div><input class="persona" type="radio" name="persona" value="hombre" id="Hombre"><label for="Hombre">Hombre</label> </div>
+        <div><input class="persona" type="radio" name="persona" value="niño" id="Nino"><label for="Nino">Niño</label></div>
     </div>
     <br><br>
 
@@ -27,7 +28,7 @@
     <br><br>
     <div class="filtro filtroPrecio">
         <div><label for="preciomin">Precio Mínimo</label> / <label for="preciomax">Precio Máximo</label></div>
-        <div><input type="number" name="preciomin" id="preciomin" size="10" min="0" style="width:100px"> / <input type="number" name="preciomax" id="preciomax" size="10" min="0" style="width:100px"></div>
+        <div><input type="number" name="preciomin" id="preciomin" value="0" size="10" min="0" style="width:100px"> / <input type="number" name="preciomax" id="preciomax" value="100000" size="10" min="0" style="width:100px"></div>
     </div>                   
     <br><br>
 

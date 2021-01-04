@@ -10,33 +10,25 @@
     <div class="container">
 
         <%- include('../partials/header') %>
-
         <main>
             <aside class="aside">
                 <%- include('../partials/filtroListaProductos') %>
             </aside>
             <section class="producto"  >
-                <% if (listaProductos.length >= 50){ %>
-                    <% for(let i=0; i<50; i++){ %>
-                    <div class="calzado" onclick="javascript:location.href='/products/<%= listaProductos[i].id %>'">
-                        <p class="titulo"><%= listaProductos[i].nombre %></p> 
-                        <img src="/img/products/<%= listaProductos[i].imagen1 %>" alt="">
-                        <p class="precio">$ <%= toThousand(listaProductos[i].precio) %></p> 
-                        <p class="oferta">(<%= listaProductos[i].descuento %>% OFF)</p>
+                <% for ( var i =0; i < productos.length; i++){ %>
+                    
+                    <div class="calzado" onclick="javascript:location.href='/products/<%= productos[i].id %>'">
+                        <p class="titulo"><%=productos[i].nombre%></p>
+                        <p class="titulo"><%=console.log(productos[i].talles[0].talle)%></p>
+                        <img src="/img/products/<%= productos[i].imagenes[0].path %>" alt="<%= productos[i].imagenes[0].nombre %>">
+                        <p class="precio">$ <%= toThousand(productos[i].precio) %></p> 
+                        <p class="oferta">(<%=productos[i].descuento%> % OFF)</p>
                         <p class="envio">Envio</p> 
                     </div>
-                    <% } %>
-                <% } else if (listaProductos.length < 50){ %>
-                    <% for(let i=0; i<listaProductos.length; i++){ %>
-                    <div class="calzado" onclick="javascript:location.href='/products/<%= listaProductos[i].id %>'">
-                        <p class="titulo"><%= listaProductos[i].nombre %></p> 
-                        <img src="/img/products/<%= listaProductos[i].imagen1 %>" alt="">
-                        <p class="precio">$ <%= toThousand(listaProductos[i].precio) %></p> 
-                        <p class="oferta">(<%= listaProductos[i].descuento %>% OFF)</p>
-                        <p class="envio">Envio</p> 
-                    </div>
-                    <% } %>
-                <% } %>
+                    
+                <%}%>
+
+             
             </section>
             
         </main>

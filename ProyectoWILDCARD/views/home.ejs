@@ -9,7 +9,7 @@
 
 <body>
     <div class="container">
-        <%- include('partials/header') %>
+        <%- include('partials/header_home') %>
         <main class="home">
             <div class="slider">
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -33,9 +33,9 @@
                   <span class="sr-only">Next</span>
                 </a>
               </div></div>
-            <div class="imagenes"><img src="/img/tendencias.jpg" alt="Nuevos INGRESOS"><div class="contenedorSecciones"><p class="nuevosIngresos">NUEVOS INGRESOS</p></div></div>
-            <div class="imagenes"><img src="/img/zandalias.jpg" alt="Sale"><div class="contenedorSecciones"><p class="sale">SALE</p></div></div>
-            <div class="imagenes"><img src="/img/zapatos.jpg" alt="Toda la coleccion"><div class="contenedorSecciones"><p class="todaLaColeccion">TODA LA COLECCION</p></div></div>
+            <div class="imagenes"><img src="/img/tendencias.jpg" alt="Nuevos INGRESOS"><div class="contenedorSecciones"><a href="/products/ultimos"><p class="nuevosIngresos">NUEVOS INGRESOS</p></a></div></div>
+            <div class="imagenes"><img src="/img/zandalias.jpg" alt="Sale"><div class="contenedorSecciones"><a href="/products/ofertas"><p class="sale">SALE</p></a></div></div>
+            <div class="imagenes"><img src="/img/zapatos.jpg" alt="Toda la coleccion"><div class="contenedorSecciones"><a href="/products"><p class="todaLaColeccion">TODA LA COLECCION</p></a></div></div>
         </main>
         <%- include('partials/footer') %>
     </div>

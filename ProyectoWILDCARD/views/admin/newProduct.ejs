@@ -6,14 +6,20 @@
 </head>
 <body>
     <div class="container">
-        <%- include('../partials/header') %>  
+        <%- include('../partials/header_admin') %>  
         <main class="newProduct">
             <form action="/admin/products" method="POST" enctype="multipart/form-data">
                 <div class="nombre">
                     <label for="nombre">NOMBRE DE NUEVO PRODUCTO</label> <input type="text" name="nombre" id="nombre" placeholder="Nombre del producto">
                 </div>
                 <div class="primerCategoria">
-                    <div class="tipo">                
+                    <div class="tipo">
+                        <label class="uno" for="usuario">TIPO DE USUARIO</label>  
+                        <select name="usuario" id="usuario">
+                            <option value="mujer" selected>MUJER</option>
+                            <option value="hombre">HOMBRE</option>
+                            <option value="niño">NIÑO</option>
+                        </select>              
                         <label class="uno" for="categoria">CATEGORIA DEL PRODUCTO</label>
                         <div><label for="calzado">CALZADO</label><input  class="check" type="radio" name="categoria" id="calzado" value="calzado"></div>
                         <div><label for="accesorios">ACCESORIOS</label><input  class="check" type="radio" name="categoria" id="accesorios" value="accesorios"></div>
@@ -38,33 +44,40 @@
                     </div>
                     
                     <div class="esp">
-                        <div><label for="marca">MARCA :</label> <input type="text" name="marca" id="marca" placeholder="Marca del producto"></div>
+                        <div><label for="marca">MARCA :</label>
+                            
+                            <select name="marca" id="marca">
+                            <% for (let i = 0; i < marcas.length; i++) {%>
+                            <option value="<%=marcas[i].id%>" selected><%=marcas[i].nombre%></option>
+                            <%}%>
+                        </select><a href="/admin/products/create/agregarMarca">(agregar marca)</a></div>      
                         <div class="talles"><label class="tituloTalle" for="talle">TALLES :</label> 
-                            <label><input type="checkbox" id="talles" name="talles" value="34"> 34</label>
-                            <label><input type="checkbox" id="talles" name="talles"  value="35"> 35</label>
-                            <label><input type="checkbox" id="talles" name="talles"  value="36"> 36</label>
-                            <label><input type="checkbox" id="talles" name="talles"  value="37"> 37</label>
-                            <label><input type="checkbox" id="talles" name="talles"  value="38"> 38</label>
-                            <label><input type="checkbox" id="talles" name="talles"  value="39"> 39</label>
-                            <label><input type="checkbox" id="talles" name="talles"  value="40"> 40</label>
-                            <label><input type="checkbox" id="talles" name="talles"  value="41"> 41</label>
-                            <label><input type="checkbox" id="talles" name="talles"  value="42"> 42</label>
-                            <label><input type="checkbox" id="talles" name="talles"  value="x-small"> XS</label>
-                            <label><input type="checkbox" id="talles" name="talles"  value="small"> SMALL</label>
-                            <label><input type="checkbox" id="talles" name="talles"  value="medium"> M</label>
-                            <label><input type="checkbox" id="talles" name="talles"  value="large"> LARGE</label>
-                            <label><input type="checkbox" id="talles" name="talles"  value="x-large"> XL</label>
+                            <label><input type="checkbox" id="talles" name="talles" value="1"> 34</label>
+                            <label><input type="checkbox" id="talles" name="talles"  value="2"> 35</label>
+                            <label><input type="checkbox" id="talles" name="talles"  value="3"> 36</label>
+                            <label><input type="checkbox" id="talles" name="talles"  value="4"> 37</label>
+                            <label><input type="checkbox" id="talles" name="talles"  value="5"> 38</label>
+                            <label><input type="checkbox" id="talles" name="talles"  value="6"> 39</label>
+                            <label><input type="checkbox" id="talles" name="talles"  value="7"> 40</label>
+                            <label><input type="checkbox" id="talles" name="talles"  value="8"> 41</label>
+                            <label><input type="checkbox" id="talles" name="talles"  value="9"> 42</label>
+                            <label><input type="checkbox" id="talles" name="talles"  value="10"> XS</label>
+                            <label><input type="checkbox" id="talles" name="talles"  value="11"> SMALL</label>
+                            <label><input type="checkbox" id="talles" name="talles"  value="12"> M</label>
+                            <label><input type="checkbox" id="talles" name="talles"  value="13"> LARGE</label>
+                            <label><input type="checkbox" id="talles" name="talles"  value="14"> XL</label>
+                            <a href="/admin/products/create/agregarMarca">(agregar talle)</a>
                         </div>
                         <div class="colores"><label class="tituloColores" for="colores">COLORES :</label> 
-                            <label><input type="checkbox" id="colores" name="colores"  value="white"> BLANCO</label>
-                            <label><input type="checkbox" id="colores" name="colores" value="black"> NEGRO</label>
-                            <label><input type="checkbox" id="colores" name="colores" value="grey"> GRIS</label>
-                            <label><input type="checkbox" id="colores" name="colores" value="red"> ROJO</label>
-                            <label><input type="checkbox" id="colores" name="colores" value="blue"> AZUL</label>
-                            <label><input type="checkbox" id="colores" name="colores" value="yellow"> AMARILLO</label>
-                            <label><input type="checkbox" id="colores" name="colores" value="green"> VERDE</label>
-                            <label><input type="checkbox" id="colores" name="colores" value="broun"> MARRON</label>
-                            <label><input type="checkbox" id="colores" name="colores" value="beige"> BEIGE</label>
+                            <label><input type="checkbox" id="colores" name="colores"  value="1"> BLANCO</label>
+                            <label><input type="checkbox" id="colores" name="colores" value="2"> NEGRO</label>
+                            <label><input type="checkbox" id="colores" name="colores" value="3"> GRIS</label>
+                            <label><input type="checkbox" id="colores" name="colores" value="4"> ROJO</label>
+                            <label><input type="checkbox" id="colores" name="colores" value="5"> AZUL</label>
+                            <label><input type="checkbox" id="colores" name="colores" value="6"> AMARILLO</label>
+                            <label><input type="checkbox" id="colores" name="colores" value="7"> VERDE</label>
+                            <label><input type="checkbox" id="colores" name="colores" value="8"> MARRON</label>
+                            <label><input type="checkbox" id="colores" name="colores" value="9"> BEIGE</label>
                          </div>
 
                         <div><label for="precio">PRECIO :</label> <input type="number" name="precio" id="precio" placeholder="Precio del producto"></div>

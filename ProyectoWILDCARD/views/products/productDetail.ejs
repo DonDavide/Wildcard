@@ -9,105 +9,32 @@
 <body>
     <div class="container">
 
-        <header>
-            <div class="tituloh2">
-                <h2>ENVÍOS A TODO EL PAÍS</h2>
-            </div>
-            <menu>
-                <i class="fas fa-bars"></i></i>
-            </menu>
-            <div class="logoArlequin">
-                <img src="/img/logoArlequin.jpg" height="100%" alt="Logo Arlequin">
-            </div>
-            <div class="logo">
-                <a href="/">Wildcard</a>
-            </div>
-            <div class="barraYCarrito">
-                <div class="barraDeBusqueda"> 
-                <form action="/products/search/" method="POST">
-                <input type="text" name="search" id="barraDeBusqueda" placeholder="Buscar productos">
-                <Button type="submit"><i class="fas fa-search"></i></Button>
-                </form>
-            </div>
-                <div class="carrito">
-                    <i class="fas fa-shopping-cart" onclick="javascript:location.href='/users/carrito'"></i>
-                </div>
-            </div>
-            <nav>
-                <ul class="menu">
-                    <li >
-                        <a href="/products">COLECCION</a> 
-                    </li>
-                    <li>
-                        <a href="/products">ACCESORIOS</a> 
-                    </li>
-                    <li>
-                        <a href="/ayuda">AYUDA</a> 
-                    </li>
-                    <li>
-                        <a href="/contactanos">CONTACTANOS</a> 
-                    </li>
-                    </ul>
-                <ul class="usuario">
-                    <li>
-                        <a href="/users/login">INICIAR SESION</a>  
-                    </li>
-                    <li>
-                        <a href="/users/register">CREAR CUENTA</a>  
-                    </li>
-                </ul>
-            </nav>
-            <div class="logoWsapp"><i class="fab fa-whatsapp"></i></div>
-            
-        </header>
-        
+        <%- include('../partials/header') %>
+          
         <main>
             <section class="producto">
                 
                 <div class="datosProducto">
                     <article class="imagenesProducto">
                         <div class="imagenesCarousel">
-                            <!-- <% for(let i=0; i<7; i++){ %>
-                                <img src="/img/ZapatoPrueba.jpg" alt="">
-                            <% } %> -->
-                            <% if ( productSelect.imagen1 ){ %>
-                                <img src="/img/products/<%= productSelect.imagen1 %>" alt="">
-                            <% } %>
-                            <% if ( productSelect.imagen2 ){ %>
-                                <img src="/img/products/<%= productSelect.imagen2 %>" alt="">
-                            <% } %>
-                            <% if ( productSelect.imagen3 ){ %>
-                                <img src="/img/products/<%= productSelect.imagen3 %>" alt="">
-                            <% } %>
-                            <% if ( productSelect.imagen4 ){ %>
-                                <img src="/img/products/<%= productSelect.imagen4 %>" alt="">
-                            <% } %>
-                            <% if ( productSelect.imagen5 ){ %>
-                                <img src="/img/products/<%= productSelect.imagen5 %>" alt="">
-                            <% } %>
-                            <% if ( productSelect.imagen6 ){ %>
-                                <img src="/img/products/<%= productSelect.imagen6 %>" alt="">
-                            <% } %>
-                            <% if ( productSelect.imagen7 ){ %>
-                                <img src="/img/products/<%= productSelect.imagen7 %>" alt="">
-                            <% } %>
-                            <% if ( productSelect.imagen8 ){ %>
-                                <img src="/img/products/<%= productSelect.imagen8 %>" alt="">
+                            <% for (let i=0; i< producto.imagenes.length; i++){ %>
+                                <img src="/img/products/<%= producto.imagenes[i].path %>" alt="imagen">  
                             <% } %>
                         </div>
                         <div class="imagenesSelect">
-                            <img src="/img/products/<%= productSelect.imagen1 %>" alt="">
+                            <img src="/img/products/<%= producto.imagenes[0].path %>" alt="">
                         </div>
                     </article>
                     <article class="descripcionProducto">
                         Detalles del producto
-                        <p> <%= productSelect.descripcion %> </p>
+                        <p> <%= producto.descripcion %> </p>
                     </article>
                 </div>
 
                 <form action="/home" method="GET" class="formularioCompra">
-                    <tittle id="nombre"> <%= productSelect.nombre %> </tittle>
-                    <p id="precio"> $ <%= toThousand(productSelect.precio) %> </p>
+                    <tittle id="nombre"> <%= producto.nombre %> </tittle>
+                    <tittle id="nombre"> Marca : <%= producto.marcas.nombre %> </tittle>
+                    <p id="precio"> $ <%= toThousand(producto.precio) %> </p>
                     <p id="oferta">3 Cuotas SIN INTERÉS</p>
                     <div class="talles">
                         <div class="categoria">
@@ -115,19 +42,19 @@
                             <p id="guiaTalles" onclick="javascript:location.href='/ayuda'">Ver guía de talles</p>
                         </div>
                         <div class="botontesSelect">
-                            <% for ( let i= 0; i< productSelect.talles.length; i++ ){ %>
-                            <button type="button"> <%= productSelect.talles[i] %> </button>
+                            <% for ( let i= 0; i< producto.talles.length; i++ ){ %>
+                            <button type="button"> <%= producto.talles[i].talle %> </button>
                             <% } %>
                         </div>
-                    </div>
-                    <div class="colores">
+                        <div class="colores">
                         <p class="categoria">Colores: <b></b></p>
                         <div class="botontesSelect">
-                            <% for ( let i= 0; i< productSelect.colores.length; i++ ){ %>
-                            <button type="button" style="background-color:<%= productSelect.colores[i]%>"></button>
+                            <% for ( let i= 0; i< producto.colores.length; i++ ){ %>
+                            <button type="button" style="background-color: #<%= producto.colores[i].hex %> ;"></button>
                             
                             <% } %>
                         </div>
+                    </div>
                     </div>
                     <div class="cantidad">
                         <p class="categoria">Cantidad: <input id="inputCantidad" type="number" value="1" min="1"></p>
@@ -154,16 +81,15 @@
                     <button class="botonCompra" type="submit">Comprar</button>
                 </form>
             </section>
-            
-            <section class="relacionados">
+                       <section class="relacionados">
                 <title>Productos relacionados</title>
                 <div class="relacionadosProductos">
-                    <% for(i=0; i< productRel.length; i++){ %>
+                    <% for(i=0; i< productos.length; i++){ %>
                         <article>
-                            <img src=" /img/products/<%= productRel[i].imagen1 %> " alt="">
-                            <p><%= productRel[i].nombre %></p>
-                            <p>$ <%= toThousand(productRel[i].precio) %></p>
-                            <p><a href="/products/<%=productRel[i].id%>">Ver Producto</a></p>
+                            <img src=" /img/products/<%= productos[i].imagenes[0].path %> " alt="">
+                            <p><%= productos[i].nombre %></p>
+                            <p>$ <%= toThousand(productos[i].precio) %></p>
+                            <p><a href="/products/<%=productos[i].id%>">Ver Producto</a></p>
                         </article>
                     <% } %>
                 </div>
