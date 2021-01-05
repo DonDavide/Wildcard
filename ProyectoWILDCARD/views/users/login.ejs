@@ -11,8 +11,13 @@
             <div class="subheader">
                 <p><a href="#">Inicio</a> > Iniciar sesión</p>
             </div>
+            <% if ( mensaje != 'nada') { %>
+                <ul>
+                    <li><%= mensaje %></li>
+                </ul>
+            <% } %>
             <div class="inputsContainer">
-                <div class="auxiliarInputsContainer">
+                <form class="auxiliarInputsContainer" action="/users/login" method="post">
                     <div class="emailInputContainer">
                         <label for="email">EMAIL</label>
                         <input type="email" name="email" id="email">
@@ -23,7 +28,7 @@
                         <a class="forgotPassword" href="#">¿Olvidaste tu contraseña?</a>
                     </div>
                     <button id="entrar" type="submit">INCIAR SESIÓN</button>
-                </div>
+                </form>
             </div>
             <%- include('../partials/footer') %>
         </main>

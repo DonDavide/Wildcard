@@ -7,10 +7,20 @@
 <body>
     <div class="container">
         <%- include('../partials/header') %>
+        
         <main>
             <div class="subheader">
                 <p><a href="#">Inicio</a> > Crear Cuenta</p>
             </div>
+            
+            <% if ( mensaje != 'nada') { %>
+                <ul>
+                    <% for ( let m=0; m<mensaje.length; m++) { %>
+                    <li><%= mensaje[m].msg %></li>
+                    <% } %>
+                </ul>
+            <% } %>
+            
             <div class="inputsContainer">
                 <form action="/users/register" method="post">
                     <div class="auxiliarInputsContainer">

@@ -1,6 +1,8 @@
 const indexController = {
     home: (req, res, next) => {
-        res.render('home');
+        res.render('home', {
+            usuario: 'undefined'
+        });
     },
     ayuda: (req, res, next) => {
         res.render('ayuda');

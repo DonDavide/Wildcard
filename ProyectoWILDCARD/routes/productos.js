@@ -15,5 +15,6 @@ router.post('/filtro', productoController.filtro);
 
 
 router.get('/:id', productoController.detalleProducto);
+router.post('/:id', productoController.detalleProducto);
 
 module.exports = router;

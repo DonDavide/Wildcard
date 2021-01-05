@@ -3,6 +3,7 @@ var router = express.Router();
 const path = require ('path');
 const multer = require('multer');
 const adminController = require('../controllers/adminController')
+const accesoMiddleware = require('../middlewares/accesoMiddleware')
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -17,16 +18,16 @@ var upload = multer({ storage: storage })
 
 
 
-router.get('/products', adminController.listaProducto);
+router.get('/products', accesoMiddleware.accesoAdmin, adminController.listaProducto);
 // post filtro
 
-router.get('/products/create', adminController.nuevoProducto);
-router.post('/products', upload.any(), adminController.nuevoProductoPost); //Acción de creación (a donde se envía el formulario)
+router.get('/products/create', accesoMiddleware.accesoAdmin, adminController.nuevoProducto);
+router.post('/products', upload.any(), accesoMiddleware.accesoAdmin, adminController.nuevoProductoPost); //Acción de creación (a donde se envía el formulario)
 
-router.get('/products/:id/edit', adminController.editarProducto);
-router.post('/products/:id', upload.any(), adminController.editarProductoPost);
+router.get('/products/:id/edit', accesoMiddleware.accesoAdmin, adminController.editarProducto);
+router.post('/products/:id', upload.any(), accesoMiddleware.accesoAdmin, adminController.editarProductoPost);
 
-router.get('/products/delete/:id', adminController.destroy); 
+router.get('/products/delete/:id', accesoMiddleware.accesoAdmin, adminController.destroy); 
 
 
 module.exports = router;

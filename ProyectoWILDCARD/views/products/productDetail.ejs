@@ -31,7 +31,7 @@
                     </article>
                 </div>
 
-                <form action="/home" method="GET" class="formularioCompra">
+                <form action="/products/<%= producto.id %>" method="POST" class="formularioCompra">
                     <tittle id="nombre"> <%= producto.nombre %> </tittle>
                     <tittle id="nombre"> Marca : <%= producto.marcas.nombre %> </tittle>
                     <p id="precio"> $ <%= toThousand(producto.precio) %> </p>
@@ -78,7 +78,12 @@
                             <button type="button">4</button>
                         </div>
                     </div>
-                    <button class="botonCompra" type="submit">Comprar</button>
+                    <% if ( req.session.usuario ) { %>
+                        <button class="botonCompra" type="submit">Comprar</button>
+                    <% } else { %>
+                        <a href="/users/login"><button class="botonCompra">Loguearse para Comprar</button></a>
+                    <% } %>
+                    
                 </form>
             </section>
                        <section class="relacionados">

@@ -12,13 +12,11 @@ var carritos = JSON.parse(fs.readFileSync(carritosFilePath, 'utf-8'));
 
 const usersController = {
     register : (req, res, next) => {
-        res.render('users/register.ejs')
+        res.render('users/register.ejs', {
+            mensaje: 'nada'
+        })
     },
     store: (req, res, next) => {
-
-        if(req.body.password != req.body.confirmpassword){
-            return res.send("La contraseña y la confirmacion de contraseña deben ser iguales")
-        }
 
         db.Usuarios.create({
             nombre: req.body.fullname,
@@ -27,7 +25,9 @@ const usersController = {
             password:  bcrypt.hashSync(req.body.password, 10), //encripto la contraseña
             permiso: "externo"
         })
-        res.send('bienvenido '+req.body.fullname);
+        res.render('users/login', {
+            mensaje: 'Bienvenido '+req.body.fullname
+        });
 
         /* var allIds=[];
 		for (i = 0 ; i < users.length; i ++){
@@ -68,7 +68,14 @@ const usersController = {
         res.send('bienvenido '+req.body.fullname); */
     },
     login: (req, res, next) => {
-        res.render('users/login.ejs');
+        res.render('users/login.ejs', {
+            mensaje: 'nada'
+        });
+    },
+    loginOK: (req, res, next) => {
+        res.render('home', {
+            usuario: req.session.usuario.nombre
+        });
     },
     list: (req, res, next) => {
         console.log(users);
@@ -116,7 +123,9 @@ const usersController = {
 		
     },
     carrito: (req, res, next) => {
-        res.render('users/carrito.ejs');
+        res.render('users/carrito.ejs', {
+            usuario: req.session.usuario
+        });
         /*{(req, res, next) => {
             var idCarrito = req.params.id;
             for (var i = 0; i<carritos.length; i++){

@@ -38,9 +38,18 @@
             </li>
             </ul>
         <ul class="usuario">
+            <% if ( usuario != 'undefined' ) { %>
+            <li >
+                <a href="/products">Hola <%= usuario %>!!!</a>  
+            </li>
+            <li>
+                <a href="/users/login">CAMBIAR SESION</a>  
+            </li>
+            <% } else { %>
             <li>
                 <a href="/users/login">INICIAR SESION</a>  
             </li>
+            <% } %>
             <li>
                 <a href="/users/register">CREAR CUENTA</a>  
             </li>

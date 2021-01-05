@@ -1,5 +1,6 @@
 var fs = require('fs');
 const db = require("../database/models");
+const accesoMiddleware = require('../middlewares/accesoMiddleware')
 
 var rawdata = fs.readFileSync(__dirname + "/../data/products.json");
 let listaProductos = JSON.parse(rawdata);
