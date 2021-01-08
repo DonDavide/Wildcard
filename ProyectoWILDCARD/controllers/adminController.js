@@ -1,6 +1,7 @@
 var fs = require('fs');
 const db = require("../database/models");
-const accesoMiddleware = require('../middlewares/accesoMiddleware')
+const accesoMiddleware = require('../middlewares/accesoMiddleware');
+const { productos } = require('./productosController');
 
 var rawdata = fs.readFileSync(__dirname + "/../data/products.json");
 let listaProductos = JSON.parse(rawdata);
@@ -8,15 +9,37 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const adminController = {
     listaProducto: (req, res, next) => {
-        res.render('admin/listProducts', {
-            listaProductos, toThousand
+        let mostrarProductos = db.Productos.findAll({include :[ 
+            {association : "imagenes"}]}, {
+            order: [
+                ['nombre', 'ASC'],
+                ],
         });
+        let mostrarMarcas = db.Marcas.findAll();
+        let mostrarTalles = db.Talles.findAll({
+            order: [
+                ['id', 'ASC'],
+                ],
+        });
+        let mostrarColores = db.Colores.findAll();
+        Promise.all ([mostrarProductos, mostrarMarcas, mostrarTalles, mostrarColores])
+        .then(function([productos, marcas, talles, colores]){
+        res.render('admin/listProducts', {productos : productos, marcas, talles, colores,  toThousand});
+    })
     },
 
     nuevoProducto: (req, res, next) => {
-        db.Marcas.findAll()
-        .then(function(marcas){
-            res.render('admin/newProduct', {marcas})
+        let mostrarMarcas = db.Marcas.findAll();
+        let mostrarTalles = db.Talles.findAll({
+            order: [
+                ['id', 'ASC'],
+                ],
+        });
+        let mostrarColores = db.Colores.findAll();
+        Promise.all ([mostrarMarcas, mostrarTalles, mostrarColores])
+        .then(function([marcas, talles, colores]){
+
+            res.render('admin/newProduct', {marcas, talles, colores})
         })
         ;
     },
@@ -26,9 +49,9 @@ const adminController = {
             nombre: req.body.nombre,
             precio: req.body.precio,
             descuento: req.body.descuento,
-            tipo: req.body.categoria,
+            id_tipo: req.body.categoria,
             usuario: req.body.usuario,
-            categoria:  req.body.categorias,
+            id_categoria:  req.body.categorias,
             descripcion: req.body.descripcion,
             id_marca: req.body.marca
             
@@ -73,122 +96,111 @@ const adminController = {
         })
         .then(function(productos){
 
-            res.redirect('/products');
+            res.redirect('admin/products');
         }) 
-
-        /* let productoNuevo = req.body;
-        productoNuevo.id = listaProductos.length;
-        if (req.files.length >= 1){
-            productoNuevo.imagen1 = req.files[0].filename;
-        } 
-        if (req.files.length >= 2){
-            productoNuevo.imagen2 = req.files[1].filename;
-        } 
-        if (req.files.length >= 3){
-            productoNuevo.imagen3 = req.files[2].filename;
-        } 
-        if (req.files.length >= 4){
-            productoNuevo.imagen4 = req.files[3].filename;
-        } 
-        if (req.files.length >= 5){
-            productoNuevo.imagen5 = req.files[4].filename;
-        } 
-        if (req.files.length >= 6){
-            productoNuevo.imagen6 = req.files[5].filename;
-        } 
-        if (req.files.length >= 7){
-            productoNuevo.imagen7 = req.files[6].filename;
-        } 
-        if (req.files.length >= 8){
-            productoNuevo.imagen8 = req.files[7].filename;
-        } 
-
-        listaProductos.push(productoNuevo);
-        let listaProductosString = JSON.stringify(listaProductos, null, 2);
-        fs.writeFileSync(__dirname + "/../data/products.json", listaProductosString);
-        
-        res.render('admin/listProducts', {
-            listaProductos
-        }); */
     },
 
     editarProducto: (req, res, next) => {
-        let productID = req.params.id;
-        let productEdit = {};
-        for (let i=0; i<listaProductos.length; i++){
-            if (listaProductos[i].id == productID){
-                productEdit = listaProductos[i];
-            }
-        }
-
-        res.render('admin/editProduct', {
-            productEdit
+        let mostrarProducto = db.Productos.findByPk(req.params.id, {//se busca el producto con el ID recibido por params
+            include : [{association:"marcas"}, {association:"talles"}, {association:"colores"}, ]//se agrega la asociacion que esta en models
+        })
+        let mostrarMarcas = db.Marcas.findAll();//se buscan las marcas
+        let mostrarTalles = db.Talles.findAll({//se buscan los talles
+            order: [
+                ['id', 'ASC'],
+                ],
+        });
+        let mostrarColores = db.Colores.findAll();
+        Promise.all([mostrarProducto, mostrarMarcas, mostrarTalles, mostrarColores])//se ejecutan la promesa cuando se cumplen las cuatro
+        .then(function([producto, marcas, talles, colores]){//se comparten las 4 variables solo con las 4 ya culminadas.
+         console.log(producto.talles[0].talle);
+            res.render('admin/editProduct', {producto, marcas, talles, colores})//enviamos a la vista los 4 objetos.
         });
     },
     editarProductoPost: (req, res, next) => {
-        let productID = req.params.id;
-        let productNewEdit = req.body;
-        productNewEdit.id = productID;
-        for (let i=0; i<listaProductos.length; i++){
-            if (listaProductos[i].id == productID){
-                if(listaProductos[i].imagen1){
-                    productNewEdit.imagen1 = listaProductos[i].imagen1;
-                }
-                if(listaProductos[i].imagen2){
-                    productNewEdit.imagen2 = listaProductos[i].imagen2;
-                }
-                if(listaProductos[i].imagen3){
-                    productNewEdit.imagen3 = listaProductos[i].imagen3;
-                }
-                if(listaProductos[i].imagen4){
-                    productNewEdit.imagen4 = listaProductos[i].imagen4;
-                }
-                if(listaProductos[i].imagen5){
-                    productNewEdit.imagen5 = listaProductos[i].imagen5;
-                }
-                if(listaProductos[i].imagen6){
-                    productNewEdit.imagen6 = listaProductos[i].imagen6;
-                }
-                if(listaProductos[i].imagen7){
-                    productNewEdit.imagen7 = listaProductos[i].imagen7;
-                }
-                if(listaProductos[i].imagen8){
-                    productNewEdit.imagen8 = listaProductos[i].imagen8;
-                }
+        db.Productos.update({
+            nombre: req.body.nombre,
+            precio: req.body.precio,
+            descuento: req.body.descuento,
+            id_tipo: req.body.categoria,
+            usuario: req.body.usuario,
+            id_categoria:  req.body.categorias,
+            descripcion: req.body.descripcion,
+            id_marca: req.body.marca
+            
+        },{
+            where :  {id: req.params.id}
+        })
+        
+        .then(resultado => {
+            for (var i = 0 ; i < req.body.talles.length ; i ++){
+                db.Producto_talle.update({
+                    id_talle : req.body.colores[i]
+                },{
+                    where :{id_producto : req.params.id
+
+                    }
+                })
             }
-        }
+            }) 
+            .then(resultado => {
+                for (var i = 0 ; i < req.body.colores.length ; i ++){
+                    db.Producto_color.update({
+                        id_color : req.body.colores[i]
+                    },{
+                        where :{id_producto : req.params.id
+    
+                        }
+                    })
+                }
+                }) .then(resultado => {
+                    for (var i = 0 ; i < req.files.length ; i ++){
+                        db.Imagenes.update({
+                            path : req.files[i].filename,
+                           nombre : req.files[i].originalname
+                            }, {
+                            where :{id_producto : req.params.id}
+                                }
+                        )
+                    }
+                    }) 
+                .then(function(productos){
 
-        let listaProductosEditada = []
-        for (let i=0; i<listaProductos.length; i++){
-            if (listaProductos[i].id == productID){
-                listaProductosEditada.push(productNewEdit);
-            } else {
-                listaProductosEditada.push(listaProductos[i]);
-            }
-        }
-        var productRel = listaProductos.filter(function(producto){//crear variable para enviar productos relacionados.
-            return producto.categorias==productNewEdit.categorias
-        });
-
-        let listaProductosString = JSON.stringify(listaProductosEditada, null, 2);
-        fs.writeFileSync(__dirname + "/../data/products.json", listaProductosString);
-
-        res.render('products/productDetail', {
-            productSelect: productNewEdit,
-            productEdit: productNewEdit, productRel, toThousand
-        });
+                        res.redirect("/admin/products");
+                    }) 
     },
     destroy : (req, res) => {
-		var idProduct = req.params.id;
-		var productDestroy = listaProductos.filter(function(Product){
-			return Product.id!=idProduct; 
-		})
-		var productDestroyJSON = JSON.stringify(productDestroy, null, 2);
-		fs.writeFileSync(__dirname + '/../data/products.json', productDestroyJSON);
-		
-		
-		res.redirect("/admin/products")
-	}
+            db.Producto_talle.destroy({
+            where : {
+                id_producto : req.params.id
+            }})
+            .then(function(){
+                db.Producto_color.destroy({
+                where : {
+                    id_producto : req.params.id
+                }})      
+        }) 
+        .then(function(){
+            db.Imagenes.destroy({
+            where : {
+                id_producto : req.params.id
+            }})
+            .then(function(){
+                db.Productos.destroy({
+                where : {
+                    id : req.params.id
+                }})         
+    })          
+    }).then(function(){res.redirect ("/admin/products")})
+    
+    },
+    softDelete: (req, res, next) => {
+        db.Productos.update({
+            estado : 0
+            
+        },{
+            where :  {id: req.params.id}
+        })}
 }
 
 module.exports = adminController;

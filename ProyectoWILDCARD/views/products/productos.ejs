@@ -19,7 +19,6 @@
                     
                     <div class="calzado" onclick="javascript:location.href='/products/<%= productos[i].id %>'">
                         <p class="titulo"><%=productos[i].nombre%></p>
-                        <p class="titulo"><%=console.log(productos[i].talles[0].talle)%></p>
                         <img src="/img/products/<%= productos[i].imagenes[0].path %>" alt="<%= productos[i].imagenes[0].nombre %>">
                         <p class="precio">$ <%= toThousand(productos[i].precio) %></p> 
                         <p class="oferta">(<%=productos[i].descuento%> % OFF)</p>

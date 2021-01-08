@@ -21,26 +21,26 @@
                             <option value="niño">NIÑO</option>
                         </select>              
                         <label class="uno" for="categoria">CATEGORIA DEL PRODUCTO</label>
-                        <div><label for="calzado">CALZADO</label><input  class="check" type="radio" name="categoria" id="calzado" value="calzado"></div>
-                        <div><label for="accesorios">ACCESORIOS</label><input  class="check" type="radio" name="categoria" id="accesorios" value="accesorios"></div>
+                        <div><label for="calzado">CALZADO</label><input  class="check" type="radio" name="categoria" id="calzado" value="1"></div>
+                        <div><label for="accesorios">ACCESORIOS</label><input  class="check" type="radio" name="categoria" id="accesorios" value="2"></div>
                     </div>
                     <div class="categoriasCalzado">
                         <label for="categoria">CATEGORIAS DE CALZADOS</label>
-                        <div><label for="zapatillas">ZAPATILLAS</label><input class="check" type="radio" name="categorias" id="zapatillas" value="zapatillas"></div>  
-                        <div><label for="botas">BOTAS</label><input class="check" type="radio" name="categorias" id="botas" value="botas"></div>
-                        <div><label for="zapatos">ZAPATOS</label><input class="check" type="radio" name="categorias" id="zapatos" value="zapatos"></div>
-                        <div><label for="suecos">SUECOS</label><input class="check" type="radio" name="categorias" id="suecos" value="suecos"></div>
-                        <div><label for="zandalias">ZANDALIAS</label><input class="check" type="radio" name="categorias" id="zandalias" value="zandalias"></div>
-                        <div><label for="chatas">CHATAS</label><input class="check" type="radio" name="categorias" id="chatas" value="chatas"></div>
-                        <div><label for="ojotas">OJOTAS</label><input class="check" type="radio" name="categorias" id="ojotas" value="ojotas"></div>
+                        <div><label for="zapatillas">ZAPATILLAS</label><input class="check" type="radio" name="categorias" id="zapatillas" value="Zapatillas"></div>  
+                        <div><label for="botas">BOTAS</label><input class="check" type="radio" name="categorias" id="botas" value="Botas"></div>
+                        <div><label for="zapatos">ZAPATOS</label><input class="check" type="radio" name="categorias" id="zapatos" value="Zapatos"></div>
+                        <div><label for="suecos">SUECOS</label><input class="check" type="radio" name="categorias" id="suecos" value="Suecos"></div>
+                        <div><label for="zandalias">ZANDALIAS</label><input class="check" type="radio" name="categorias" id="Zandalias" value="Zandalias"></div>
+                        <div><label for="chatas">CHATAS</label><input class="check" type="radio" name="categorias" id="chatas" value="Chatas"></div>
+                        <div><label for="ojotas">OJOTAS</label><input class="check" type="radio" name="categorias" id="ojotas" value="Ojotas"></div>
                     </div>
                     <div class="categoriasAccesorio">
                         <label for="categoria">CATEGORIAS DE ACCESORIOS</label>
-                        <div><label for="carteras">CARTERAS</label><input class="check" type="radio" name="categorias" id="carteras" value="carteras"></div> 
-                        <div><label for="pañuelos">PAÑUELOS</label><input class="check" type="radio" name="categorias" id="pañuelos" value="pañuelos"></div>
-                        <div><label for="pulserasYCollares">PULSERAS Y COLLARES</label><input class="check" type="radio" name="categorias" id="pulserasYCollares" value="pulserasYCollares"></div>
-                        <div><label for="cintos">CINTOS</label><input class="check" type="radio" name="categorias" id="cintos" value="cintos"></div>
-                        <div><label for="mochilas">MOCHILAS</label><input class="check" type="radio" name="categorias" id="mochilas" value="mochilas"></div>
+                        <div><label for="carteras">CARTERAS</label><input class="check" type="radio" name="categorias" id="carteras" value="Carteras"></div> 
+                        <div><label for="pañuelos">PAÑUELOS</label><input class="check" type="radio" name="categorias" id="pañuelos" value="Pañuelos"></div>
+                        <div><label for="pulserasYCollares">PULSERAS Y COLLARES</label><input class="check" type="radio" name="categorias" id="pulserasYCollares" value="PulserasYCollares"></div>
+                        <div><label for="cintos">CINTOS</label><input class="check" type="radio" name="categorias" id="cintos" value="Cintos"></div>
+                        <div><label for="mochilas">MOCHILAS</label><input class="check" type="radio" name="categorias" id="mochilas" value="Mochilas"></div>
                     </div>
                     
                     <div class="esp">
@@ -51,33 +51,15 @@
                             <option value="<%=marcas[i].id%>" selected><%=marcas[i].nombre%></option>
                             <%}%>
                         </select><a href="/admin/products/create/agregarMarca">(agregar marca)</a></div>      
-                        <div class="talles"><label class="tituloTalle" for="talle">TALLES :</label> 
-                            <label><input type="checkbox" id="talles" name="talles" value="1"> 34</label>
-                            <label><input type="checkbox" id="talles" name="talles"  value="2"> 35</label>
-                            <label><input type="checkbox" id="talles" name="talles"  value="3"> 36</label>
-                            <label><input type="checkbox" id="talles" name="talles"  value="4"> 37</label>
-                            <label><input type="checkbox" id="talles" name="talles"  value="5"> 38</label>
-                            <label><input type="checkbox" id="talles" name="talles"  value="6"> 39</label>
-                            <label><input type="checkbox" id="talles" name="talles"  value="7"> 40</label>
-                            <label><input type="checkbox" id="talles" name="talles"  value="8"> 41</label>
-                            <label><input type="checkbox" id="talles" name="talles"  value="9"> 42</label>
-                            <label><input type="checkbox" id="talles" name="talles"  value="10"> XS</label>
-                            <label><input type="checkbox" id="talles" name="talles"  value="11"> SMALL</label>
-                            <label><input type="checkbox" id="talles" name="talles"  value="12"> M</label>
-                            <label><input type="checkbox" id="talles" name="talles"  value="13"> LARGE</label>
-                            <label><input type="checkbox" id="talles" name="talles"  value="14"> XL</label>
-                            <a href="/admin/products/create/agregarMarca">(agregar talle)</a>
+                        <div class="talles"><label class="tituloTalle" for="talle">TALLES :</label>
+                            <% for (let i = 0; i < talles.length; i++) {%>
+                                <label><input type="checkbox" id="talles" name="talles" value="<%=talles[i].id%>"><%=talles[i].talle%></label>
+                                <%}%> 
                         </div>
-                        <div class="colores"><label class="tituloColores" for="colores">COLORES :</label> 
-                            <label><input type="checkbox" id="colores" name="colores"  value="1"> BLANCO</label>
-                            <label><input type="checkbox" id="colores" name="colores" value="2"> NEGRO</label>
-                            <label><input type="checkbox" id="colores" name="colores" value="3"> GRIS</label>
-                            <label><input type="checkbox" id="colores" name="colores" value="4"> ROJO</label>
-                            <label><input type="checkbox" id="colores" name="colores" value="5"> AZUL</label>
-                            <label><input type="checkbox" id="colores" name="colores" value="6"> AMARILLO</label>
-                            <label><input type="checkbox" id="colores" name="colores" value="7"> VERDE</label>
-                            <label><input type="checkbox" id="colores" name="colores" value="8"> MARRON</label>
-                            <label><input type="checkbox" id="colores" name="colores" value="9"> BEIGE</label>
+                        <div class="colores"><label class="tituloColores" for="colores">COLORES :</label>
+                            <% for (let i = 0; i < colores.length; i++) {%> 
+                                <label><input type="checkbox" id="colores" name="colores"  value="<%=colores[i].id%>"><%=colores[i].nombre%></label>
+                                <%}%>
                          </div>
 
                         <div><label for="precio">PRECIO :</label> <input type="number" name="precio" id="precio" placeholder="Precio del producto"></div>

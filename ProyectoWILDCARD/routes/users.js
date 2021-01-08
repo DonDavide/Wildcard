@@ -26,7 +26,8 @@ router.get('/userList/edit/:id', usersController.editarUsuario);//ver
 router.post('/userList/edit/:id', usersController.editarUsuarioPost)
 
 
-router.get('/carrito/:id', accesoMiddleware.acceso, usersController.carrito);
+router.get('/carrito/:id?', accesoMiddleware.acceso, usersController.carrito);
+router.post('/carrito/:id?', usersController.carrito);
 
 
 module.exports = router;

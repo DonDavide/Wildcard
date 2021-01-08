@@ -3,6 +3,8 @@ const { UnsupportedMediaType } = require('http-errors');
 const path = require('path');
 const bcrypt = require("bcrypt")
 const db = require("../database/models");
+const Op = db.Sequelize.Op;
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 var usersFilePath = path.join(__dirname, '../data/users.json');
 var users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
@@ -123,22 +125,28 @@ const usersController = {
 		
     },
     carrito: (req, res, next) => {
-        res.render('users/carrito.ejs', {
-            usuario: req.session.usuario
-        });
-        /*{(req, res, next) => {
-            var idCarrito = req.params.id;
-            for (var i = 0; i<carritos.length; i++){
-                if(carritos[i].id == idCarrito){
-                    productFound = carritos[i];
-                    break;
-                }
-            }
-            if(productFound){
-                return res.render("users/carrito", {carritoFound});
-            }	
-          }*/
-      }
+        let usuarioId = req.session.usuario.id;
+        let mostrarCarrito = db.Carritos.findOne({where : {
+            id_usuario : usuarioId,
+            estado : {[Op.substring]: "abierto"}}
+            , 
+            include : [{association:"carrito_productos"}, ]})
+            let mostrarMarcas = db.Marcas.findAll();//se buscan las marcas
+            let mostrarTalles = db.Talles.findAll({//se buscan los talles
+                order: [
+                    ['id', 'ASC'],
+                    ],
+            });
+            let mostrarColores = db.Colores.findAll();
+            let mostrarProductos = db.Productos.findAll();
+            Promise.all ([mostrarCarrito, mostrarMarcas, mostrarTalles, mostrarColores, mostrarProductos])
+            .then(function([carrito, marcas, talles, colores, productos]){
+                res.render('users/carrito', {carrito, marcas, talles, colores, productos, toThousand});
+            })
+            .catch(function(error){
+                console.log(error);
+            })
+        }
 };
 
 module.exports = usersController;

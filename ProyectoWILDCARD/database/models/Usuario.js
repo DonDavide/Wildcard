@@ -39,7 +39,7 @@ module.exports = (sequelize, DataTypes) => {
         Usuarios.hasMany(modelos.Carritos, {
             as: "carritos",
             foreignKey: "id_usuario"
-        });
+        });  
     } 
     return Usuarios;
 }

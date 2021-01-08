@@ -43,46 +43,45 @@
                         </div>
                         <div class="botontesSelect">
                             <% for ( let i= 0; i< producto.talles.length; i++ ){ %>
-                            <button type="button"> <%= producto.talles[i].talle %> </button>
+                                <label for="talle" id="talle"><button type="button" id="talle" name="talle" value="<%= producto.talles[i].talle %>"><input type="radio" id="talle" name="talle" value="<%=producto.talles[i].id%>"><%=producto.talles[i].talle%></button></label> 
+                            
                             <% } %>
                         </div>
                         <div class="colores">
                         <p class="categoria">Colores: <b></b></p>
                         <div class="botontesSelect">
                             <% for ( let i= 0; i< producto.colores.length; i++ ){ %>
-                            <button type="button" style="background-color: #<%= producto.colores[i].hex %> ;"></button>
+                            <button type="button" id="color" name="color" value="<%= producto.colores[i].id %>" style="background-color: #<%= producto.colores[i].hex %> ;"><input type="radio" id="color" name="color" value="<%=producto.colores[i].id%>"><%=producto.colores[i].talle%></button></label>
                             
                             <% } %>
                         </div>
                     </div>
                     </div>
                     <div class="cantidad">
-                        <p class="categoria">Cantidad: <input id="inputCantidad" type="number" value="1" min="1"></p>
+                        <p class="categoria">Cantidad: <input name= "cantidad" id="inputCantidad" type="number" value="1" min="1"></p>
                         
                     </div>
                     <div class="mediosPago">
                         <p class="categoria">Medio de Pago: </p>
                         <div class="botontesSelect">
-                            <button type="button">1</button>
-                            <button type="button">2</button>
-                            <button type="button">3</button>
-                            <button type="button">4</button>
+                            <button id="mediosPago" name="mediosPago" type="button" value="1"><input type="radio" name="mediosPago" id="mediosPago" value="1">1</button>
+                            <button id="mediosPago" name="mediosPago" type="button" value="2"><input type="radio" name="mediosPago" id="mediosPago" value="2">2</button>
+                            <button id="mediosPago" name="mediosPago" type="button" value="3"><input type="radio" name="mediosPago" id="mediosPago" value="3">3</button>
+                            <button id="mediosPago" name="mediosPago" type="button" value="1"><input type="radio" name="mediosPago" id="mediosPago" value="4">4</button>
                         </div>
                     </div>
                     <div class="mediosEnvio">
                         <p class="categoria">Medio de envío: </p>
                         <div class="botontesSelect">
-                            <button type="button">1</button>
-                            <button type="button">2</button>
-                            <button type="button">3</button>
-                            <button type="button">4</button>
+                            <button id="mediosEnvio" name="envio" type="button" value="1"><input type="radio" name="mediosEnvio" id="mediosEnvio" value="1">1</button>
+                            <button id="mediosEnvio"  name="envio" type="button" value="2"><input type="radio" name="mediosEnvio" id="mediosEnvio" value="2">2</button>
+                            <button id="mediosEnvio"  name="envio" type="button" value="3"><input type="radio" name="mediosEnvio" id="mediosEnvio" value="3">3</button>
+                            <button id="mediosEnvio"  name="envio" type="button" value="4"><input type="radio" name="mediosEnvio" id="mediosEnvio" value="4">4</button>
                         </div>
                     </div>
-                    <% if ( req.session.usuario ) { %>
+
                         <button class="botonCompra" type="submit">Comprar</button>
-                    <% } else { %>
-                        <a href="/users/login"><button class="botonCompra">Loguearse para Comprar</button></a>
-                    <% } %>
+
                     
                 </form>
             </section>

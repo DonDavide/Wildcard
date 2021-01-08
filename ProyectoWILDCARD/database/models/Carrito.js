@@ -48,6 +48,10 @@ module.exports = (sequelize, DataTypes) => {
             otherKey: "id_producto",
             timestamps: false
         });
+        Carritos.belongsTo(modelos.Carrito_producto, {
+            as: "carrito_productos",
+            foreignKey: "id"
+        });
     } 
     return Carritos;
 }

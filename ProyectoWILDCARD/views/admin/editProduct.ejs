@@ -8,68 +8,71 @@
     <div class="container">
         <%- include('../partials/header_edit') %>  
         <main class="newProduct">
-            <form action="/admin/products/<%= productEdit.id %>" method="POST" enctype="multipart/form-data">
+            <form action="/admin/products/<%= producto.id %>" method="POST" enctype="multipart/form-data">
                 <div class="nombre">
-                    <label for="nombre">NOMBRE DE NUEVO PRODUCTO</label> <input type="text" name="nombre" id="nombre" value="<%= productEdit.nombre %>">
+                    <label for="nombre">NOMBRE DE NUEVO PRODUCTO</label> <input type="text" name="nombre" id="nombre" value="<%= producto.nombre %>">
                 </div>
                 <div class="primerCategoria">
-                    <div class="tipo">                
+                    <div class="tipo">
+                        <label class="uno" for="usuario">TIPO DE USUARIO</label>  
+                        <select name="usuario" id="usuario">
+                            <option value="mujer" selected>MUJER</option>
+                            <option value="hombre">HOMBRE</option>
+                            <option value="niño">NIÑO</option>
+                        </select>                              
                         <label class="uno" for="categoria">CATEGORIA DEL PRODUCTO</label>
                         <div><label for="calzado">CALZADO</label><input  class="check" type="radio" name="categoria" id="calzado" value="calzado"></div>
                         <div><label for="accesorios">ACCESORIOS</label><input  class="check" type="radio" name="categoria" id="accesorios" value="accesorios"></div>
                     </div>
                     <div class="categoriasCalzado">
                         <label for="categoria">CATEGORIAS DE CALZADOS</label>
-                        <div><label for="zapatillas">ZAPATILLAS</label><input class="check" type="radio" name="categorias" id="zapatillas" value="zapatillas" <%= productEdit.categorias=="zapatillas" ? "checked" : null %> ></div>  
-                        <div><label for="botas">BOTAS</label><input class="check" type="radio" name="categorias" id="botas" value="botas" <%= productEdit.categorias=="botas" ? "checked" : null %> ></div>
-                        <div><label for="zapatos">ZAPATOS</label><input class="check" type="radio" name="categorias" id="zapatos" value="zapatos" <%= productEdit.categorias=="zapatos" ? "checked" : null %> ></div>
-                        <div><label for="suecos">SUECOS</label><input class="check" type="radio" name="categorias" id="suecos" value="suecos" <%= productEdit.categorias=="suecos" ? "checked" : null %> ></div>
-                        <div><label for="zandalias">ZANDALIAS</label><input class="check" type="radio" name="categorias" id="zandalias" value="zandalias" <%= productEdit.categorias=="zandalias" ? "checked" : null %> ></div>
-                        <div><label for="chatas">CHATAS</label><input class="check" type="radio" name="categorias" id="chatas" value="chatas" <%= productEdit.categorias=="chatas" ? "checked" : null %> ></div>
-                        <div><label for="ojotas">OJOTAS</label><input class="check" type="radio" name="categorias" id="ojotas" value="ojotas" <%= productEdit.categorias=="ojotas" ? "checked" : null %> ></div>
+                        <div><label for="zapatillas">ZAPATILLAS</label><input class="check" type="radio" name="categorias" id="zapatillas" value="1" <%= producto.id_categoria=="1" ? "checked" : null %> ></div>  
+                        <div><label for="botas">BOTAS</label><input class="check" type="radio" name="categorias" id="botas" value="2" <%= producto.id_categoria=="2" ? "checked" : null %> ></div>
+                        <div><label for="zapatos">ZAPATOS</label><input class="check" type="radio" name="categorias" id="zapatos" value="3" <%= producto.id_categoria=="3" ? "checked" : null %> ></div>
+                        <div><label for="suecos">SUECOS</label><input class="check" type="radio" name="categorias" id="suecos" value="4" <%= producto.id_categoria=="4" ? "checked" : null %> ></div>
+                        <div><label for="zandalias">ZANDALIAS</label><input class="check" type="radio" name="categorias" id="zandalias" value="5" <%= producto.id_categoria=="5" ? "checked" : null %> ></div>
+                        <div><label for="chatas">CHATAS</label><input class="check" type="radio" name="categorias" id="chatas" value="6" <%= producto.id_categoria=="6" ? "checked" : null %> ></div>
+                        <div><label for="ojotas">OJOTAS</label><input class="check" type="radio" name="categorias" id="ojotas" value="7" <%= producto.id_categoria=="7" ? "checked" : null %> ></div>
                     </div>
                     <div class="categoriasAccesorio">
                         <label for="categoria">CATEGORIAS DE ACCESORIOS</label>
-                        <div><label for="carteras">CARTERAS</label><input class="check" type="radio" name="categorias" id="carteras" value="carteras" <%= productEdit.categorias=="carteras" ? "checked" : null %> ></div> 
-                        <div><label for="pañuelos">PAÑUELOS</label><input class="check" type="radio" name="categorias" id="pañuelos" value="pañuelos" <%= productEdit.categorias=="pañuelos" ? "checked" : null %> ></div>
-                        <div><label for="pulserasYCollares">PULSERAS Y COLLARES</label><input class="check" type="radio" name="categorias" id="pulserasYCollares" value="pulserasYCollares" <%= productEdit.categorias=="pulserasYCollares" ? "checked" : null %>></div>
-                        <div><label for="cintos">CINTOS</label><input class="check" type="radio" name="categorias" id="cintos" value="cintos" <%= productEdit.categorias=="cintos" ? "checked" : null %> ></div>
-                        <div><label for="mochilas">MOCHILAS</label><input class="check" type="radio" name="categorias" id="mochilas" value="mochilas" <%= productEdit.categorias=="mochilas" ? "checked" : null %>></div>
+                        <div><label for="carteras">CARTERAS</label><input class="check" type="radio" name="categorias" id="carteras" value="8" <%= producto.id_categoria=="8" ? "checked" : null %>  ></div> 
+                        <div><label for="pañuelos">PAÑUELOS</label><input class="check" type="radio" name="categorias" id="pañuelos" value="9" <%= producto.id_categoria=="9" ? "checked" : null %>  ></div>
+                        <div><label for="pulserasYCollares">PULSERAS Y COLLARES</label><input class="check" type="radio" name="categorias" id="pulserasYCollares" value="10" <%= producto.id_categoria=="10" ? "checked" : null %> ></div>
+                        <div><label for="cintos">CINTOS</label><input class="check" type="radio" name="categorias" id="cintos" value="11" <%= producto.id_categoria=="11" ? "checked" : null %> ></div>
+                        <div><label for="mochilas">MOCHILAS</label><input class="check" type="radio" name="categorias" id="mochilas" value="12" <%= producto.id_categoria=="12" ? "checked" : null %>></div>
                     </div>
                     
                     <div class="esp">
-                        <div><label for="marca">MARCA :</label> <input type="text" name="marca" id="marca" value="<%=productEdit.marca%>" placeholder="Marca del producto"></div>
-                        <div class="talles"><label class="tituloTalle" for="talle">TALLES :</label> 
-                            <label><input type="checkbox" id="talles" name="talles"  value="34" <%= productEdit.talles.includes("34") ? "checked" : null %> > 34</label>
-                            <label><input type="checkbox" id="talles" name="talles"  value="35" <%= productEdit.talles.includes("35") ? "checked" : null %> > 35</label>
-                            <label><input type="checkbox" id="talles" name="talles"  value="36" <%= productEdit.talles.includes("36") ? "checked" : null %> > 36</label>
-                            <label><input type="checkbox" id="talles" name="talles"  value="37" <%= productEdit.talles.includes("37") ? "checked" : null %> > 37</label>
-                            <label><input type="checkbox" id="talles" name="talles"  value="38" <%= productEdit.talles.includes("38") ? "checked" : null %> > 38</label>
-                            <label><input type="checkbox" id="talles" name="talles"  value="39" <%= productEdit.talles.includes("39") ? "checked" : null %> > 39</label>
-                            <label><input type="checkbox" id="talles" name="talles"  value="40" <%= productEdit.talles.includes("40") ? "checked" : null %> > 40</label>
-                            <label><input type="checkbox" id="talles" name="talles"  value="41" <%= productEdit.talles.includes("41") ? "checked" : null %> > 41</label>
-                            <label><input type="checkbox" id="talles" name="talles"  value="42" <%= productEdit.talles.includes("42") ? "checked" : null %> > 42</label>
-                            <label><input type="checkbox" id="talles" name="talles"  value="x-small" <%= productEdit.talles.includes("x-small") ? "checked" : null %> > XS</label>
-                            <label><input type="checkbox" id="talles" name="talles"  value="small" <%= productEdit.talles.includes("small") ? "checked" : null %> > SMALL</label>
-                            <label><input type="checkbox" id="talles" name="talles"  value="medium" <%= productEdit.talles.includes("medium") ? "checked" : null %> > M</label>
-                            <label><input type="checkbox" id="talles" name="talles"  value="large" <%= productEdit.talles.includes("large") ? "checked" : null %> > LARGE</label>
-                            <label><input type="checkbox" id="talles" name="talles"  value="x-large" <%= productEdit.talles.includes("x-large") ? "checked" : null %> > XL</label>
-                        </div>
-                        <div class="colores"><label class="tituloColores" for="colores">COLORES :</label> 
-                            <label><input type="checkbox" id="colores" name="colores"  value="white" <%= productEdit.colores.includes("white") ? "checked" : null %>> BLANCO</label>
-                            <label><input type="checkbox" id="colores" name="colores" value="black" <%= productEdit.colores.includes("black") ? "checked" : null %>> NEGRO</label>
-                            <label><input type="checkbox" id="colores" name="colores" value="grey" <%= productEdit.colores.includes("grey") ? "checked" : null %>> GRIS</label>
-                            <label><input type="checkbox" id="colores" name="colores" value="red" <%= productEdit.colores.includes("red") ? "checked" : null %>> ROJO</label>
-                            <label><input type="checkbox" id="colores" name="colores" value="blue" <%= productEdit.colores.includes("blue") ? "checked" : null %>> AZUL</label>
-                            <label><input type="checkbox" id="colores" name="colores" value="yellow" <%= productEdit.colores.includes("yeloww") ? "checked" : null %>> AMARILLO</label>
-                            <label><input type="checkbox" id="colores" name="colores" value="green" <%= productEdit.colores.includes("green") ? "checked" : null %>> VERDE</label>
-                            <label><input type="checkbox" id="colores" name="colores" value="broun" <%= productEdit.colores.includes("broun") ? "checked" : null %>> MARRON</label>
-                            <label><input type="checkbox" id="colores" name="colores" value="beige" <%= productEdit.colores.includes("beige") ? "checked" : null %>> BEIGE</label>
+                        <div><label for="marca">MARCA :</label>
+                            
+                            <select name="marca" id="marca">
+                            <% for (let i = 0; i < marcas.length; i++) {%>
+                                <% if(marcas[i].id== producto.id_marca){ %>
+                            <option value="<%=marcas[i].id%>" selected>
+                                <%=marcas[i].nombre%>
+                            </option>
+                            <%} else {%>
+                                <option value="<%=marcas[i].id%>">
+                                    <%=marcas[i].nombre%>
+                                </option>
+                            <% } %>
+                        <%}%>
+                    </select>
+                        <a href="/admin/products/create/agregarMarca">(agregar marca)</a></div>      
+                        <div class="talles"><label class="tituloTalle" for="talle">TALLES :</label>
+                            <% for (let i = 0; i < talles.length; i++) {%>
+                                <label><input type="checkbox" id="talles" name="talles" value="<%=talles[i].id%>"><%=talles[i].talle%></label>
+                                <% } %>
+                                <div class="colores"><label class="tituloColores" for="colores">COLORES :</label>
+                            <% for (let i = 0; i < colores.length; i++) {%> 
+                                <label><input type="checkbox" id="colores" name="colores"  value="<%=colores[i].id%>"><%=colores[i].nombre%></label>
+                                <%}%>
                          </div>
-
-                        <div><label for="precio">PRECIO :</label> <input type="number" name="precio" id="precio" value="<%=productEdit.precio%>" placeholder="Precio del producto"></div>
-                        <div><label for="descuento">DESCUENTO :</label> <input type="number" name="descuento" id="descuento" value="<%=productEdit.descuento%>" placeholder="Descuento del producto"></div>
-                        <div><label for="descripcion">DESCRIPCION :</label> <input type="text" name="descripcion" id="descripcion" value="<%=productEdit.descripcion%>"" placeholder="Descripcion del producto"></div>
+                        </div>
+                        <div><label for="precio">PRECIO :</label> <input type="number" name="precio" id="precio" placeholder="Precio del producto" value="<%= producto.precio %>"></div>
+                        <div><label for="descuento">DESCUENTO :</label> <input type="number" name="descuento" id="descuento" placeholder="Descuento del producto" value="<%= producto.descuento %>"></div>
+                        <div><label for="descripcion">DESCRIPCION :</label> <input type="text" name="descripcion" id="descripcion" placeholder="Descripcion del producto" value="<%= producto.desripcion %>"></div>
                         <div><label for="Imagen1">AGREGAR IMAGEN :</label><input class="agregarImagen1" type="file" name="Imagen1" ></div>
                         <div><label for="Imagen2">AGREGAR IMAGEN :</label><input class="agregarImagen2" type="file" name="Imagen2" ></div>
                         <div><label for="Imagen3">AGREGAR IMAGEN :</label><input class="agregarImagen3" type="file" name="Imagen3" ></div>

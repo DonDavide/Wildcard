@@ -11,18 +11,18 @@
     <br>
     <div>
         <div class="filtro filtroCategoria">
-            <div><input class="persona" type="checkbox" name="categoria" value="Zapatillas" id="Zapatillas"><label for="Zapatillas">Zapatillas</label></div>
-            <div><input class="persona" type="checkbox" name="categoria" value="Botas" id="Botas"><label for="Botas">Botas</label></div>
-            <div><input class="persona" type="checkbox" name="categoria" value="Zapatos" id="Zapatos"><label for="Zapatos">Zapatos</label></div>
-            <div><input class="persona" type="checkbox" name="categoria" value="Suecos" id="Suecos"><label for="Suecos">Suecos</label></div>
-            <div><input class="persona" type="checkbox" name="categoria" value="Zandalias" id="Zandalias"><label for="Zandalias">Sandalias</label></div>
-            <div><input class="persona" type="checkbox" name="categoria" value="Chatas" id="Chatas"><label for="Chatas">Chatas</label></div>
-            <div><input class="persona" type="checkbox" name="categoria" value="Ojotas" id="Ojotas"><label for="Ojotas">Ojotas</label></div>
-            <div><input class="persona" type="checkbox" name="categoria" value="Carteras" id="Carteras"><label for="Carteras">Carteras</label></div>
-            <div><input class="persona" type="checkbox" name="categoria" value="Panuelos" id="Panuelos"><label for="Panuelos">Pañuelos</label></div>
-            <div><input class="persona" type="checkbox" name="categoria" value="Pulceras" id="Pulceras"><label for="Pulceras">Pulseras y Collares</label></div>
-            <div><input class="persona" type="checkbox" name="categoria" value="Cintos" id="Cintos"><label for="Cintos">Cintos</label></div>
-            <div><input class="persona" type="checkbox" name="categoria" value="Mochilas" id="Mochilas"><label for="Mochilas">Mochilas</label></div>
+            <div><input class="persona" type="checkbox" name="categoria" value="1" id="Zapatillas" checked><label for="Zapatillas">Zapatillas</label></div>
+            <div><input class="persona" type="checkbox" name="categoria" value="2" id="Botas" checked><label for="Botas">Botas</label></div>
+            <div><input class="persona" type="checkbox" name="categoria" value="3" id="Zapatos" checked><label for="Zapatos">Zapatos</label></div>
+            <div><input class="persona" type="checkbox" name="categoria" value="4" id="Suecos" checked><label for="Suecos">Suecos</label></div>
+            <div><input class="persona" type="checkbox" name="categoria" value="5" id="Zandalias" checked><label for="Zandalias">Sandalias</label></div>
+            <div><input class="persona" type="checkbox" name="categoria" value="6" id="Chatas" checked><label for="Chatas">Chatas</label></div>
+            <div><input class="persona" type="checkbox" name="categoria" value="7" id="Ojotas" checked><label for="Ojotas">Ojotas</label></div>
+            <div><input class="persona" type="checkbox" name="categoria" value="8" id="Carteras" checked><label for="Carteras">Carteras</label></div>
+            <div><input class="persona" type="checkbox" name="categoria" value="9" id="Panuelos" checked><label for="Panuelos">Pañuelos</label></div>
+            <div><input class="persona" type="checkbox" name="categoria" value="10" id="Pulceras" checked><label for="Pulceras">Pulseras y Collares</label></div>
+            <div><input class="persona" type="checkbox" name="categoria" value="11" id="Cintos" checked><label for="Cintos">Cintos</label></div>
+            <div><input class="persona" type="checkbox" name="categoria" value="12" id="Mochilas" checked><label for="Mochilas">Mochilas</label></div>
         </div>
     </div>
     <br><br>
@@ -38,36 +38,27 @@
     </div>
     <br>
     <div class="filtro filtroTalle">
-        <div>
-            <div><input class="persona" type="checkbox" name="talle" value="35" id="35"><label for="35"> 35</label></div>
-            <div><input class="persona" type="checkbox" name="talle" value="36" id="36"><label for="36">36</label></div>
-            <div><input class="persona" type="checkbox" name="talle" value="37" id="37"><label for="37">37</label> </div>
-            <div><input class="persona" type="checkbox" name="talle" value="38" id="38"><label for="38">38</label></div>
-            <div><input class="persona" type="checkbox" name="talle" value="39" id="39"><label for="39">39</label></div>
-            <div><input class="persona" type="checkbox" name="talle" value="40" id="40"><label for="40">40</label></div>
-            <div><input class="persona" type="checkbox" name="talle" value="41" id="41"><label for="41">41</label></div>
-            <div><input class="persona" type="checkbox" name="talle" value="42" id="42"><label for="42">42</label></div>
-            <div><input class="persona" type="checkbox" name="talle" value="43" id="43"><label for="43">43</label></div>
-            <div><input class="persona" type="checkbox" name="talle" value="44" id="44"><label for="44">44</label></div>
-            <div><input class="persona" type="checkbox" name="talle" value="45" id="45"><label for="45">45</label></div>
-            <div><input class="persona" type="checkbox" name="talle" value="46" id="46"><label for="46">46</label></div>
+
+        <div><% for (let i = 0; i < talles.length; i++) {%>
+            <div><input class="persona" type="checkbox" name="talles" value="<%=talles[i].id%>" id="<%=talles[i].id%>"><label for="<%=talles[i].talle%>"> <%=talles[i].talle%></label></div>
+            <%}%> 
         </div>
     </div>
     <br><br>
 
     <label for="">Color</label><br>
     <div class="filtro filtroColor">
-        <div><input class="persona" type="checkbox" name="color" value="Rojo" id="Rojo"><label for="Rojo">Rojo</label></div>
-        <div><input class="persona" type="checkbox" name="color" value="Negro" id="Negro"><label for="Negro">Negro</label></div>
-        <div><input class="persona" type="checkbox" name="color" value="Marrón" id="Marrón"><label for="Marrón">Marrón</label></div>
+        <% for (let i = 0; i < colores.length; i++) {%>
+            <div><input class="persona" type="checkbox" name="color" value="<%=colores[i].id%>" id="<%=colores[i].id%>"><label for="<%=colores[i].nombre%>"><%=colores[i].nombre%></label></div>
+            <%}%>
     </div>
     <br><br>
 
     <label for="">Marca</label><br>
     <div class="filtro filtroMarca">
-        <input class="persona" type="checkbox" name="color" value="Marca1" id="Marca1"><label for="Marca1">Marca1</label>
-        <input class="persona" type="checkbox" name="color" value="Marca2" id="Marca2"><label for="Marca2">Marca2</label>
-        <input class="persona" type="checkbox" name="color" value="Marca3" id="Marca3"><label for="Marca3">Marca3</label>
+        <% for (let i = 0; i < marcas.length; i++) {%>
+            <input class="persona" type="checkbox" name="marcas" value="<%=marcas[i].id%>" id="<%=marcas[i].id%>" checked><label for="<%=marcas[i].nombre%>"><%=marcas[i].nombre%></label>
+            <%}%>
     </div>
     <br><br>
     <button class="submitbutton" style="background-color: white; color: black;" type="reset">Limpiar campos</button><br>

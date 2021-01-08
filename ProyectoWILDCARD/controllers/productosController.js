@@ -10,17 +10,23 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const productoController = {
     productos: (req, res, next) => {
-        db.Productos.findAll({include :[
-            {association : "talles"}, 
-           {association : "colores"}, 
-            {association : "imagenes"},
-            {association : "marcas"}, ]}, {
+        let mostrarProductos = db.Productos.findAll({include :[ 
+            {association : "imagenes"}]}, {
             order: [
                 ['nombre', 'ASC'],
                 ],
-        })
-        .then(function(productos){
-            res.render('products/productos', {productos, toThousand});
+        });
+        let mostrarMarcas = db.Marcas.findAll();
+        let mostrarTalles = db.Talles.findAll({
+            order: [
+                ['id', 'ASC'],
+                ],
+        });
+        let mostrarColores = db.Colores.findAll();
+
+        Promise.all ([mostrarProductos, mostrarMarcas, mostrarTalles, mostrarColores])
+        .then(function([productos, marcas, talles, colores]){
+            res.render('products/productos', {productos : productos, marcas, talles, colores,  toThousand});
         })
        // res.render('products/productos', {
         //    listaProductos, toThousand
@@ -28,17 +34,26 @@ const productoController = {
     },
     busquedaProductos: function(req, res, next){
         var busqueda = req.body.search;
-        db.Productos.findAll({
+        let productos = db.Productos.findAll({include :[ 
+            {association : "imagenes"}],
             where : {
-                nombre : { [Op.like]: '%'+busqueda+'%' }
+                nombre : {[Op.substring]: busqueda}
             },
             order: [
                 ['nombre', 'ASC'],
                 ],
         })
-        .then(function(productos){
+        let mostrarMarcas = db.Marcas.findAll();
+        let mostrarTalles = db.Talles.findAll({
+            order: [
+                ['id', 'ASC'],
+                ],
+        });
+        let mostrarColores = db.Colores.findAll();
+        Promise.all ([productos, mostrarMarcas, mostrarTalles, mostrarColores])
+        .then(function([productos, marcas, talles, colores]){
 
-            res.render('products/listadoBusqueda', {productos, toThousand});
+            res.render('products/listadoBusqueda', {productos, marcas, talles, colores, toThousand});
         }) 
         .catch(function(error){
             console.log(error);
@@ -46,7 +61,8 @@ const productoController = {
     },
     ofertas: function(req, res, next){
         var busqueda = req.body.search;
-        db.Productos.findAll({
+        let mostrarProductos = db.Productos.findAll({include :[ 
+            {association : "imagenes"}],
             where : {
                 descuento : { [Op.gt]: 0.5 }
             },
@@ -54,36 +70,102 @@ const productoController = {
                 ['nombre', 'ASC'],
                 ],
         })
-        .then(function(productos){
-
-            res.render('products/listadoBusqueda', {productos, toThousand});
-        }) 
-        .catch(function(error){
-            console.log(error);
-        })
-    },
-    loNuevo: (req, res, next) =>{
-        db.Productos.findAll({
+        let mostrarMarcas = db.Marcas.findAll();
+        let mostrarTalles = db.Talles.findAll({
+            
             order: [
-                ['createdAt', 'ASC'],
+                ['id', 'ASC'],
                 ],
-        })
-        .then(function(productos){
-            res.render('products/productos', {productos, toThousand});
+        });
+        let mostrarColores = db.Colores.findAll();
+        Promise.all ([mostrarProductos, mostrarMarcas, mostrarTalles, mostrarColores])
+        .then(function([productos, marcas, talles, colores]){
+            res.render('products/productos', {productos, marcas, talles, colores, toThousand});
         })
     },
-    filtro: (req, res, next) =>{
-        db.Productos.findAll({
+    accesorios: function(req, res, next){
+        var busqueda = req.body.search;
+        let mostrarProductos = db.Productos.findAll({include :[ 
+            {association : "imagenes"}],
             where : {
-                usuario : { [Op.like]: '%'+req.body.persona+'%' },
-                precio : {[Op.between]: [req.body.preciomin, req.body.preciomax], }
+                id_tipo : 2
             },
             order: [
                 ['nombre', 'ASC'],
                 ],
         })
-        .then(function(productos){
-            res.render('products/productos', {productos, toThousand});
+        let mostrarMarcas = db.Marcas.findAll();
+        let mostrarTalles = db.Talles.findAll({
+            
+            order: [
+                ['id', 'ASC'],
+                ],
+        });
+        let mostrarColores = db.Colores.findAll();
+        Promise.all ([mostrarProductos, mostrarMarcas, mostrarTalles, mostrarColores])
+        .then(function([productos, marcas, talles, colores]){
+            res.render('products/productos', {productos, marcas, talles, colores, toThousand});
+        })
+    },
+    loNuevo: (req, res, next) =>{
+        let mostrarProductos = db.Productos.findAll({include :[ 
+            {association : "imagenes"},
+            {association : "marcas"},
+            {association : "talles"},
+            {association : "categorias"}] ,
+            order: [
+                ['createdAt', 'ASC'],
+                ],
+            limit : 10
+        });
+        let mostrarMarcas = db.Marcas.findAll();
+        let mostrarTalles = db.Talles.findAll({
+            
+            order: [
+                ['id', 'ASC'],
+                ],
+        });
+        let mostrarColores = db.Colores.findAll();
+        Promise.all ([mostrarProductos, mostrarMarcas, mostrarTalles, mostrarColores])
+        .then(function([productos, marcas, talles, colores]){
+            res.render('products/productos', {productos, marcas, talles, colores, toThousand});
+        })
+    },
+    filtro: (req, res, next) =>{
+        console.log(req.body.persona);
+        let mostrarProductos = db.Productos.findAll({include :[ 
+            {association : "imagenes"},
+            {association : "marcas"},
+            {association : "talles"},
+            {association : "categorias"},],
+            where : {
+                usuario : {[Op.substring]: req.body.persona},
+                id_marca: {[Op.or]: [req.body.marcas]} ,
+                id_categoria : {[Op.or]: [req.body.categoria]} ,
+                precio : {[Op.between]: [req.body.preciomin, req.body.preciomax],
+                
+                 }
+            },
+            order: [
+                ['nombre', 'ASC'],
+                ],
+        })
+        let mostrarMarcas = db.Marcas.findAll();
+        let mostrarTalles = db.Talles.findAll({
+            
+            order: [
+                ['id', 'ASC'],
+                ],
+        });
+        let mostrarColores = db.Colores.findAll();
+
+        Promise.all ([mostrarProductos, mostrarMarcas, mostrarTalles, mostrarColores])
+        .then(function([productos, marcas, talles, colores]){
+            console.log(talles);
+            res.render('products/listadoBusqueda', {productos, marcas, talles, colores, toThousand});
+        })
+        .catch(function(error){
+            console.log(error);
         })
     },
     detalleProducto: (req, res, next) => {
@@ -93,12 +175,13 @@ const productoController = {
             include : [{association:"talles"}, 
             {association:"colores"}, 
             {association:"imagenes"}, 
-            {association:"marcas"}]//se agrega la asociacion que esta en models
+            {association:"marcas"},
+            {association:"categorias"}]//se agrega la asociacion que esta en models
         })
         .then(function(producto){
             db.Productos.findAll({
                 where : {
-                    categoria : producto.categoria
+                    id_categoria : producto.categorias.id
                 }
                 , 
                     include : [{association:"talles"}, 
@@ -110,10 +193,6 @@ const productoController = {
                 ],
             })
             .then(function(productos){
-                console.log(producto.nombre);
-                console.log(producto.talles[0].talle);
-                console.log(producto.imagenes[0].path);
-                console.log(productos)
                 res.render('products/productDetail', {producto, productos,  toThousand})
             })
 
@@ -121,20 +200,57 @@ const productoController = {
         .catch(function(error){
             console.log(error);
         })
-       /* for (let i=0; i<listaProductos.length; i++){
-            if (listaProductos[i].id == productID){
-                productSelect = listaProductos[i];
-            }
+    },
+    compraProducto: (req, res, next) => {
+        let usuarioId = req.session.usuario.id
+        db.Carritos.findOne({where : {
+            id_usuario : usuarioId,
+            estado : {[Op.substring]: "abierto"}
         }
-        var productRel = listaProductos.filter(function(producto){//crear variable para enviar productos relacionados.
-            return producto.categorias==productSelect.categorias
-        });
-        
-        console.log(productSelect);
-        console.log(productSelect.talles);
-        res.render('products/productDetail',{
-            productSelect, productRel, toThousand
-        });*/
+        }).then(function(resultado){
+            if(resultado){
+                console.log('carrito encontrado, el id es '+ resultado.id);
+                db.Carrito_producto.create({
+                    id_carrito : resultado.id,
+                    id_producto : req.params.id,
+                    id_talle : req.body.talle,
+                    id_color : req.body.color,
+                    cantidad: req.body.cantidad
+                        }).then(function(resultado){
+                            res.redirect('../users/carrito')
+                        })
+            }else{
+                console.log('no se encontro carrito para el usuario ' + usuarioId )
+                db.Carritos.create({
+                    id_usuario : usuarioId,
+                    estado : "abierto",
+                    forma_pago : req.body.mediosPago,
+                    forma_envio : req.body.mediosEnvio
+                }).then(function(nuevo){
+                    console.log("se creo el carrito nuevo")
+                    db.Carritos.findOne({
+                        where:{
+                            id_usuario : usuarioId,
+                            estado : "abierto"
+                        }
+                    });
+                }).then(function(){
+                    db.Carritos.max('id').then(resultado => {
+                            db.Carrito_producto.create({
+                                id_carrito : resultado,
+                                id_producto : req.params.id,
+                                id_talle : req.body.talle,
+                                id_color : req.body.color,
+                                cantidad: req.body.cantidad
+                            })
+                        
+                        }) 
+                }).then(function(resultado){
+                    res.redirect('../users/carrito')
+                })
+                }
+                })
+
     }
 };
 

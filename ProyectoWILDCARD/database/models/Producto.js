@@ -17,10 +17,10 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             allowNull: true
         },
-        tipo: {
+        id_tipo: {
             type: DataTypes.STRING,
         },
-        categoria: {
+        id_categoria: {
             type: DataTypes.STRING
         },
         descripcion: {
@@ -67,6 +67,16 @@ module.exports = (sequelize, DataTypes) => {
         Productos.belongsTo(modelos.Marcas, {
             as: "marcas",
             foreignKey: "id_marca",
+            timestamps: false
+        });
+        Productos.belongsTo(modelos.Tipos, {
+            as: "tipos",
+            foreignKey: "id_tipo",
+            timestamps: false
+        });
+        Productos.belongsTo(modelos.Categorias, {
+            as: "categorias",
+            foreignKey: "id_categoria",
             timestamps: false
         });
         Productos.hasMany(modelos.Imagenes, {
