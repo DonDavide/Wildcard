@@ -2,6 +2,7 @@ var fs = require('fs');
 const db = require("../database/models");
 const accesoMiddleware = require('../middlewares/accesoMiddleware');
 const { productos } = require('./productosController');
+const Op = db.Sequelize.Op;
 
 var rawdata = fs.readFileSync(__dirname + "/../data/products.json");
 let listaProductos = JSON.parse(rawdata);
@@ -9,7 +10,11 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const adminController = {
     listaProducto: (req, res, next) => {
-        let mostrarProductos = db.Productos.findAll({include :[ 
+        let mostrarProductos = db.Productos.findAll({
+            where : {
+                activo: 1
+            },
+            include :[ 
             {association : "imagenes"}]}, {
             order: [
                 ['nombre', 'ASC'],
@@ -22,10 +27,21 @@ const adminController = {
                 ],
         });
         let mostrarColores = db.Colores.findAll();
-        Promise.all ([mostrarProductos, mostrarMarcas, mostrarTalles, mostrarColores])
-        .then(function([productos, marcas, talles, colores]){
-        res.render('admin/listProducts', {productos : productos, marcas, talles, colores,  toThousand});
-    })
+        let mostrarCategorias = db.Categorias.findAll();
+
+        Promise.all ([mostrarProductos, mostrarMarcas, mostrarTalles, mostrarColores, mostrarCategorias])
+        .then(function([productos, marcas, talles, colores, categorias]){
+        res.render('admin/listProducts', {productos : productos, marcas, talles, colores, categorias,  toThousand, 
+            filtros:{
+                usuario: 'todos',
+                categoria: 'ningunacategoria',
+                precio: [0,1000000],
+                talle: 'ninguntalle',
+                color: 'ninguncolor',
+                marcas: 'ningunamarca'
+            }
+            });
+        })
     },
 
     nuevoProducto: (req, res, next) => {
@@ -53,7 +69,8 @@ const adminController = {
             usuario: req.body.usuario,
             id_categoria:  req.body.categorias,
             descripcion: req.body.descripcion,
-            id_marca: req.body.marca
+            id_marca: req.body.marca,
+            activo: 1
             
         })
         .then(function(){
@@ -113,8 +130,17 @@ const adminController = {
         let mostrarColores = db.Colores.findAll();
         Promise.all([mostrarProducto, mostrarMarcas, mostrarTalles, mostrarColores])//se ejecutan la promesa cuando se cumplen las cuatro
         .then(function([producto, marcas, talles, colores]){//se comparten las 4 variables solo con las 4 ya culminadas.
-         console.log(producto.talles[0].talle);
-            res.render('admin/editProduct', {producto, marcas, talles, colores})//enviamos a la vista los 4 objetos.
+            
+            var tallesProducto = [];
+            for ( let t=0; t<producto.talles.length; t++ ){
+                tallesProducto.push(producto.talles[t].talle)
+            }
+            var coloresProducto = [];
+            for ( let t=0; t<producto.colores.length; t++ ){
+                coloresProducto.push(producto.colores[t].nombre)
+            }
+         /* console.log(producto.talles[0].talle); */
+            res.render('admin/editProduct', {producto, marcas, talles, colores, tallesProducto, coloresProducto})//enviamos a la vista los 4 objetos.
         });
     },
     editarProductoPost: (req, res, next) => {
@@ -190,17 +216,166 @@ const adminController = {
                 where : {
                     id : req.params.id
                 }})         
-    })          
-    }).then(function(){res.redirect ("/admin/products")})
+        })          
+        }).then(function(){res.redirect ("/admin/products")})
     
     },
     softDelete: (req, res, next) => {
+
         db.Productos.update({
-            estado : 0
-            
+            activo : 0
         },{
             where :  {id: req.params.id}
-        })}
+        }).then( function(){
+            db.Productos.findByPk(req.params.id)
+            .then(productoborrado => {
+
+                res.redirect("/admin/products")
+
+            })
+        })
+        .catch(function(error){
+            console.log(error);
+        })
+
+    },
+    listaProductoFiltrados: (req, res, next) =>{
+
+        var usuarioWhere;
+        var categoriaWhere;
+        var precioWhere;
+        var talleWhere;
+        var colorWhere;
+        var marcasWhere;
+
+        var usuarioFilter;
+        var categoriaFilter;
+        var precioFilter;
+        var talleFilter;
+        var colorFilter;
+        var marcasFilter;
+
+        usuarioFilter = req.body.persona
+        if ( req.body.persona == 'todos' ) {
+            usuarioWhere = { [Op.ne]: 'powerñlkajsdfjhxbcv' };
+        } else {
+            usuarioWhere = { [Op.eq]: req.body.persona };
+        }
+
+        
+        if ( req.body.categoria ) {
+            if ( typeof(req.body.categoria) == 'string' ) {
+                categoriaWhere = { [Op.in]: [req.body.categoria] };
+                categoriaFilter = [req.body.categoria];
+            } else {
+                categoriaWhere = { [Op.in]: req.body.categoria };
+                categoriaFilter = req.body.categoria;
+            }
+        } else {
+            categoriaWhere = { [Op.ne]: 'powerñlkajsdfjhxbcv' };
+            categoriaFilter = 'null';
+        }
+
+        precioFilter = [req.body.preciomin, req.body.preciomax]
+        precioWhere = { [Op.between]: [req.body.preciomin, req.body.preciomax] };
+
+        if ( req.body.talles ) {
+            if ( typeof(req.body.talles) == 'string' ) {
+                talleWhere = { [Op.in]: [req.body.talles] };
+                talleFilter = [req.body.talles]
+            } else {
+                talleWhere = { [Op.in]: req.body.talles };
+                talleFilter = req.body.talles
+            }
+        } else {
+            talleWhere = { [Op.ne]: 'powerñlkajsdfjhxbcv' };
+            talleFilter = 'null'
+        }
+  
+        if ( req.body.color ) {
+            if ( typeof(req.body.color) == 'string' ) {
+                colorWhere = { [Op.in]: [req.body.color] };
+                colorFilter = [req.body.color]
+            } else {
+                colorWhere = { [Op.in]: req.body.color };
+                colorFilter = req.body.color
+            }
+        } else {
+            colorWhere = { [Op.ne]: 'powerñlkajsdfjhxbcv' };
+            colorFilter = 'null'
+        }
+
+        if ( req.body.marcas ) {
+            if ( typeof(req.body.marcas) == 'string' ) {
+                marcasWhere = { [Op.in]: [req.body.marcas] };
+                marcasFilter = [req.body.marcas]
+            } else {
+                marcasWhere = { [Op.in]: req.body.marcas };
+                marcasFilter = req.body.marcass
+            }
+        } else {
+            marcasWhere = { [Op.ne]: 'powerñlkajsdfjhxbcv' }; 
+            marcasFilter = 'null'
+        }       
+
+        let mostrarProductos = db.Productos.findAll({include :[ 
+            {association : "imagenes"},
+            {association : "colores",
+                where : {
+                    nombre: colorWhere,                
+                },
+            },
+            {association : "marcas",
+                where : {
+                    nombre: marcasWhere,                
+                },
+            },
+            {association : "talles",
+                where : {
+                    talle: talleWhere,                
+                },
+            },
+            {association : "categorias",
+                where : {
+                    nombre: categoriaWhere,                
+                },
+            },],
+            where : {
+                usuario: usuarioWhere,
+                precio: precioWhere,
+                activo: 1
+            },
+            order: [
+                ['nombre', 'ASC'],
+                ],
+        })
+
+        let mostrarMarcas = db.Marcas.findAll();
+        let mostrarTalles = db.Talles.findAll({
+            
+            order: [
+                ['id', 'ASC'],
+                ],
+        });
+        let mostrarColores = db.Colores.findAll();
+        let mostrarCategorias = db.Categorias.findAll();
+
+        Promise.all ([mostrarProductos, mostrarMarcas, mostrarTalles, mostrarColores, mostrarCategorias])
+        .then(function([productos, marcas, talles, colores, categorias]){
+            res.render('admin/listProducts', {productos, marcas, talles, colores, categorias, toThousand,
+            filtros:{
+                usuario: usuarioFilter,
+                categoria: categoriaFilter,
+                precio: precioFilter,
+                talle: talleFilter,
+                color: colorFilter,
+                marcas: marcasFilter
+            }});
+        })
+        .catch(function(error){
+            console.log(error);
+        })
+    }
 }
 
 module.exports = adminController;

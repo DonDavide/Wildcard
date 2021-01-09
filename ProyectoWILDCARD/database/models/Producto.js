@@ -30,6 +30,9 @@ module.exports = (sequelize, DataTypes) => {
         usuario: {
             type: DataTypes.STRING
         },
+        activo: {
+            type: DataTypes.INTEGER,
+        },
         createdAt: {
             type: DataTypes.DATE
         },

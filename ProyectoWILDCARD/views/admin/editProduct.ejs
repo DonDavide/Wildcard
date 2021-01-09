@@ -21,8 +21,8 @@
                             <option value="niño">NIÑO</option>
                         </select>                              
                         <label class="uno" for="categoria">CATEGORIA DEL PRODUCTO</label>
-                        <div><label for="calzado">CALZADO</label><input  class="check" type="radio" name="categoria" id="calzado" value="calzado"></div>
-                        <div><label for="accesorios">ACCESORIOS</label><input  class="check" type="radio" name="categoria" id="accesorios" value="accesorios"></div>
+                        <div><label for="calzado">CALZADO</label><input  class="check" type="radio" name="categoria" id="calzado" value="calzado" <%= producto.id_tipo==1 ? "checked": null %>></div>
+                        <div><label for="accesorios">ACCESORIOS</label><input  class="check" type="radio" name="categoria" id="accesorios" value="accesorios" <%= producto.id_tipo==2 ? "checked": null %>></div>
                     </div>
                     <div class="categoriasCalzado">
                         <label for="categoria">CATEGORIAS DE CALZADOS</label>
@@ -62,11 +62,11 @@
                         <a href="/admin/products/create/agregarMarca">(agregar marca)</a></div>      
                         <div class="talles"><label class="tituloTalle" for="talle">TALLES :</label>
                             <% for (let i = 0; i < talles.length; i++) {%>
-                                <label><input type="checkbox" id="talles" name="talles" value="<%=talles[i].id%>"><%=talles[i].talle%></label>
+                                <label><input type="checkbox" id="talles" name="talles" value="<%=talles[i].id%>" <%= tallesProducto.includes(talles[i].talle) ? "checked": null %> ><%=talles[i].talle%></label>
                                 <% } %>
                                 <div class="colores"><label class="tituloColores" for="colores">COLORES :</label>
                             <% for (let i = 0; i < colores.length; i++) {%> 
-                                <label><input type="checkbox" id="colores" name="colores"  value="<%=colores[i].id%>"><%=colores[i].nombre%></label>
+                                <label><input type="checkbox" id="colores" name="colores"  value="<%=colores[i].id%>" <%= coloresProducto.includes(colores[i].nombre) ? "checked": null %>><%=colores[i].nombre%></label>
                                 <%}%>
                          </div>
                         </div>

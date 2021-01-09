@@ -16,7 +16,9 @@
                 
                 <a href="/admin/products/create"><button class="buttonAgregar">Agregar Producto</button></a>
                 <br>
+                <form action="../admin/products" method="POST" class="formfiltro">
                 <%- include('../partials/filtroListaProductos') %>
+                </form>
             </aside>
             <section class="producto">
                 <% for ( var i =0; i < productos.length; i++){ %>

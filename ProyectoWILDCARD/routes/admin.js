@@ -19,7 +19,7 @@ var upload = multer({ storage: storage })
 
 
 router.get('/products', accesoMiddleware.accesoAdmin, adminController.listaProducto);
-// post filtro
+router.post('/products', accesoMiddleware.accesoAdmin, adminController.listaProductoFiltrados);
 
 router.get('/products/create', accesoMiddleware.accesoAdmin, adminController.nuevoProducto);
 router.post('/products', upload.any(), accesoMiddleware.accesoAdmin, adminController.nuevoProductoPost); //Acción de creación (a donde se envía el formulario)
@@ -27,7 +27,7 @@ router.post('/products', upload.any(), accesoMiddleware.accesoAdmin, adminContro
 router.get('/products/:id/edit', accesoMiddleware.accesoAdmin, adminController.editarProducto);
 router.post('/products/:id', upload.any(), accesoMiddleware.accesoAdmin, adminController.editarProductoPost);
 
-router.get('/products/delete/:id', accesoMiddleware.accesoAdmin, adminController.destroy); 
+router.get('/products/delete/:id', accesoMiddleware.accesoAdmin, adminController.softDelete); 
 
 
 module.exports = router;

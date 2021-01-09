@@ -10,7 +10,12 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const productoController = {
     productos: (req, res, next) => {
-        let mostrarProductos = db.Productos.findAll({include :[ 
+
+        let mostrarProductos = db.Productos.findAll({
+            where: {
+                activo: 1
+            },
+            include :[ 
             {association : "imagenes"}]}, {
             order: [
                 ['nombre', 'ASC'],
@@ -23,10 +28,20 @@ const productoController = {
                 ],
         });
         let mostrarColores = db.Colores.findAll();
+        let mostrarCategorias = db.Categorias.findAll();
 
-        Promise.all ([mostrarProductos, mostrarMarcas, mostrarTalles, mostrarColores])
-        .then(function([productos, marcas, talles, colores]){
-            res.render('products/productos', {productos : productos, marcas, talles, colores,  toThousand});
+        Promise.all ([mostrarProductos, mostrarMarcas, mostrarTalles, mostrarColores, mostrarCategorias])
+        .then(function([productos, marcas, talles, colores, categorias]){
+            res.render('products/productos', {productos : productos, marcas, talles, colores, categorias, toThousand, 
+                filtros:{
+                    usuario: 'todos',
+                    categoria: 'ningunacategoria',
+                    precio: [0,1000000],
+                    talle: 'ninguntalle',
+                    color: 'ninguncolor',
+                    marcas: 'ningunamarca'
+                }
+            });
         })
        // res.render('products/productos', {
         //    listaProductos, toThousand
@@ -88,7 +103,8 @@ const productoController = {
         let mostrarProductos = db.Productos.findAll({include :[ 
             {association : "imagenes"}],
             where : {
-                id_tipo : 2
+                id_tipo : 2,
+                activo: 1
             },
             order: [
                 ['nombre', 'ASC'],
@@ -102,9 +118,19 @@ const productoController = {
                 ],
         });
         let mostrarColores = db.Colores.findAll();
-        Promise.all ([mostrarProductos, mostrarMarcas, mostrarTalles, mostrarColores])
-        .then(function([productos, marcas, talles, colores]){
-            res.render('products/productos', {productos, marcas, talles, colores, toThousand});
+        let mostrarCategorias = db.Categorias.findAll();
+        Promise.all ([mostrarProductos, mostrarMarcas, mostrarTalles, mostrarColores, mostrarCategorias])
+        .then(function([productos, marcas, talles, colores, categorias]){
+            res.render('products/productos', {productos, marcas, talles, colores, categorias, toThousand, 
+                filtros:{
+                    usuario: 'todos',
+                    categoria: 'ningunacategoria',
+                    precio: [0,1000000],
+                    talle: 'ninguntalle',
+                    color: 'ninguncolor',
+                    marcas: 'ningunamarca'
+                }
+            });
         })
     },
     loNuevo: (req, res, next) =>{
@@ -132,24 +158,118 @@ const productoController = {
         })
     },
     filtro: (req, res, next) =>{
-        console.log(req.body.persona);
+
+        console.log(req.body)
+
+        var usuarioWhere;
+        var categoriaWhere;
+        var precioWhere;
+        var talleWhere;
+        var colorWhere;
+        var marcasWhere;
+
+        var usuarioFilter;
+        var categoriaFilter;
+        var precioFilter;
+        var talleFilter;
+        var colorFilter;
+        var marcasFilter;
+
+        usuarioFilter = req.body.persona
+        if ( req.body.persona == 'todos' ) {
+            usuarioWhere = { [Op.ne]: 'powerñlkajsdfjhxbcv' };
+        } else {
+            usuarioWhere = { [Op.eq]: req.body.persona };
+        }
+
+        
+        if ( req.body.categoria ) {
+            if ( typeof(req.body.categoria) == 'string' ) {
+                categoriaWhere = { [Op.in]: [req.body.categoria] };
+                categoriaFilter = [req.body.categoria];
+            } else {
+                categoriaWhere = { [Op.in]: req.body.categoria };
+                categoriaFilter = req.body.categoria;
+            }
+        } else {
+            categoriaWhere = { [Op.ne]: 'powerñlkajsdfjhxbcv' };
+            categoriaFilter = 'null';
+        }
+
+        precioFilter = [req.body.preciomin, req.body.preciomax]
+        precioWhere = { [Op.between]: [req.body.preciomin, req.body.preciomax] };
+
+        if ( req.body.talles ) {
+            if ( typeof(req.body.talles) == 'string' ) {
+                talleWhere = { [Op.in]: [req.body.talles] };
+                talleFilter = [req.body.talles]
+            } else {
+                talleWhere = { [Op.in]: req.body.talles };
+                talleFilter = req.body.talles
+            }
+        } else {
+            talleWhere = { [Op.ne]: 'powerñlkajsdfjhxbcv' };
+            talleFilter = 'null'
+        }
+  
+        if ( req.body.color ) {
+            if ( typeof(req.body.color) == 'string' ) {
+                colorWhere = { [Op.in]: [req.body.color] };
+                colorFilter = [req.body.color]
+            } else {
+                colorWhere = { [Op.in]: req.body.color };
+                colorFilter = req.body.color
+            }
+        } else {
+            colorWhere = { [Op.ne]: 'powerñlkajsdfjhxbcv' };
+            colorFilter = 'null'
+        }
+
+        if ( req.body.marcas ) {
+            if ( typeof(req.body.marcas) == 'string' ) {
+                marcasWhere = { [Op.in]: [req.body.marcas] };
+                marcasFilter = [req.body.marcas]
+            } else {
+                marcasWhere = { [Op.in]: req.body.marcas };
+                marcasFilter = req.body.marcass
+            }
+        } else {
+            marcasWhere = { [Op.ne]: 'powerñlkajsdfjhxbcv' }; 
+            marcasFilter = 'null'
+        }       
+
         let mostrarProductos = db.Productos.findAll({include :[ 
             {association : "imagenes"},
-            {association : "marcas"},
-            {association : "talles"},
-            {association : "categorias"},],
+            {association : "colores",
+                where : {
+                    nombre: colorWhere,                
+                },
+            },
+            {association : "marcas",
+                where : {
+                    nombre: marcasWhere,                
+                },
+            },
+            {association : "talles",
+                where : {
+                    talle: talleWhere,                
+                },
+            },
+            {association : "categorias",
+                where : {
+                    nombre: categoriaWhere,                
+                },
+            },],
             where : {
-                usuario : {[Op.substring]: req.body.persona},
-                id_marca: {[Op.or]: [req.body.marcas]} ,
-                id_categoria : {[Op.or]: [req.body.categoria]} ,
-                precio : {[Op.between]: [req.body.preciomin, req.body.preciomax],
-                
-                 }
+                usuario: usuarioWhere,
+                precio: precioWhere,
+                activo: 1
             },
             order: [
                 ['nombre', 'ASC'],
                 ],
         })
+
         let mostrarMarcas = db.Marcas.findAll();
         let mostrarTalles = db.Talles.findAll({
             
@@ -158,11 +278,19 @@ const productoController = {
                 ],
         });
         let mostrarColores = db.Colores.findAll();
+        let mostrarCategorias = db.Categorias.findAll();
 
-        Promise.all ([mostrarProductos, mostrarMarcas, mostrarTalles, mostrarColores])
-        .then(function([productos, marcas, talles, colores]){
-            console.log(talles);
-            res.render('products/listadoBusqueda', {productos, marcas, talles, colores, toThousand});
+        Promise.all ([mostrarProductos, mostrarMarcas, mostrarTalles, mostrarColores, mostrarCategorias])
+        .then(function([productos, marcas, talles, colores, categorias]){
+            res.render('products/listadoBusqueda', {productos, marcas, talles, colores, categorias, toThousand,
+            filtros:{
+                usuario: usuarioFilter,
+                categoria: categoriaFilter,
+                precio: precioFilter,
+                talle: talleFilter,
+                color: colorFilter,
+                marcas: marcasFilter
+            }});
         })
         .catch(function(error){
             console.log(error);
