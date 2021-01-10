@@ -39,7 +39,8 @@ const adminController = {
                 talle: 'ninguntalle',
                 color: 'ninguncolor',
                 marcas: 'ningunamarca'
-            }
+            },
+            usuario: req.usuarioLogueado
             });
         })
     },
@@ -55,7 +56,7 @@ const adminController = {
         Promise.all ([mostrarMarcas, mostrarTalles, mostrarColores])
         .then(function([marcas, talles, colores]){
 
-            res.render('admin/newProduct', {marcas, talles, colores})
+            res.render('admin/newProduct', {marcas, talles, colores,usuario: req.usuarioLogueado})
         })
         ;
     },
@@ -140,7 +141,7 @@ const adminController = {
                 coloresProducto.push(producto.colores[t].nombre)
             }
          /* console.log(producto.talles[0].talle); */
-            res.render('admin/editProduct', {producto, marcas, talles, colores, tallesProducto, coloresProducto})//enviamos a la vista los 4 objetos.
+            res.render('admin/editProduct', {producto, marcas, talles, colores, tallesProducto, coloresProducto,usuario: req.usuarioLogueado})//enviamos a la vista los 4 objetos.
         });
     },
     editarProductoPost: (req, res, next) => {
@@ -363,14 +364,16 @@ const adminController = {
         Promise.all ([mostrarProductos, mostrarMarcas, mostrarTalles, mostrarColores, mostrarCategorias])
         .then(function([productos, marcas, talles, colores, categorias]){
             res.render('admin/listProducts', {productos, marcas, talles, colores, categorias, toThousand,
-            filtros:{
-                usuario: usuarioFilter,
-                categoria: categoriaFilter,
-                precio: precioFilter,
-                talle: talleFilter,
-                color: colorFilter,
-                marcas: marcasFilter
-            }});
+                filtros:{
+                    usuario: usuarioFilter,
+                    categoria: categoriaFilter,
+                    precio: precioFilter,
+                    talle: talleFilter,
+                    color: colorFilter,
+                    marcas: marcasFilter
+                },
+                usuario: req.usuarioLogueado
+            });
         })
         .catch(function(error){
             console.log(error);

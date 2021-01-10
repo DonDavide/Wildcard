@@ -1,14 +1,19 @@
 const indexController = {
     home: (req, res, next) => {
+
         res.render('home', {
-            usuario: 'undefined'
+            usuario: req.usuarioLogueado
         });
     },
     ayuda: (req, res, next) => {
-        res.render('ayuda');
+        res.render('ayuda', {
+            usuario: req.usuarioLogueado
+        });
     },
     contacto: (req, res, next) => {
-        res.render('contacto');
+        res.render('contacto', {
+            usuario: req.usuarioLogueado
+        });
     }
 };
 

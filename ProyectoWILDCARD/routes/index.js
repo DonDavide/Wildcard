@@ -1,11 +1,12 @@
 var express = require('express');
 var router = express.Router();
 const indexController = require("../controllers/indexController");
+const accesoMiddleware = require('../middlewares/accesoMiddleware')
 
 /* GET home page. */
-router.get('/', indexController.home);
-router.get('/ayuda', indexController.ayuda);
-router.get('/contactanos', indexController.contacto);
+router.get('/', accesoMiddleware.userSessionLogged, indexController.home);
+router.get('/ayuda', accesoMiddleware.userSessionLogged, indexController.ayuda);
+router.get('/contactanos', accesoMiddleware.userSessionLogged, indexController.contacto);
 
 /* router.get('localhost:3000', function(req, res, next) {
   res.render('home');

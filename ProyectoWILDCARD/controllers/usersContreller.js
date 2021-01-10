@@ -15,7 +15,8 @@ var carritos = JSON.parse(fs.readFileSync(carritosFilePath, 'utf-8'));
 const usersController = {
     register : (req, res, next) => {
         res.render('users/register.ejs', {
-            mensaje: 'nada'
+            mensaje: 'nada',
+            usuario: req.usuarioLogueado
         })
     },
     store: (req, res, next) => {
@@ -28,7 +29,8 @@ const usersController = {
             permiso: "externo"
         })
         res.render('users/login', {
-            mensaje: 'Bienvenido '+req.body.fullname
+            mensaje: 'Bienvenido '+req.body.fullname,
+            usuario: req.usuarioLogueado
         });
 
         /* var allIds=[];
@@ -71,17 +73,18 @@ const usersController = {
     },
     login: (req, res, next) => {
         res.render('users/login.ejs', {
-            mensaje: 'nada'
+            mensaje: 'nada',
+            usuario: req.usuarioLogueado
         });
     },
     loginOK: (req, res, next) => {
         res.render('home', {
-            usuario: req.session.usuario.nombre
+            usuario: req.usuarioLogueado
         });
     },
     list: (req, res, next) => {
         console.log(users);
-        res.render('users/userList.ejs', {users : users});
+        res.render('users/userList.ejs', {users : users, usuario: req.usuarioLogueado});
     },
     destroy : (req, res) => {
 		var idUsers = req.params.id;
@@ -92,7 +95,7 @@ const usersController = {
 		fs.writeFileSync(__dirname + '/../data/users.json', userDestroyJSON);
 		
 		
-		return res.redirect("/users/userList")
+		return res.redirect("/users/userList", {usuario: req.usuarioLogueado})
     },
     editarUsuario: (req, res, next) => {
         let userID = req.params.id;
@@ -104,7 +107,8 @@ const usersController = {
         }
 
         res.render('users/userEdit.ejs', {
-            userEdit
+            userEdit,
+            usuario: req.usuarioLogueado
         })
     }, 
     editarUsuarioPost: (req, res) => {
@@ -131,22 +135,33 @@ const usersController = {
             estado : {[Op.substring]: "abierto"}}
             , 
             include : [{association:"carrito_productos"}, ]})
-            let mostrarMarcas = db.Marcas.findAll();//se buscan las marcas
-            let mostrarTalles = db.Talles.findAll({//se buscan los talles
-                order: [
-                    ['id', 'ASC'],
-                    ],
+        let mostrarMarcas = db.Marcas.findAll();//se buscan las marcas
+        let mostrarTalles = db.Talles.findAll({//se buscan los talles
+            order: [
+                ['id', 'ASC'],
+                ],
+        });
+        let mostrarColores = db.Colores.findAll();
+        let mostrarProductos = db.Productos.findAll();
+        
+        Promise.all ([mostrarCarrito, mostrarMarcas, mostrarTalles, mostrarColores, mostrarProductos])
+        .then(function([carrito, marcas, talles, colores, productos]){
+            res.render('users/carrito', {carrito, marcas, talles, colores, productos, toThousand,
+                usuario: req.usuarioLogueado
             });
-            let mostrarColores = db.Colores.findAll();
-            let mostrarProductos = db.Productos.findAll();
-            Promise.all ([mostrarCarrito, mostrarMarcas, mostrarTalles, mostrarColores, mostrarProductos])
-            .then(function([carrito, marcas, talles, colores, productos]){
-                res.render('users/carrito', {carrito, marcas, talles, colores, productos, toThousand});
-            })
-            .catch(function(error){
-                console.log(error);
-            })
-        }
+        })
+        .catch(function(error){
+            console.log(error);
+        })
+    },
+    closeSession: (req,res,next) => {
+        req.usuarioLogueado = "ningunUsuarioLogueado";
+        req.session.destroy();
+        /* res.render('home', {
+            usuario: req.usuarioLogueado
+        }); */
+        res.redirect('/')
+    }
 };
 
 module.exports = usersController;

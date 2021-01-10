@@ -40,7 +40,8 @@ const productoController = {
                     talle: 'ninguntalle',
                     color: 'ninguncolor',
                     marcas: 'ningunamarca'
-                }
+                },
+                usuario: req.usuarioLogueado
             });
         })
        // res.render('products/productos', {
@@ -68,7 +69,9 @@ const productoController = {
         Promise.all ([productos, mostrarMarcas, mostrarTalles, mostrarColores])
         .then(function([productos, marcas, talles, colores]){
 
-            res.render('products/listadoBusqueda', {productos, marcas, talles, colores, toThousand});
+            res.render('products/listadoBusqueda', {productos, marcas, talles, colores, toThousand,
+                usuario: req.usuarioLogueado
+            });
         }) 
         .catch(function(error){
             console.log(error);
@@ -95,7 +98,9 @@ const productoController = {
         let mostrarColores = db.Colores.findAll();
         Promise.all ([mostrarProductos, mostrarMarcas, mostrarTalles, mostrarColores])
         .then(function([productos, marcas, talles, colores]){
-            res.render('products/productos', {productos, marcas, talles, colores, toThousand});
+            res.render('products/productos', {productos, marcas, talles, colores, toThousand,
+                usuario: req.usuarioLogueado
+            });
         })
     },
     accesorios: function(req, res, next){
@@ -129,7 +134,8 @@ const productoController = {
                     talle: 'ninguntalle',
                     color: 'ninguncolor',
                     marcas: 'ningunamarca'
-                }
+                },
+                usuario: req.usuarioLogueado
             });
         })
     },
@@ -154,7 +160,9 @@ const productoController = {
         let mostrarColores = db.Colores.findAll();
         Promise.all ([mostrarProductos, mostrarMarcas, mostrarTalles, mostrarColores])
         .then(function([productos, marcas, talles, colores]){
-            res.render('products/productos', {productos, marcas, talles, colores, toThousand});
+            res.render('products/productos', {productos, marcas, talles, colores, toThousand,
+                usuario: req.usuarioLogueado
+            });
         })
     },
     filtro: (req, res, next) =>{
@@ -283,14 +291,16 @@ const productoController = {
         Promise.all ([mostrarProductos, mostrarMarcas, mostrarTalles, mostrarColores, mostrarCategorias])
         .then(function([productos, marcas, talles, colores, categorias]){
             res.render('products/listadoBusqueda', {productos, marcas, talles, colores, categorias, toThousand,
-            filtros:{
-                usuario: usuarioFilter,
-                categoria: categoriaFilter,
-                precio: precioFilter,
-                talle: talleFilter,
-                color: colorFilter,
-                marcas: marcasFilter
-            }});
+                filtros:{
+                    usuario: usuarioFilter,
+                    categoria: categoriaFilter,
+                    precio: precioFilter,
+                    talle: talleFilter,
+                    color: colorFilter,
+                    marcas: marcasFilter
+                },
+                usuario: req.usuarioLogueado
+            });
         })
         .catch(function(error){
             console.log(error);
@@ -321,7 +331,9 @@ const productoController = {
                 ],
             })
             .then(function(productos){
-                res.render('products/productDetail', {producto, productos,  toThousand})
+                res.render('products/productDetail', {producto, productos,  toThousand,
+                    usuario: req.usuarioLogueado
+                })
             })
 
         })

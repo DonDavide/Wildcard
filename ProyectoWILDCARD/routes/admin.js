@@ -18,16 +18,16 @@ var upload = multer({ storage: storage })
 
 
 
-router.get('/products', accesoMiddleware.accesoAdmin, adminController.listaProducto);
-router.post('/products', accesoMiddleware.accesoAdmin, adminController.listaProductoFiltrados);
+router.get('/products', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, adminController.listaProducto);
+router.post('/products', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, adminController.listaProductoFiltrados);
 
-router.get('/products/create', accesoMiddleware.accesoAdmin, adminController.nuevoProducto);
-router.post('/products', upload.any(), accesoMiddleware.accesoAdmin, adminController.nuevoProductoPost); //Acción de creación (a donde se envía el formulario)
+router.get('/products/create', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, adminController.nuevoProducto);
+router.post('/products', upload.any(), accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, adminController.nuevoProductoPost); //Acción de creación (a donde se envía el formulario)
 
-router.get('/products/:id/edit', accesoMiddleware.accesoAdmin, adminController.editarProducto);
-router.post('/products/:id', upload.any(), accesoMiddleware.accesoAdmin, adminController.editarProductoPost);
+router.get('/products/:id/edit', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, adminController.editarProducto);
+router.post('/products/:id', upload.any(), accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, adminController.editarProductoPost);
 
-router.get('/products/delete/:id', accesoMiddleware.accesoAdmin, adminController.softDelete); 
+router.get('/products/delete/:id', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, adminController.softDelete); 
 
 
 module.exports = router;

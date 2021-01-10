@@ -19,7 +19,7 @@ const accesoMiddleware = {
                 next()
             } else {
                 res.render('/',{
-                    usuario: req.session.permiso
+                    usuario: req.session.usuario.nombre
                 })
             }
         } else {
@@ -27,6 +27,17 @@ const accesoMiddleware = {
                 mensaje: 'Acceso denegado! Por favor, logueese'
             })
         }
+    },
+    userSessionLogged: (req,res,next) => {
+
+        if ( req.session.usuario ) {
+            req.usuarioLogueado = req.session.usuario.nombre
+        } else {
+            req.usuarioLogueado = "ningunUsuarioLogueado"
+        }
+        console.log("USUARIO LOGUEADO : ")
+        console.log(req.usuarioLogueado)
+        next()
     }
 }
 

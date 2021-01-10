@@ -14,14 +14,17 @@ const userMiddleware = {
         .then((resultado) => {
             if (resultado) { // si existe usuario chequea contraseña
                 if ( bcrypt.compareSync(req.body.password, resultado.password) ) { // si contraseña es correcta, loguea al usuario
+                    req.session.loggedIn = true;
                     req.session.usuario = resultado;
                     next()
                 } else {
+                    req.session.loggedIn = false;
                     res.render('users/login', { // si contraseña no es correcta, vuelve al login
                         mensaje: 'Usuario y/o contraseña incorrectos.'
                     })
                 }
             } else { // si no existe usuario vuelve al login
+                req.session.loggedIn = false;
                 res.render('users/login', {
                     mensaje: 'Usuario y/o contraseña incorrectos.'
                 })
@@ -66,7 +69,7 @@ const userMiddleware = {
             }
 
 
-    },
+    }
 }
 
 module.exports = userMiddleware;
