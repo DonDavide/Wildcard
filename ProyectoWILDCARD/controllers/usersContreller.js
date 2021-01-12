@@ -128,28 +128,69 @@ const usersController = {
 		res.send("usuario editado")
 		
     },
+    carritoVacio :(req, res, next)=>{
+        let usuarioId = req.session.usuario.id;
+        db.Carritos.findOne({where :{
+            id_usuario : usuarioId,
+            estado : {[Op.substring]: "abierto"}
+        }}).then(function(resultado){
+            console.log(resultado);
+            if (resultado){
+                res.redirect('../../carrito')
+            } else{
+                
+                res.redirect('/')
+            }
+        })
+    },
     carrito: (req, res, next) => {
         let usuarioId = req.session.usuario.id;
         let mostrarCarrito = db.Carritos.findOne({where : {
             id_usuario : usuarioId,
             estado : {[Op.substring]: "abierto"}}
             , 
-            include : [{association:"carrito_productos"}, ]})
+            include : [{association:"carrito_productos"}]})
         let mostrarMarcas = db.Marcas.findAll();//se buscan las marcas
         let mostrarTalles = db.Talles.findAll({//se buscan los talles
             order: [
                 ['id', 'ASC'],
                 ],
         });
+        let mostrarCarritoProducto = db.Carrito_producto.findAll({where : {
+            id_usuario : usuarioId}
+            , 
+            include : [{association:"producto"}, {association:"carrito"}, {association:"talle"},
+            {association:"color"}]})
+
         let mostrarColores = db.Colores.findAll();
-        let mostrarProductos = db.Productos.findAll();
+        let mostrarProductos = db.Productos.findAll({include : [{association:"imagenes"}]});
         
-        Promise.all ([mostrarCarrito, mostrarMarcas, mostrarTalles, mostrarColores, mostrarProductos])
-        .then(function([carrito, marcas, talles, colores, productos]){
-            res.render('users/carrito', {carrito, marcas, talles, colores, productos, toThousand,
+        Promise.all ([mostrarCarrito, mostrarCarritoProducto, mostrarMarcas, mostrarTalles, mostrarColores, mostrarProductos])
+        .then(function([carrito, carritoProducto, marcas, talles, colores, productos]){
+            res.render('users/carrito', {carrito, carritoProducto, marcas, talles, colores, productos, toThousand,
                 usuario: req.usuarioLogueado
             });
         })
+        .catch(function(error){
+            console.log(error);
+        })
+    },
+    borraDeCarrito: (req,res,next) =>{
+        db.Carrito_producto.destroy({
+        where : {
+            id : req.params.id
+        }}).then(function(){ console.log('producto Borrado'); res.redirect ('/users/carrito')})
+        .catch(function(error){
+            console.log(error);
+        })
+    },
+    finalizarCompra: (req, res, next) =>{
+        db.Carritos.update({
+            estado: "pedido"
+            
+        },{
+            where :  {id: req.params.id}
+        }).then(function(){ console.log('Compra Finalizada'); res.render('users/comprado', {usuario :req.session.usuario.nombre,  mensaje: 'nada'})})
         .catch(function(error){
             console.log(error);
         })

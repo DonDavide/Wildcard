@@ -48,9 +48,9 @@ module.exports = (sequelize, DataTypes) => {
             otherKey: "id_producto",
             timestamps: false
         });
-        Carritos.belongsTo(modelos.Carrito_producto, {
+        Carritos.hasMany(modelos.Carrito_producto, {
             as: "carrito_productos",
-            foreignKey: "id"
+            foreignKey: "id_carrito"
         });
     } 
     return Carritos;

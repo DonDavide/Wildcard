@@ -66,10 +66,19 @@ const productoController = {
                 ],
         });
         let mostrarColores = db.Colores.findAll();
-        Promise.all ([productos, mostrarMarcas, mostrarTalles, mostrarColores])
-        .then(function([productos, marcas, talles, colores]){
+        let mostrarCategorias = db.Categorias.findAll();
+        Promise.all ([productos, mostrarMarcas, mostrarTalles, mostrarColores, mostrarCategorias])
+        .then(function([productos, marcas, talles, colores, categorias]){
 
-            res.render('products/listadoBusqueda', {productos, marcas, talles, colores, toThousand,
+            res.render('products/listadoBusqueda', {productos, marcas, talles, colores, categorias, toThousand,
+                filtros:{
+                    usuario: 'todos',
+                    categoria: 'ningunacategoria',
+                    precio: [0,1000000],
+                    talle: 'ninguntalle',
+                    color: 'ninguncolor',
+                    marcas: 'ningunamarca'
+                },
                 usuario: req.usuarioLogueado
             });
         }) 
@@ -239,7 +248,7 @@ const productoController = {
                 marcasFilter = [req.body.marcas]
             } else {
                 marcasWhere = { [Op.in]: req.body.marcas };
-                marcasFilter = req.body.marcass
+                marcasFilter = req.body.marcas
             }
         } else {
             marcasWhere = { [Op.ne]: 'powerñlkajsdfjhxbcv' }; 
@@ -355,7 +364,8 @@ const productoController = {
                     id_producto : req.params.id,
                     id_talle : req.body.talle,
                     id_color : req.body.color,
-                    cantidad: req.body.cantidad
+                    cantidad: req.body.cantidad,
+                    id_usuario : usuarioId
                         }).then(function(resultado){
                             res.redirect('../users/carrito')
                         })
@@ -386,7 +396,7 @@ const productoController = {
                         
                         }) 
                 }).then(function(resultado){
-                    res.redirect('../users/carrito')
+                    res.redirect('../products/'+ req.params.id)
                 })
                 }
                 })

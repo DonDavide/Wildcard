@@ -10,63 +10,86 @@
         
         <%- include('../partials/header') %>
         <main class="carrito">
-            <h1>Carrito de compras(cantidad de productos)</h1>
-
+            <h1>Carrito de compras      (<%=carrito.carrito_productos.length%>)</h1>
             <div class="tarjetas">
+                <% for ( var i =0; i < carrito.carrito_productos.length; i++){ %>
+                    <% for ( var j =0; j < productos.length; j++){ %>
+                        <% if ( productos[j].id == carrito.carrito_productos[i].id_producto){ %>
                 <div class="margen"></div>
                 <div class="tarjetaProducto">
                     <div class="imagen">
-                        <img src="/img/zandalias.jpg" alt="zandalias">
+                        <a href="../products/<%=productos[j].id%>"><img src="/img/products/<%=productos[j].imagenes[0].path%>" alt="zandalias"></a>
                     </div>
                     <div class="descripcion">
-                        <h3>Nombre del Producto</h3>
-                        <p>Pequeña descripcion</p>
-                        <p class="cantidad"><%=carrito[0].carrito_productos[0].cantidad%></p>
+                        <h3><%=productos[j].nombre%></h3>
+                        <p><%=productos[j].descripcion%></p>
+                        <% }%>
+                <% }%>
+                <% for ( var k =0; k < talles.length; k++){ %>
+                    <% if ( talles[k].id == carrito.carrito_productos[i].id_talle){ %>
+                        <p>Talle : <%=talles[j].talle%></p>
+                        <% }%>
+                <% }%>
+                <% for ( var l =0; l < colores.length; l++){ %>
+                    <% if ( colores[l].id == carrito.carrito_productos[i].id_color){ %>
+                        <p>Color : <%=colores[l].nombre%></p>
+                        <% }%>
+                <% }%>
+                        <p class="cantidad"></p>
                     </div>
             </div>
-            <div class="tarjetaProducto">
-                <div class="imagen">
-                    <img src="/img/zapatos.jpg" alt="">
-                </div>
-                <div class="descripcion">
-                    <h3>Nombre del Producto</h3>
-                    <p>Pequeña descripcion</p>
-                    <p class="cantidad">1</p>
-                </div>
-                </div>
+                    
+            <% }%>
             </div>
+
 
             <div class="cantidadSubtotal">
                 <div class="cantidad">
                     <h2 class="titulo">Cantidad</h2>
+                    <% for ( var i =0; i < carrito.carrito_productos.length; i++){ %>
                     <div>
-                        <p class="cantidad">1</p>
+                        <p class="cantidad"><%= carrito.carrito_productos[i].cantidad %></p>
                     </div>
-                    <div>
-                        <p class="cantidad">1</p>
-                    </div>
+                    <% }%>
                     <h2 class="titulo2">Subtotal</h2>
-                    <p class="envio">Calcular tiempos y costo de envío.</p>
+                    <br>
+                    <br>
+                    <br>
+                    
+                    <p class="envio">Subtotal</p>
                     
                     <h2 class="total">Total</h2>
                 </div>
                 <div class="subtotal">
                     <h2 class="titulo">Subtotal</h2>
-                    <div class="precio"><p class="precio">$1.500,00</p>
-                        <i class="fas fa-trash-alt"></i>
+                    <% for ( var i =0; i < carrito.carrito_productos.length; i++){ %>
+                        <% for ( var j =0; j < productos.length; j++){ %>
+                            <% if ( productos[j].id == carrito.carrito_productos[i].id_producto){ %>
+                    <div class="precio"><p class="precio">$<%=toThousand(productos[j].precio)%></p>
+                        <a href="/users/carrito/borrar/<%=carrito.carrito_productos[i].id%>"><i class="fas fa-trash-alt"></i></a>
                     </div>
-                    <div class="precio">
-                        <p class="precio">$2.000,00</p>
-                        <i class="fas fa-trash-alt"></i>
-                    </div>
+                            <% }%>
+                        <% }%>
+                    <% }%>
+                    <% var precio = [0] %>
+                    <% for ( var i =0; i < carrito.carrito_productos.length; i++){ %>
+                        <% for ( var j =0; j < productos.length; j++){ %>
+                            <% if ( productos[j].id == carrito.carrito_productos[i].id_producto){ %>
+                                <% precio.push(productos[j].precio) %>
+                                <% }%>
+                    <% }%>
+                <% }%>
+                <br>
+                <br>
+                <br>
                     <div class="subtotal2">
-                        <p>$ 3.500,00</p>
+                        <p>$ <%=toThousand(precio.reduce(function(a, b){ return a + b; }))%></p>
                     </div>
-                    <h2 class="total">$ 3.500,00</h2>
+                    <h2 class="total">$ <%=toThousand(precio.reduce(function(a, b){ return a + b; }))%></h2>
                     </div>
                     <div class="botones">
-                        <button>INICIAR COMPRA</button>
-                        <button class="mas">SEGUIR COMPRANDO</button>
+                        <button><a href="/users/carrito/comprar/<%=carrito.id%>">FINALIZAR PEDIDO</a></button>
+                        <button class="mas"><a href="../products/">SEGUIR COMPRANDO</a></button>
                         
                     </div>
                 </div>

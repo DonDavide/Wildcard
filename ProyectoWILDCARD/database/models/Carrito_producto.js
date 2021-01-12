@@ -29,6 +29,10 @@ module.exports = function(sequelize, dataTypes){
         cantidad : {
             type: dataTypes.INTEGER,
             allowNull: false,
+        },
+        id_usuario : {
+            type: dataTypes.INTEGER,
+            allowNull: false,
         }
     }
     //configuracion de nombre de tabla
@@ -44,7 +48,7 @@ module.exports = function(sequelize, dataTypes){
 
         Carrito_producto.belongsTo(models.Carritos, {
             as: "carrito",
-            foreignKey :"id_carrito"
+            foreignKey :"id"
         });
         Carrito_producto.belongsTo(models.Productos, {
             as: "producto",

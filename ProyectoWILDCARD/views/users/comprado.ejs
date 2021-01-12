@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head') %>
+    <link rel="stylesheet" href='/stylesheets/__register.css'/>
+</head>
+<body>
+    <div class="container">
+        <%- include('../partials/header') %>
+        <main>
+            <% if ( mensaje != 'nada') { %>
+                <ul>
+                    <li><%= mensaje %></li>
+                </ul>
+            <% } %>
+            <div class="inputsContainer">
+                <h2><a href="/">COMPRA FINALIZADA, PRESIONE AQUI PARA VOLVER A LA PAGINA PRINCIPAL</a></h2>
+            </div>
+            <%- include('../partials/footer') %>
+        </main>
+        
+    </div>
+    
+</body>
+</html>
