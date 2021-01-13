@@ -351,13 +351,13 @@ const productoController = {
         })
     },
     compraProducto: (req, res, next) => {
+        console.log('paso');
         let usuarioId = req.session.usuario.id
         db.Carritos.findOne({where : {
             id_usuario : usuarioId,
             estado : {[Op.substring]: "abierto"}
         }
         }).then(function(resultado){
-            if(resultado){
                 console.log('carrito encontrado, el id es '+ resultado.id);
                 db.Carrito_producto.create({
                     id_carrito : resultado.id,
@@ -368,38 +368,9 @@ const productoController = {
                     id_usuario : usuarioId
                         }).then(function(resultado){
                             res.redirect('../users/carrito')
-                        })
-            }else{
-                console.log('no se encontro carrito para el usuario ' + usuarioId )
-                db.Carritos.create({
-                    id_usuario : usuarioId,
-                    estado : "abierto",
-                    forma_pago : req.body.mediosPago,
-                    forma_envio : req.body.mediosEnvio
-                }).then(function(nuevo){
-                    console.log("se creo el carrito nuevo")
-                    db.Carritos.findOne({
-                        where:{
-                            id_usuario : usuarioId,
-                            estado : "abierto"
-                        }
-                    });
-                }).then(function(){
-                    db.Carritos.max('id').then(resultado => {
-                            db.Carrito_producto.create({
-                                id_carrito : resultado,
-                                id_producto : req.params.id,
-                                id_talle : req.body.talle,
-                                id_color : req.body.color,
-                                cantidad: req.body.cantidad
-                            })
-                        
-                        }) 
-                }).then(function(resultado){
-                    res.redirect('../products/'+ req.params.id)
-                })
-                }
-                })
+                        })})
+            
+                
 
     }
 };

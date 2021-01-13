@@ -2,6 +2,7 @@ var fs = require('fs');
 const db = require("../database/models");
 const bcrypt = require("bcrypt")
 const { check, validationResult, body } = require('express-validator');
+const Op = db.Sequelize.Op;
 
 const userMiddleware = {
     checkUser : (req,res,next) => {
@@ -69,6 +70,30 @@ const userMiddleware = {
             }
 
 
+    },
+    checkCarrito : (req,res,next) => {
+        let usuarioId = req.session.usuario.id
+        db.Carritos.findOne({where : {
+            id_usuario : usuarioId,
+            estado : {[Op.substring]: "abierto"}
+        }
+        }).then(function(resultado){
+            if (resultado){
+                console.log('se encontro carrito');
+                next() 
+            }else{
+                console.log('no se encontro carrito para el usuario ' + usuarioId )
+                db.Carritos.create({
+                    id_usuario : usuarioId,
+                    estado : "abierto",
+                    forma_pago : req.body.mediosPago,
+                    forma_envio : req.body.mediosEnvio
+                }).then(function(carrito){
+                    console.log('se creo carrito');
+                    next()
+                })
+            }
+        })
     }
 }
 
