@@ -16,7 +16,9 @@ var storage = multer.diskStorage({
 
 var upload = multer({ storage: storage })
 
-
+router.get('/carritosLista', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, adminController.listadoCarritos);
+router.get('/carritosLista/:id', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, adminController.listadoCarrito);
+router.get('/carritosLista/estado/:id', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, adminController.cambioEstado);
 
 router.get('/products', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, adminController.listaProducto);
 router.post('/products', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, adminController.listaProductoFiltrados);

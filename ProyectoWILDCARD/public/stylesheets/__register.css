@@ -339,6 +339,9 @@
   .container main input {
     height: 35px;
   }
+  .container main select {
+    height: 35px;
+  }
 
   .forgotPassword {
     font-size: 12px;

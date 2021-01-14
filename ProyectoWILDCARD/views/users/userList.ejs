@@ -18,7 +18,7 @@
             <div class= "fullname">
                 <h1>Nombre completo</h1>
                 <%for(i=0; i< users.length; i++ ){%>
-                <h2><%=users[i].fullname%></h2>
+                <h2><%=users[i].nombre%></h2>
                 <%}%>
             </div>
             <div class="email">
@@ -31,6 +31,12 @@
                 <h1>Telefono</h1>
                 <%for(i=0; i< users.length; i++ ){%>
                 <h2><%=users[i].telefono%></h2>
+                <%}%>
+            </div>
+            <div class="permiso">
+                <h1>Permiso</h1>
+                <%for(i=0; i< users.length; i++ ){%>
+                <h2><%=users[i].permiso%></h2>
                 <%}%>
             </div>
             

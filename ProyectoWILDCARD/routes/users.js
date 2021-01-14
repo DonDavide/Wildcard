@@ -18,12 +18,12 @@ router.post('/register', [
 router.get('/login', accesoMiddleware.userSessionLogged, usersController.login);
 router.post('/login', userMiddleware.checkUser, accesoMiddleware.userSessionLogged, usersController.loginOK);
 
-router.get('/userList',accesoMiddleware.userSessionLogged, usersController.list);
+router.get('/userList', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, usersController.list);
 
-router.get('/userList/delete/:id',accesoMiddleware.userSessionLogged, usersController.destroy)
+router.get('/userList/delete/:id', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, usersController.destroy)
 
-router.get('/userList/edit/:id', accesoMiddleware.userSessionLogged, usersController.editarUsuario);//ver
-router.post('/userList/edit/:id',accesoMiddleware.userSessionLogged, usersController.editarUsuarioPost)
+router.get('/userList/edit/:id', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, usersController.editarUsuario);//ver
+router.post('/userList/edit/:id', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, usersController.editarUsuarioPost)
 
 router.get('/carrito/borrar/:id', accesoMiddleware.acceso,accesoMiddleware.userSessionLogged, usersController.borraDeCarrito);
 router.get('/carrito/comprar/:id', accesoMiddleware.acceso,accesoMiddleware.userSessionLogged, usersController.finalizarCompra);
