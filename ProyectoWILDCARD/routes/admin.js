@@ -18,13 +18,18 @@ var upload = multer({ storage: storage })
 
 router.get('/carritosLista', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, adminController.listadoCarritos);
 router.get('/carritosLista/:id', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, adminController.listadoCarrito);
-router.get('/carritosLista/estado/:id', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, adminController.cambioEstado);
+router.post('/carritosLista/estado/:id', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, adminController.cambioEstado);
+
+router.get('/stocks', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, adminController.verStocks);
 
 router.get('/products', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, adminController.listaProducto);
 router.post('/products', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, adminController.listaProductoFiltrados);
 
 router.get('/products/create', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, adminController.nuevoProducto);
 router.post('/products', upload.any(), accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, adminController.nuevoProductoPost); //Acción de creación (a donde se envía el formulario)
+
+router.get('/products/create/agregarMarca', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, adminController.agregarMarca);
+router.post('/products/create/agregarMarca', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, adminController.agregarMarcaPost);
 
 router.get('/products/:id/edit', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, adminController.editarProducto);
 router.post('/products/:id', upload.any(), accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, adminController.editarProductoPost);

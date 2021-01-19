@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head') %>
+    <link rel="stylesheet" href='/stylesheets/carritoLista.css'/>
+</head>
+<body>
+    <div class="container">
+        <%- include('../partials/header') %>
+        <main>
+            
+            <div class="id">
+                <h1>Id</h1>
+                <%for(i=0; i< stocks.length; i++ ){%>
+                <h2><a href="/admin/carritosLista/<%=stocks[i].id%>"><%=stocks[i].id%></a></h2>
+                <%}%>
+            </div>
+            <div class= "fullname">
+                <h1>Nombre Producto</h1>
+                <%for(i=0; i< stocks.length; i++ ){%>
+                <h2><a href="/admin/carritosLista/<%=stocks[i].id%>"><%=stocks[i].producto.nombre%></a></h2>
+                <%}%>
+            </div>
+            <div class= "fullname">
+                <h1>Marca</h1>
+                <%for(i=0; i< stocks.length; i++ ){%>
+                    <%for(j=0; j< marcas.length; j++ ){%>
+                        <% if(marcas[j].id == stocks[i].producto.id_marca) {%>
+                <h2><a href="/admin/carritosLista/<%=stocks[i].id%>"><%=marcas[j].nombre%></a></h2>
+                <%}%>
+                <%}%>
+                <%}%>
+            </div>
+            <div class="email">
+                <h1>Talle</h1>
+                <%for(i=0; i< stocks.length; i++ ){%>
+                <h2><a href="/admin/carritosLista/<%=stocks[i].id%>"><%=stocks[i].talle.talle%></a></h2>
+                <%}%>
+            </div>
+            <div class="estado">
+                <h1>Color</h1>
+                <%for(i=0; i< stocks.length; i++ ){%>
+                    <h2><a href="/admin/carritosLista/<%=stocks[i].id%>"><%=stocks[i].color.nombre%></a></h2>
+                    <%}%>
+            </div>
+            <div class="formaPago">
+                <h1 style="font-size: medium;">Stock</h1>
+                <%for(i=0; i< stocks.length; i++ ){%>
+                    <h2><input type="text" value="<%=stocks[i].stock%>"></h2>
+                    <%}%>
+            </div>
+            
+        </main>
+        <%- include('../partials/footer') %>
+    </div>
+</body>
+</html>

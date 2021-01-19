@@ -11,7 +11,26 @@
             
             <div class="id">
                 <%for(i=0; i< carritos.length; i++ ){%>
-                <h1>Id carrito : <%=carritos[i].id%> --------- <a href="/admin/carritosLista">Volver al listado de Carritos</a></h1>
+                <h1>Id carrito : <%=carritos[i].id%></h1>
+                <%}%>
+                <h1><a href="/admin/carritosLista">Volver al listado de Carritos</a></h1>
+            </div>
+            <div class="id2">
+                <%for(i=0; i< carritos.length; i++ ){%>
+                <h1>Estado de carrito : <%=carritos[i].estado%></h1>
+                <%}%>
+            </div>
+            <div class="estado">
+                <%for(i=0; i< carritos.length; i++ ){%>
+                <form action="/admin/carritosLista/estado/<%=carritos[i].id%>" method="POST">
+                    <label for="estado"><h2>Cambiar estado:    </h2></label>
+                <select name="estado" id="estado">
+                    <option value="abierto" <%= carritos[i].estado=="abierto" ? "selected" : null %>>Abierto</option>
+                    <option value="pedido" <%= carritos[i].estado=="pedido" ? "selected" : null %>>Pedido</option>
+                    <option value="cerrado"  <%= carritos[i].estado=="cerrado" ? "selected" : null %>>Cerrado</option>
+                </select>
+                <button class="boton" type="submit">Enviar</button>
+                </form>
                 <%}%>
             </div>
             <div class= "producto">

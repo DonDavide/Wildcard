@@ -13,7 +13,7 @@ router.post('/register', [
     check('email').isLength( {min:3} ).withMessage('Email- campo obligatorio'),
     check('password').isLength( {min:6} ).withMessage('Contraseña - campo obligatorio mayor a 6 letras'),
     check('confirmpassword').isLength( {min:1} ).withMessage('Confimación de contraseña - campo obligatorio'),
-], userMiddleware.checkRegisterErrors, userMiddleware.checkPassConfirmation, userMiddleware.checkUserExistance, usersController.store)
+], userMiddleware.checkRegisterErrors, userMiddleware.checkPassConfirmation, userMiddleware.checkUserExistance, accesoMiddleware.userSessionLogged, usersController.store)
 
 router.get('/login', accesoMiddleware.userSessionLogged, usersController.login);
 router.post('/login', userMiddleware.checkUser, accesoMiddleware.userSessionLogged, usersController.loginOK);

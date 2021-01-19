@@ -419,7 +419,7 @@
     top: 2vh;
   }
   .container main.carrito div.cantidadSubtotal div.cantidad h2.titulo2 {
-    display: flex;
+    display: none;
     position: relative;
     right: 45vw;
     top: 1vh;
@@ -560,15 +560,12 @@
     font-size: 0.4rem;
   }
   .container main.carrito div.tarjetas div.tarjetaProducto div.descripcion p.cantidad{
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     text-align: center;
     width: 20vw;
   }
-  .container main.carrito div.cantidadSubtotal div.cantidad div p.cantidad {
-    display: none;
-}
 .container main.carrito div.cantidadSubtotal div.cantidad h2.titulo2 {
   font-weight: 500;
 }

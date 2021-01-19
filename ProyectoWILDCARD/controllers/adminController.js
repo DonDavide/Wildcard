@@ -144,6 +144,25 @@ const adminController = {
             res.render('admin/editProduct', {producto, marcas, talles, colores, tallesProducto, coloresProducto,usuario: req.usuarioLogueado})//enviamos a la vista los 4 objetos.
         });
     },
+    agregarMarca: (req, res, next) =>{
+        db.Marcas.findAll()//se buscan las marcas
+        .then(function(marcas){
+            res.render('admin/agregarMarcas',{
+                marcas, usuario: req.usuarioLogueado
+            })
+        })
+
+    },
+    agregarMarcaPost: (req, res, next) =>{
+        db.Marcas.create({
+            nombre: req.body.marca
+        })//se agregan marcas
+        .then(function(marcas){
+            console.log('La marca es ' + req.body.nuevaMarca);
+            res.redirect('/admin/products/create')
+        })
+
+    },
     editarProductoPost: (req, res, next) => {
         db.Productos.update({
             nombre: req.body.nombre,
@@ -198,13 +217,13 @@ const adminController = {
     },
     cambioEstado:(req, res, next) => {
         db.Carritos.update({
-            estado : "cerrado"
+            estado : req.body.estado
             
         },{
             where :  {id: req.params.id}
         }) .then(function(productos){
 
-            res.redirect("/admin/carritoLista");
+            res.redirect("/admin/carritosLista/" + req.params.id);
         }) 
     },
     destroy : (req, res) => {
@@ -455,7 +474,19 @@ const adminController = {
             console.log(error);
         })
 
-    }
+    },
+    verStocks: (req, res, next) =>{
+            let mostrarStocks = db.Stocks.findAll({
+            include : [{association:"producto"}, {association:"talle"},
+            {association:"color"}]})
+            let mostrarMarcas = db.Marcas.findAll();
+            Promise.all([mostrarStocks, mostrarMarcas])
+            .then(function([stocks, marcas]){
+                console.log(stocks[1]);
+                res.render('admin/listStocks.ejs', {stocks, marcas, toThousand,
+                    usuario: req.usuarioLogueado
+                })
+    })}
 }
 
 module.exports = adminController;

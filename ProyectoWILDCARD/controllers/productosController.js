@@ -44,9 +44,6 @@ const productoController = {
                 usuario: req.usuarioLogueado
             });
         })
-       // res.render('products/productos', {
-        //    listaProductos, toThousand
-       // });
     },
     busquedaProductos: function(req, res, next){
         var busqueda = req.body.search;
@@ -87,7 +84,6 @@ const productoController = {
         })
     },
     ofertas: function(req, res, next){
-        var busqueda = req.body.search;
         let mostrarProductos = db.Productos.findAll({include :[ 
             {association : "imagenes"}],
             where : {
@@ -105,15 +101,23 @@ const productoController = {
                 ],
         });
         let mostrarColores = db.Colores.findAll();
-        Promise.all ([mostrarProductos, mostrarMarcas, mostrarTalles, mostrarColores])
-        .then(function([productos, marcas, talles, colores]){
-            res.render('products/productos', {productos, marcas, talles, colores, toThousand,
+        let mostrarCategorias = db.Categorias.findAll();
+        Promise.all ([mostrarProductos, mostrarMarcas, mostrarTalles, mostrarColores, mostrarCategorias])
+        .then(function([productos, marcas, talles, colores, categorias]){
+            res.render('products/productos', {productos, marcas, talles, colores, categorias, toThousand,
+                filtros:{
+                    usuario: 'todos',
+                    categoria: 'ningunacategoria',
+                    precio: [0,1000000],
+                    talle: 'ninguntalle',
+                    color: 'ninguncolor',
+                    marcas: 'ningunamarca'
+                },
                 usuario: req.usuarioLogueado
             });
         })
     },
     accesorios: function(req, res, next){
-        var busqueda = req.body.search;
         let mostrarProductos = db.Productos.findAll({include :[ 
             {association : "imagenes"}],
             where : {
@@ -166,12 +170,22 @@ const productoController = {
                 ['id', 'ASC'],
                 ],
         });
+        let mostrarCategorias = db.Categorias.findAll();
         let mostrarColores = db.Colores.findAll();
-        Promise.all ([mostrarProductos, mostrarMarcas, mostrarTalles, mostrarColores])
-        .then(function([productos, marcas, talles, colores]){
-            res.render('products/productos', {productos, marcas, talles, colores, toThousand,
+        Promise.all ([mostrarProductos, mostrarMarcas, mostrarTalles, mostrarColores, mostrarCategorias])
+        .then(function([productos, marcas, talles, colores, categorias]){
+            res.render('products/productos', {productos, marcas, talles, colores, categorias, toThousand,
+                filtros:{
+                    usuario: 'todos',
+                    categoria: 'ningunacategoria',
+                    precio: [0,1000000],
+                    talle: 'ninguntalle',
+                    color: 'ninguncolor',
+                    marcas: 'ningunamarca'
+                },
                 usuario: req.usuarioLogueado
             });
+
         })
     },
     filtro: (req, res, next) =>{

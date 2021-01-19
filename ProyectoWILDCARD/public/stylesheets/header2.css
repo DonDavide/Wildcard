@@ -29,9 +29,15 @@
 .contenedor:hover .desplegable {
     display: block;
     position: absolute;
-    top : 90px;
+    top : 80px;
 }
 
 .contenedor:hover .botonMenu {
     background-color: grey;
 }
+.desplegable form .barraDeBusqueda input{
+    background-color: black;
+    color: white;
+    width: 10px;
+    font-size: 12px;
+  }

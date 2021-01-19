@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head') %>
+    <link rel='stylesheet' href='/stylesheets/nuevaMarca.css' />
+</head>
+<body>
+    <div class="container">
+        <%- include('../partials/header_edit') %>  
+        <main class="newProduct">
+            <div class="marca"><label for="marca">MARCAS DISPONIBLES :</label>
+                            
+                <select name="marca" id="marca">
+                <% for (let i = 0; i < marcas.length; i++) {%>
+                <option value="<%=marcas[i].id%>">
+                    <%=marcas[i].nombre%>
+                </option>
+            <%}%>
+        </select>
+        </div>  
+        <form action="/admin/products/create/agregarMarca" method="POST">
+        
+        <div><label for="marca">NOMBRE DE NUEVA MARCA :</label>
+            <input type="text" name="marca" id="marca" placeholder="Nombre de Nueva Marca.">
+        </div>
+        <a href="."><button class="reset" type="button">Volver</button></a> 
+        <button class="agregarMarca" type="submit">Agregar Marca</button>
+    </form>
+        </main>
+        <%- include('../partials/footer') %>
+    </div>
+</body>
+</html>
