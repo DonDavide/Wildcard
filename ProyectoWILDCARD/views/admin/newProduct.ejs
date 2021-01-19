@@ -21,26 +21,26 @@
                             <option value="niño">NIÑO</option>
                         </select>              
                         <label class="uno" for="categoria">CATEGORIA DEL PRODUCTO</label>
-                        <div><label for="calzado">CALZADO</label><input  class="check" type="radio" name="categoria" id="calzado" value="1"></div>
+                        <div><label for="calzado">CALZADO</label><input  class="check" type="radio" name="categoria" id="calzado" value="1" checked></div>
                         <div><label for="accesorios">ACCESORIOS</label><input  class="check" type="radio" name="categoria" id="accesorios" value="2"></div>
                     </div>
                     <div class="categoriasCalzado">
                         <label for="categoria">CATEGORIAS DE CALZADOS</label>
-                        <div><label for="zapatillas">ZAPATILLAS</label><input class="check" type="radio" name="categorias" id="zapatillas" value="Zapatillas"></div>  
-                        <div><label for="botas">BOTAS</label><input class="check" type="radio" name="categorias" id="botas" value="Botas"></div>
-                        <div><label for="zapatos">ZAPATOS</label><input class="check" type="radio" name="categorias" id="zapatos" value="Zapatos"></div>
-                        <div><label for="suecos">SUECOS</label><input class="check" type="radio" name="categorias" id="suecos" value="Suecos"></div>
-                        <div><label for="zandalias">ZANDALIAS</label><input class="check" type="radio" name="categorias" id="Zandalias" value="Zandalias"></div>
-                        <div><label for="chatas">CHATAS</label><input class="check" type="radio" name="categorias" id="chatas" value="Chatas"></div>
-                        <div><label for="ojotas">OJOTAS</label><input class="check" type="radio" name="categorias" id="ojotas" value="Ojotas"></div>
+                        <div><label for="zapatillas">ZAPATILLAS</label><input class="check categoria1" type="radio" name="categorias" id="zapatillas" value="Zapatillas"></div>  
+                        <div><label for="botas">BOTAS</label><input class="check categoria 1" type="radio" name="categorias" id="botas" value="Botas"></div>
+                        <div><label for="zapatos">ZAPATOS</label><input class="check categoria 1" type="radio" name="categorias" id="zapatos" value="Zapatos"></div>
+                        <div><label for="suecos">SUECOS</label><input class="check categoria 1" type="radio" name="categorias" id="suecos" value="Suecos"></div>
+                        <div><label for="zandalias">ZANDALIAS</label><input class="check categoria 1" type="radio" name="categorias" id="Zandalias" value="Zandalias"></div>
+                        <div><label for="chatas">CHATAS</label><input class="check categoria 1" type="radio" name="categorias" id="chatas" value="Chatas"></div>
+                        <div><label for="ojotas">OJOTAS</label><input class="check categoria1" type="radio" name="categorias" id="ojotas" value="Ojotas"></div>
                     </div>
-                    <div class="categoriasAccesorio">
+                    <div class="categoriasAccesorio" style="display: none;">
                         <label for="categoria">CATEGORIAS DE ACCESORIOS</label>
-                        <div><label for="carteras">CARTERAS</label><input class="check" type="radio" name="categorias" id="carteras" value="Carteras"></div> 
-                        <div><label for="pañuelos">PAÑUELOS</label><input class="check" type="radio" name="categorias" id="pañuelos" value="Pañuelos"></div>
-                        <div><label for="pulserasYCollares">PULSERAS Y COLLARES</label><input class="check" type="radio" name="categorias" id="pulserasYCollares" value="PulserasYCollares"></div>
-                        <div><label for="cintos">CINTOS</label><input class="check" type="radio" name="categorias" id="cintos" value="Cintos"></div>
-                        <div><label for="mochilas">MOCHILAS</label><input class="check" type="radio" name="categorias" id="mochilas" value="Mochilas"></div>
+                        <div><label for="carteras">CARTERAS</label><input class="check categoria2" type="radio" name="categorias" id="carteras" value="Carteras"></div> 
+                        <div><label for="pañuelos">PAÑUELOS</label><input class="check categoria2" type="radio" name="categorias" id="pañuelos" value="Pañuelos"></div>
+                        <div><label for="pulserasYCollares">PULSERAS Y COLLARES</label><input class="check categoria2" type="radio" name="categorias" id="pulserasYCollares" value="PulserasYCollares"></div>
+                        <div><label for="cintos">CINTOS</label><input class="check categoria2" type="radio" name="categorias" id="cintos" value="Cintos"></div>
+                        <div><label for="mochilas">MOCHILAS</label><input class="check categoria2" type="radio" name="categorias" id="mochilas" value="Mochilas"></div>
                     </div>
                     
                     <div class="esp">
@@ -81,5 +81,6 @@
         </main>
         <%- include('../partials/footer') %>
     </div>
+    <script src="/js/newProduct.js"></script>
 </body>
 </html>

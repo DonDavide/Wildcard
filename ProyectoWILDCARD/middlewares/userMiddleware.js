@@ -38,9 +38,11 @@ const userMiddleware = {
     },
     checkRegisterErrors : (req,res,next) => {
         let errors = validationResult(req);
+         
         if (!errors.isEmpty()) {
+            let usuario = 'ningunUsuarioLogueado'
             return res.render('users/register', {
-                mensaje: errors.errors
+                mensaje: errors.errors, usuario 
             });
         } else {
             next()
@@ -77,7 +79,7 @@ const userMiddleware = {
                 })
             }
 
-
+         
     },
     checkCarrito : (req,res,next) => {
         let usuarioId = req.session.usuario.id
