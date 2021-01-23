@@ -31,7 +31,7 @@
                     </article>
                 </div>
 
-                <form action="/products/<%= producto.id %>" method="POST" class="formularioCompra">
+                <form action="/products/<%= producto.id %>" method="POST" class="formularioCompra" id="formulario">
                     <tittle id="nombre"> <%= producto.nombre %> </tittle>
                     <tittle id="nombre"> Marca : <%= producto.marcas.nombre %> </tittle>
                     <p id="precio"> $ <%= toThousand(producto.precio) %> </p>
@@ -40,6 +40,7 @@
                         <div class="categoria">
                             <p id="tituloTalles">Talles</p>
                             <p id="guiaTalles" onclick="javascript:location.href='/ayuda'">Ver guía de talles</p>
+                            <ul id="tallesError" style="font-size: small; color: red;" ></ul>
                         </div>
                         <div class="botontesSelect">
                             <% for ( let i= 0; i< producto.talles.length; i++ ){ %>
@@ -49,6 +50,7 @@
                         </div>
                         <div class="colores">
                         <p class="categoria">Colores: <b></b></p>
+                        <ul id="coloresError" style="font-size: small; color: red;" ></ul>
                         <div class="botontesSelect">
                             <% for ( let i= 0; i< producto.colores.length; i++ ){ %>
                             <button type="button" id="color" name="color" value="<%= producto.colores[i].id %>" style="background-color: #<%= producto.colores[i].hex %> ;"><input type="radio" id="color" name="color" value="<%=producto.colores[i].id%>"><%=producto.colores[i].talle%></button></label>
@@ -107,5 +109,6 @@
         <%- include('../partials/footer') %>
 
     </div>
+    <script src="/js/productDetail.js"></script>
 </body>
 </html>
