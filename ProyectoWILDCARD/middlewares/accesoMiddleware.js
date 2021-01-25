@@ -8,7 +8,8 @@ const accesoMiddleware = {
         } else {
             // req.session.error = 'Access denied!';
             res.render('users/login', {
-                mensaje: 'Acceso denegado! Por favor, logueese'
+                mensaje: 'Acceso denegado! Por favor, logueese',
+                usuario: "ningunUsuarioLogueado"
             })
         }
     },
@@ -18,13 +19,14 @@ const accesoMiddleware = {
             if ( req.session.usuario.permiso == 'admin' ) {
                 next()
             } else {
-                res.render('/',{
+                res.render('/home',{
                     usuario: req.session.usuario.nombre
                 })
             }
         } else {
             res.render('users/login', {
-                mensaje: 'Acceso denegado! Por favor, logueese'
+                mensaje: 'Acceso denegado! Por favor, logueese',
+                usuario: "ningunUsuarioLogueado"
             })
         }
     },

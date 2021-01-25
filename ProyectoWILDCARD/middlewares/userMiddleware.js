@@ -20,13 +20,15 @@ const userMiddleware = {
                 } else {
                     req.session.loggedIn = false;
                     res.render('users/login', { // si contraseña no es correcta, vuelve al login
-                        mensaje: 'Usuario y/o contraseña incorrectos.'
+                        mensaje: 'Usuario y/o contraseña incorrectos.',
+                        usuario: "ningunUsuarioLogueado"
                     })
                 }
             } else { // si no existe usuario vuelve al login
                 req.session.loggedIn = false;
                 res.render('users/login', {
-                    mensaje: 'Usuario y/o contraseña incorrectos.'
+                    mensaje: 'Usuario y/o contraseña incorrectos.',
+                    usuario: "ningunUsuarioLogueado"
                 })
             }
         })
@@ -35,7 +37,8 @@ const userMiddleware = {
         let errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.render('users/register', {
-                mensaje: errors.errors
+                mensaje: errors.errors,
+                usuario: "ningunUsuarioLogueado"
             });
         } else {
             next()
@@ -51,7 +54,8 @@ const userMiddleware = {
         .then((resultado) => {
             if (resultado) {
                 return res.render('users/register', {
-                    mensaje: 'Usuario ya existente.'
+                    mensaje: 'Usuario ya existente.',
+                    usuario: "ningunUsuarioLogueado"
                 })
             } else {
                 next()
@@ -64,7 +68,8 @@ const userMiddleware = {
                 next()
             } else {
                 res.render('users/register', {
-                    mensaje: 'Contraseña y confirmación no coinciden.'
+                    mensaje: 'Contraseña y confirmación no coinciden.',
+                    usuario: "ningunUsuarioLogueado"
                 })
             }
 
