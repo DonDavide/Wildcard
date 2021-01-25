@@ -3,6 +3,8 @@
 <head>
     <%- include('../partials/head') %>
     <link rel="stylesheet" href='/stylesheets/__register.css'/>
+    <link rel='stylesheet' href='/stylesheets/header2.css' />
+
 </head>
 <body>
     <div class="container">
@@ -21,10 +23,12 @@
                     <div class="emailInputContainer">
                         <label for="email">EMAIL</label>
                         <input type="email" name="email" id="email">
+                        <ul style="font-size: small; color: red;" id="emailError"></ul>
                     </div>
                     <div class="passwordInputContainer">
                         <label for="password">CONTRASEÑA</label>
                         <input type="password" name="password" id="password">
+                        <ul style="font-size: small; color: red;" id="passwordError"></ul>
                         <a class="forgotPassword" href="#">¿Olvidaste tu contraseña?</a>
                     </div>
                     <button id="entrar" type="submit">INCIAR SESIÓN</button>
@@ -34,6 +38,6 @@
         </main>
         
     </div>
-    
+    <script src="/js/login.js"></script>
 </body>
 </html>

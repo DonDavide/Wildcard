@@ -1,7 +1,9 @@
 var express = require('express');
 var router = express.Router();
+const { check, validationResult, body } = require('express-validator');
 const productoController = require('../controllers/productosController');
 const accesoMiddleware = require('../middlewares/accesoMiddleware');
+const userMiddleware = require('../middlewares/userMiddleware')
 
 router.get('/', accesoMiddleware.userSessionLogged, productoController.productos);
 
@@ -17,6 +19,6 @@ router.get('/accesorios', accesoMiddleware.userSessionLogged, productoController
 
 
 router.get('/:id', accesoMiddleware.userSessionLogged, productoController.detalleProducto);
-router.post('/:id', accesoMiddleware.acceso, accesoMiddleware.userSessionLogged, productoController.compraProducto);
+router.post('/:id', accesoMiddleware.acceso, accesoMiddleware.userSessionLogged, userMiddleware.checkCarrito, productoController.compraProducto);
 
 module.exports = router;

@@ -2,8 +2,27 @@
     <div class="tituloh2">
         <h2>ENVÍOS A TODO EL PAÍS</h2>
     </div>
-    <menu>
-        <i class="fas fa-bars"></i></i>
+    <menu class="contenedor">
+        <i class="fas fa-bars botonMenu"></i>
+        <div class="desplegable">
+            <form action="products/search" method="POST">
+                <input type="text" name="search" id="barraDeBusqueda" placeholder="Buscar productos">
+                <Button type="submit"><i class="fas fa-search"></i></Button>
+                </form>
+            <a href="/products">COLECCION</a>
+            <a href="/products/accesorios">ACCESORIOS</a>
+            <a href="/ayuda">AYUDA</a>
+            <a href="/contactanos">CONTACTANOS</a>
+            <% if ( usuario != 'ningunUsuarioLogueado' ) { %>
+            <a href="#">Hola <%= usuario %>!!!</a>
+            <a href="/users/closesession">Cerrar Sesion</a>
+            <%} else { %>
+            <a href="/users/login">INICIAR SESION</a>
+            <% } %>
+            <a href="/users/register">CREAR CUENTA</a> 
+            <a href="/ayuda">AYUDA</a>
+          </div>
+        
     </menu>
     <div class="logoArlequin">
         <img src="/img/logoArlequin.jpg" height="100%" alt="Logo Arlequin">
@@ -19,7 +38,7 @@
         </form>
     </div>
         <div class="carrito">
-            <i class="fas fa-shopping-cart" onclick="javascript:location.href='/users/carrito'"></i>
+            <i class="fas fa-shopping-cart" onclick="javascript:location.href='/users/carrito/verCarrito/'"></i>
         </div>
     </div>
     <nav>

@@ -12,7 +12,9 @@
         <%- include('../partials/header') %>
         <main>
             <aside class="aside">
+                <form action="../products/filtro" method="POST" class="formfiltro">
                 <%- include('../partials/filtroListaProductos') %>
+            </form>
             </aside>
             <section class="producto"  >
                 <% for ( var i =0; i < productos.length; i++){ %>

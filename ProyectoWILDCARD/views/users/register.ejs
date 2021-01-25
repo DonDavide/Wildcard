@@ -3,6 +3,8 @@
 <head>
     <%- include('../partials/head') %>
     <link rel="stylesheet" href='/stylesheets/__register.css'/>
+    <link rel='stylesheet' href='/stylesheets/header2.css' />
+
 </head>
 <body>
     <div class="container">
@@ -22,21 +24,26 @@
             <% } %>
             
             <div class="inputsContainer">
-                <form action="/users/register" method="post">
+                <form action="/users/register" method="post" id="formRegister">
                     <div class="auxiliarInputsContainer">
                         
                         <div class="fullnameInputContainer">
                         <label for="fullname">NOMBRE Y APELLIDO</label>
                         <input type="text" name="fullname" id="fullname">
+                        <ul id="nameError" style="font-size: small; color: red;" ></ul>
                         </div> <br>
                         <label for="email">EMAIL</label>
-                        <input type="email" name="email" id="email"> <br>
+                        <input type="email" name="email" id="email"> 
+                        <ul style="font-size: small; color: red;"  id="emailError"></ul><br>
                         <label for="text">TELÉFONO (OPCIONAL)</label>
-                        <input type="text" name="telefono" id="telefono"> <br>
+                        <input type="text" name="telefono" id="telefono"> 
+                        <ul style="font-size: small; color: red;"  id="telefonoError"></ul><br>
                         <label for="password">CONTRASEÑA</label>
-                        <input type="password" name="password" id="password"> <br>
+                        <input type="password" name="password" id="password"> 
+                        <ul style="font-size: small; color: red;"  id="passwordError"></ul><br>
                         <label for="password">CONFIRMAR CONTRASEÑA</label>
-                        <input type="password" name="confirmpassword" id="confirmpassword"> <br>
+                        <input type="password" name="confirmpassword" id="confirmpassword"> 
+                        <ul style="font-size: small; color: red;"  id="confirmError"></ul><br>
 
                         <button type="submit" id="entrar">CREAR CUENTA</button> <br>
                         <button type="reset" id="cancelar"><a href="/">CANCELAR</a></button>
@@ -48,5 +55,6 @@
             <%- include('../partials/footer') %>
         </main>
     </div>
+    <script src="/js/register.js"></script>
 </body>
 </html>

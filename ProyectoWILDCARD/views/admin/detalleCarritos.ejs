@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head') %>
+    <link rel="stylesheet" href='/stylesheets/carritoDetalle.css'/>
+</head>
+<body>
+    <div class="container">
+        <%- include('../partials/header') %>
+        <main>
+            
+            <div class="id">
+                <%for(i=0; i< carritos.length; i++ ){%>
+                <h1>Id carrito : <%=carritos[i].id%></h1>
+                <%}%>
+                <h1><a href="/admin/carritosLista">Volver al listado de Carritos</a></h1>
+            </div>
+            <div class="id2">
+                <%for(i=0; i< carritos.length; i++ ){%>
+                <h1>Estado de carrito : <%=carritos[i].estado%></h1>
+                <%}%>
+            </div>
+            <div class="estado">
+                <%for(i=0; i< carritos.length; i++ ){%>
+                <form action="/admin/carritosLista/estado/<%=carritos[i].id%>" method="POST">
+                    <label for="estado"><h2>Cambiar estado:    </h2></label>
+                <select name="estado" id="estado">
+                    <option value="abierto" <%= carritos[i].estado=="abierto" ? "selected" : null %>>Abierto</option>
+                    <option value="pedido" <%= carritos[i].estado=="pedido" ? "selected" : null %>>Pedido</option>
+                    <option value="cerrado"  <%= carritos[i].estado=="cerrado" ? "selected" : null %>>Cerrado</option>
+                </select>
+                <button class="boton" type="submit">Enviar</button>
+                </form>
+                <%}%>
+            </div>
+            <div class= "producto">
+                <h1>Producto</h1>
+                <%for(i=0; i< carritoProducto.length; i++ ){%>
+                <h2><%=carritoProducto[i].producto.nombre%></h2>
+                <%}%>
+            </div>
+            <div class="cantidad">
+                <h1>Cantidad</h1>
+                <%for(i=0; i< carritoProducto.length; i++ ){%>
+                <h2><%=carritoProducto[i].cantidad%></h2>
+                <%}%>
+            </div>
+            <div class="marca">
+                <h1 >Marca</h1>
+                <%for(i=0; i< carritoProducto.length; i++ ){%>
+                    <%for(j=0; j< productos.length; j++ ){%>
+                        <%if(productos[j].id == carritoProducto[i].id_producto ){%>  
+                    <h2><%=productos[j].marcas.nombre%></h2>
+                    <%}%>
+                    <%}%>
+                    <%}%>
+            </div>
+            <div class="color">
+                <h1>Color</h1>
+                <%for(i=0; i< carritoProducto.length; i++ ){%>
+                <h2><%=carritoProducto[i].color.nombre%></h2>
+                <%}%>
+            </div>
+            <div class="talle">
+                <h1>Talle</h1>
+                <%for(i=0; i< carritoProducto.length; i++ ){%>
+                    <h2><%=carritoProducto[i].talle.talle%></h2>
+                    <%}%>
+            </div>
+            <div class="Descuento">
+                <h1>Descuento</h1>
+                <%for(i=0; i< carritoProducto.length; i++ ){%>
+                <h2><%=carritoProducto[i].producto.descuento%> %</h2>
+                <%}%>
+            </div>
+            <div class="precio">
+                <h1>Precio</h1>
+                <%for(i=0; i< carritoProducto.length; i++ ){%>
+                    <h2>$ <%=toThousand(carritoProducto[i].producto.precio)%></h2>
+                    <%}%>
+            </div>
+        </main>
+        <%- include('../partials/footer') %>
+    </div>
+</body>
+</html>

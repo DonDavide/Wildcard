@@ -44,9 +44,6 @@ const productoController = {
                 usuario: req.usuarioLogueado
             });
         })
-       // res.render('products/productos', {
-        //    listaProductos, toThousand
-       // });
     },
     busquedaProductos: function(req, res, next){
         var busqueda = req.body.search;
@@ -66,10 +63,19 @@ const productoController = {
                 ],
         });
         let mostrarColores = db.Colores.findAll();
-        Promise.all ([productos, mostrarMarcas, mostrarTalles, mostrarColores])
-        .then(function([productos, marcas, talles, colores]){
+        let mostrarCategorias = db.Categorias.findAll();
+        Promise.all ([productos, mostrarMarcas, mostrarTalles, mostrarColores, mostrarCategorias])
+        .then(function([productos, marcas, talles, colores, categorias]){
 
-            res.render('products/listadoBusqueda', {productos, marcas, talles, colores, toThousand,
+            res.render('products/listadoBusqueda', {productos, marcas, talles, colores, categorias, toThousand,
+                filtros:{
+                    usuario: 'todos',
+                    categoria: 'ningunacategoria',
+                    precio: [0,1000000],
+                    talle: 'ninguntalle',
+                    color: 'ninguncolor',
+                    marcas: 'ningunamarca'
+                },
                 usuario: req.usuarioLogueado
             });
         }) 
@@ -78,7 +84,6 @@ const productoController = {
         })
     },
     ofertas: function(req, res, next){
-        var busqueda = req.body.search;
         let mostrarProductos = db.Productos.findAll({include :[ 
             {association : "imagenes"}],
             where : {
@@ -96,15 +101,23 @@ const productoController = {
                 ],
         });
         let mostrarColores = db.Colores.findAll();
-        Promise.all ([mostrarProductos, mostrarMarcas, mostrarTalles, mostrarColores])
-        .then(function([productos, marcas, talles, colores]){
-            res.render('products/productos', {productos, marcas, talles, colores, toThousand,
+        let mostrarCategorias = db.Categorias.findAll();
+        Promise.all ([mostrarProductos, mostrarMarcas, mostrarTalles, mostrarColores, mostrarCategorias])
+        .then(function([productos, marcas, talles, colores, categorias]){
+            res.render('products/productos', {productos, marcas, talles, colores, categorias, toThousand,
+                filtros:{
+                    usuario: 'todos',
+                    categoria: 'ningunacategoria',
+                    precio: [0,1000000],
+                    talle: 'ninguntalle',
+                    color: 'ninguncolor',
+                    marcas: 'ningunamarca'
+                },
                 usuario: req.usuarioLogueado
             });
         })
     },
     accesorios: function(req, res, next){
-        var busqueda = req.body.search;
         let mostrarProductos = db.Productos.findAll({include :[ 
             {association : "imagenes"}],
             where : {
@@ -157,12 +170,22 @@ const productoController = {
                 ['id', 'ASC'],
                 ],
         });
+        let mostrarCategorias = db.Categorias.findAll();
         let mostrarColores = db.Colores.findAll();
-        Promise.all ([mostrarProductos, mostrarMarcas, mostrarTalles, mostrarColores])
-        .then(function([productos, marcas, talles, colores]){
-            res.render('products/productos', {productos, marcas, talles, colores, toThousand,
+        Promise.all ([mostrarProductos, mostrarMarcas, mostrarTalles, mostrarColores, mostrarCategorias])
+        .then(function([productos, marcas, talles, colores, categorias]){
+            res.render('products/productos', {productos, marcas, talles, colores, categorias, toThousand,
+                filtros:{
+                    usuario: 'todos',
+                    categoria: 'ningunacategoria',
+                    precio: [0,1000000],
+                    talle: 'ninguntalle',
+                    color: 'ninguncolor',
+                    marcas: 'ningunamarca'
+                },
                 usuario: req.usuarioLogueado
             });
+
         })
     },
     filtro: (req, res, next) =>{
@@ -239,7 +262,7 @@ const productoController = {
                 marcasFilter = [req.body.marcas]
             } else {
                 marcasWhere = { [Op.in]: req.body.marcas };
-                marcasFilter = req.body.marcass
+                marcasFilter = req.body.marcas
             }
         } else {
             marcasWhere = { [Op.ne]: 'powerñlkajsdfjhxbcv' }; 
@@ -342,54 +365,26 @@ const productoController = {
         })
     },
     compraProducto: (req, res, next) => {
+        console.log('paso');
         let usuarioId = req.session.usuario.id
         db.Carritos.findOne({where : {
             id_usuario : usuarioId,
             estado : {[Op.substring]: "abierto"}
         }
         }).then(function(resultado){
-            if(resultado){
                 console.log('carrito encontrado, el id es '+ resultado.id);
                 db.Carrito_producto.create({
                     id_carrito : resultado.id,
                     id_producto : req.params.id,
                     id_talle : req.body.talle,
                     id_color : req.body.color,
-                    cantidad: req.body.cantidad
+                    cantidad: req.body.cantidad,
+                    id_usuario : usuarioId
                         }).then(function(resultado){
                             res.redirect('../users/carrito')
-                        })
-            }else{
-                console.log('no se encontro carrito para el usuario ' + usuarioId )
-                db.Carritos.create({
-                    id_usuario : usuarioId,
-                    estado : "abierto",
-                    forma_pago : req.body.mediosPago,
-                    forma_envio : req.body.mediosEnvio
-                }).then(function(nuevo){
-                    console.log("se creo el carrito nuevo")
-                    db.Carritos.findOne({
-                        where:{
-                            id_usuario : usuarioId,
-                            estado : "abierto"
-                        }
-                    });
-                }).then(function(){
-                    db.Carritos.max('id').then(resultado => {
-                            db.Carrito_producto.create({
-                                id_carrito : resultado,
-                                id_producto : req.params.id,
-                                id_talle : req.body.talle,
-                                id_color : req.body.color,
-                                cantidad: req.body.cantidad
-                            })
-                        
-                        }) 
-                }).then(function(resultado){
-                    res.redirect('../users/carrito')
-                })
-                }
-                })
+                        })})
+            
+                
 
     }
 };

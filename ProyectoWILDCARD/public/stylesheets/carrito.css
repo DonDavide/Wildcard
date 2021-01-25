@@ -63,7 +63,7 @@
     justify-content: space-between;
     margin-top: 20px;
   }
-  .container main.carrito div.tarjetas div.tarjetaProducto div.imagen{
+  .container main.carrito div.tarjetas div.tarjetaProducto div.imagen a{
     border: 2px black solid;
     width: 11vw;
     height: 20vh;
@@ -78,7 +78,7 @@
   }
  
 
-  .container main.carrito div.tarjetas div.tarjetaProducto div.imagen img{
+  .container main.carrito div.tarjetas div.tarjetaProducto div.imagen a img{
     height: 100%;
   }
   .container main.carrito div.tarjetas div.tarjetaProducto div.descripcion{
@@ -212,12 +212,38 @@
     color: whitesmoke;
     font-size: 1rem;
   }
+  .container main.carrito div.cantidadSubtotal div.botones button.mas a{
+    font-family: montserrat;
+    width: 40%;
+    margin-left: 0px;
+    background-color: gray;
+    color: whitesmoke;
+    font-size: 1rem;
+  }
   .container main.carrito div.cantidadSubtotal div.botones button{
     width: 50%;
     height: 8vh;
     font-size: 1.2rem;
     color: white;
     background-color: black;
+    font-family: montserrat;
+    text-align: center;
+  }
+  .container main.carrito div.cantidadSubtotal div.botones button a{
+    width: 50%;
+    height: 8vh;
+    font-size: 1.2rem;
+    color: white;
+    background-color: black;
+    font-family: montserrat;
+    text-align: center;
+  }
+  .container main.carrito div.cantidadSubtotal div.botones button.mas a{
+    width: 50%;
+    height: 8vh;
+    font-size: 1.2rem;
+    background-color: grey;
+    color: black;
     font-family: montserrat;
     text-align: center;
   }
@@ -232,7 +258,10 @@
       margin-top: 160px;
       
     }
-    .container main.carrito div.tarjetas div.tarjetaProducto div.imagen {
+    .container main.carrito div.tarjetas div.tarjetaProducto div.imagen  {
+      width: 13vw;
+    }
+    .container main.carrito div.tarjetas div.tarjetaProducto div.imagen a {
       width: 13vw;
     }
     .container main.carrito div.tarjetas div.tarjetaProducto div.imagen:hover{
@@ -292,6 +321,15 @@
     font-family: montserrat;
     font-size: 1rem;
 }
+.container main.carrito div.cantidadSubtotal div.botones button.mas a {
+  width: 100%;
+  color: black;
+  margin-bottom: 20px;
+  margin-left: 0px;
+  background-color: gray;
+  font-family: montserrat;
+  font-size: 1rem;
+}
   .container main.carrito div.cantidadSubtotal div.botones button {
     font-family: montserrat;
     width: 100%;
@@ -300,6 +338,24 @@
     color: white;
     background-color: black;
     margin-bottom: 20px;
+}
+.container main.carrito div.cantidadSubtotal div.botones button a {
+  font-family: montserrat;
+  width: 100%;
+  height: 5vh;
+  font-size: 0.8rem;
+  color: white;
+  background-color: black;
+  margin-bottom: 20px;
+}
+.container main.carrito div.cantidadSubtotal div.botones a button {
+  font-family: montserrat;
+  width: 100%;
+  height: 5vh;
+  font-size: 0.8rem;
+  color: white;
+  background-color: black;
+  margin-bottom: 20px;
 }
   }
   /* ------------------------Modo Laptop tablet 820px-------------------------------------------------*/
@@ -318,7 +374,12 @@
       width: 55%;
       /* border: 1PX BLACK SOLID; */
   }
-    .container main.carrito div.tarjetas div.tarjetaProducto div.imagen {
+  .container main.carrito div.tarjetas div.tarjetaProducto div.imagen  {
+    border: 2px black solid;
+    width: 22vh;
+    height: 15vw;
+}
+    .container main.carrito div.tarjetas div.tarjetaProducto div.imagen a {
       border: 2px black solid;
       width: 22vh;
       height: 15vw;
@@ -358,7 +419,7 @@
     top: 2vh;
   }
   .container main.carrito div.cantidadSubtotal div.cantidad h2.titulo2 {
-    display: flex;
+    display: none;
     position: relative;
     right: 45vw;
     top: 1vh;
@@ -371,7 +432,18 @@
   .container main.carrito div.cantidadSubtotal div.subtotal h2.total {
     font-size: 1.2rem;
   }
+  .container main.carrito div.cantidadSubtotal div.botones button {
+    font-size: 0.4rem;
   }
+  .container main.carrito div.cantidadSubtotal div.botones button a{
+    font-size: 0.4rem;
+  }
+  .container main.carrito div.cantidadSubtotal div.botones button.mas {
+    font-size: 0.4rem;
+  }
+  .container main.carrito div.cantidadSubtotal div.botones button.mas a {
+    font-size: 0.4rem;
+  }}
 /* ------------------------Modo tablet chica 571px-------------------------------------------------*/
   @media(max-width: 571px){
     body{
@@ -397,12 +469,17 @@
       justify-content: space-between;
       width: 65%;
   }
-  .container main.carrito div.tarjetas div.tarjetaProducto div.imagen {
+  .container main.carrito div.tarjetas div.tarjetaProducto div.imagen  {
     border: 2px black solid;
     width: 18vw;
     height: 15vh;
   }
-  .container main.carrito div.tarjetas div.tarjetaProducto div.imagen img {
+  .container main.carrito div.tarjetas div.tarjetaProducto div.imagen a {
+    border: 2px black solid;
+    width: 18vw;
+    height: 15vh;
+  }
+  .container main.carrito div.tarjetas div.tarjetaProducto div.imagen a img {
     width: 100%;
 }
 .container main.carrito div.tarjetas div.tarjetaProducto div.descripcion {
@@ -473,20 +550,23 @@
   .container main.carrito div.cantidadSubtotal div.botones button {
     font-size: 0.5rem;
   }
-  .container main.carrito div.cantidadSubtotal div.botones button.mas {
+  .container main.carrito div.cantidadSubtotal div.botones button a{
     font-size: 0.5rem;
   }
+  .container main.carrito div.cantidadSubtotal div.botones button.mas {
+    font-size: 0.4rem;
+  }
+  .container main.carrito div.cantidadSubtotal div.botones button.mas a {
+    font-size: 0.4rem;
+  }
   .container main.carrito div.tarjetas div.tarjetaProducto div.descripcion p.cantidad{
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     text-align: center;
     width: 20vw;
   }
-  .container main.carrito div.cantidadSubtotal div.cantidad div p.cantidad {
-    display: none;
-}
 .container main.carrito div.cantidadSubtotal div.cantidad h2.titulo2 {
   font-weight: 500;
 }
-}
+  }

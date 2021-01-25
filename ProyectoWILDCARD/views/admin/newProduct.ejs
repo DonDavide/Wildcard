@@ -8,9 +8,19 @@
     <div class="container">
         <%- include('../partials/header_admin') %>  
         <main class="newProduct">
-            <form action="/admin/products" method="POST" enctype="multipart/form-data">
+
+            <% if ( mensaje != 'nada') { %>
+                <ul>
+                    <% for ( let m=0; m<mensaje.length; m++) { %>
+                    <li style="color: red;"><%= mensaje[m].msg %></li>
+                    <% } %>
+                </ul>
+            <% } %>
+
+            <form action="/admin/products/create" method="post" enctype="multipart/form-data" id="formulario">
                 <div class="nombre">
                     <label for="nombre">NOMBRE DE NUEVO PRODUCTO</label> <input type="text" name="nombre" id="nombre" placeholder="Nombre del producto">
+                    <ul id="nameError" style="font-size: small; color: red;" ></ul>
                 </div>
                 <div class="primerCategoria">
                     <div class="tipo">
@@ -21,50 +31,60 @@
                             <option value="niño">NIÑO</option>
                         </select>              
                         <label class="uno" for="categoria">CATEGORIA DEL PRODUCTO</label>
-                        <div><label for="calzado">CALZADO</label><input  class="check" type="radio" name="categoria" id="calzado" value="1"></div>
+                        <div><label for="calzado">CALZADO</label><input  class="check" type="radio" name="categoria" id="calzado" value="1" checked></div>
                         <div><label for="accesorios">ACCESORIOS</label><input  class="check" type="radio" name="categoria" id="accesorios" value="2"></div>
+                        <ul id="categoriaError" style="font-size: small; color: red;" ></ul>
                     </div>
                     <div class="categoriasCalzado">
                         <label for="categoria">CATEGORIAS DE CALZADOS</label>
-                        <div><label for="zapatillas">ZAPATILLAS</label><input class="check" type="radio" name="categorias" id="zapatillas" value="Zapatillas"></div>  
-                        <div><label for="botas">BOTAS</label><input class="check" type="radio" name="categorias" id="botas" value="Botas"></div>
-                        <div><label for="zapatos">ZAPATOS</label><input class="check" type="radio" name="categorias" id="zapatos" value="Zapatos"></div>
-                        <div><label for="suecos">SUECOS</label><input class="check" type="radio" name="categorias" id="suecos" value="Suecos"></div>
-                        <div><label for="zandalias">ZANDALIAS</label><input class="check" type="radio" name="categorias" id="Zandalias" value="Zandalias"></div>
-                        <div><label for="chatas">CHATAS</label><input class="check" type="radio" name="categorias" id="chatas" value="Chatas"></div>
-                        <div><label for="ojotas">OJOTAS</label><input class="check" type="radio" name="categorias" id="ojotas" value="Ojotas"></div>
+                        <div><label for="zapatillas">ZAPATILLAS</label><input class="check categoria1" type="radio" name="categorias" id="zapatillas" value="Zapatillas" checked></div>  
+                        <div><label for="botas">BOTAS</label><input class="check categoria1" type="radio" name="categorias" id="botas" value="Botas"></div>
+                        <div><label for="zapatos">ZAPATOS</label><input class="check categoria1" type="radio" name="categorias" id="zapatos" value="Zapatos"></div>
+                        <div><label for="suecos">SUECOS</label><input class="check categoria1" type="radio" name="categorias" id="suecos" value="Suecos"></div>
+                        <div><label for="zandalias">ZANDALIAS</label><input class="check categoria1" type="radio" name="categorias" id="Zandalias" value="Zandalias"></div>
+                        <div><label for="chatas">CHATAS</label><input class="check categoria1" type="radio" name="categorias" id="chatas" value="Chatas"></div>
+                        <div><label for="ojotas">OJOTAS</label><input class="check categoria1" type="radio" name="categorias" id="ojotas" value="Ojotas"></div>
                     </div>
                     <div class="categoriasAccesorio">
                         <label for="categoria">CATEGORIAS DE ACCESORIOS</label>
-                        <div><label for="carteras">CARTERAS</label><input class="check" type="radio" name="categorias" id="carteras" value="Carteras"></div> 
-                        <div><label for="pañuelos">PAÑUELOS</label><input class="check" type="radio" name="categorias" id="pañuelos" value="Pañuelos"></div>
-                        <div><label for="pulserasYCollares">PULSERAS Y COLLARES</label><input class="check" type="radio" name="categorias" id="pulserasYCollares" value="PulserasYCollares"></div>
-                        <div><label for="cintos">CINTOS</label><input class="check" type="radio" name="categorias" id="cintos" value="Cintos"></div>
-                        <div><label for="mochilas">MOCHILAS</label><input class="check" type="radio" name="categorias" id="mochilas" value="Mochilas"></div>
+                        <div><label for="carteras">CARTERAS</label><input class="check categoria2" type="radio" name="categorias" id="carteras" value="Carteras"></div> 
+                        <div><label for="pañuelos">PAÑUELOS</label><input class="check categoria2" type="radio" name="categorias" id="pañuelos" value="Pañuelos"></div>
+                        <div><label for="pulserasYCollares">PULSERAS Y COLLARES</label><input class="check categoria2" type="radio" name="categorias" id="pulserasYCollares" value="PulserasYCollares"></div>
+                        <div><label for="cintos">CINTOS</label><input class="check categoria2" type="radio" name="categorias" id="cintos" value="Cintos"></div>
+                        <div><label for="mochilas">MOCHILAS</label><input class="check categoria2" type="radio" name="categorias" id="mochilas" value="Mochilas"></div>
                     </div>
                     
                     <div class="esp">
                         <div><label for="marca">MARCA :</label>
-                            
                             <select name="marca" id="marca">
                             <% for (let i = 0; i < marcas.length; i++) {%>
                             <option value="<%=marcas[i].id%>" selected><%=marcas[i].nombre%></option>
                             <%}%>
-                        </select><a href="/admin/products/create/agregarMarca">(agregar marca)</a></div>      
-                        <div class="talles"><label class="tituloTalle" for="talle">TALLES :</label>
+                        </select><a href="/admin/products/create/agregarMarca">(agregar marca)</a>
+                        <ul id="marcaError" style="font-size: small; color: red;" ></ul>
+                        </div>      
+                        <div class="talles">
+                            <ul id="tallesError" style="font-size: small; color: red;" ></ul>
+                            <label class="tituloTalle" for="talle">TALLES :</label>
                             <% for (let i = 0; i < talles.length; i++) {%>
                                 <label><input type="checkbox" id="talles" name="talles" value="<%=talles[i].id%>"><%=talles[i].talle%></label>
                                 <%}%> 
+                                
                         </div>
-                        <div class="colores"><label class="tituloColores" for="colores">COLORES :</label>
+                        <div class="colores">
+                            <ul id="coloresError" style="font-size: small; color: red;" ></ul>
+                            <label class="tituloColores" for="colores">COLORES :</label>
                             <% for (let i = 0; i < colores.length; i++) {%> 
                                 <label><input type="checkbox" id="colores" name="colores"  value="<%=colores[i].id%>"><%=colores[i].nombre%></label>
                                 <%}%>
                          </div>
 
-                        <div><label for="precio">PRECIO :</label> <input type="number" name="precio" id="precio" placeholder="Precio del producto"></div>
-                        <div><label for="descuento">DESCUENTO :</label> <input type="number" name="descuento" id="descuento" placeholder="Descuento del producto"></div>
-                        <div><label for="descripcion">DESCRIPCION :</label> <input type="text" name="descripcion" id="descripcion" placeholder="Descripcion del producto"></div>
+                        <div><label for="precio">PRECIO :</label> <input type="number" name="precio" id="precio" placeholder="Precio del producto">
+                            <ul id="precioError" style="font-size: small; color: red;" ></ul></div>
+                        <div><label for="descuento">DESCUENTO :</label> <input type="number" name="descuento" id="descuento" placeholder="Descuento del producto">
+                            <ul id="descuentoError" style="font-size: small; color: red;" ></ul></div>
+                        <div><label for="descripcion">DESCRIPCION :</label> <input type="text" name="descripcion" id="descripcion" placeholder="Descripcion del producto">
+                            <ul id="descripcionError" style="font-size: small; color: red;" ></ul></div>
                         <div><label for="Imagen1">AGREGAR IMAGEN :</label><input class="agregarImagen1" type="file" name="Imagen1" ></div>
                         <div><label for="Imagen2">AGREGAR IMAGEN :</label><input class="agregarImagen2" type="file" name="Imagen2" ></div>
                         <div><label for="Imagen3">AGREGAR IMAGEN :</label><input class="agregarImagen3" type="file" name="Imagen3" ></div>
@@ -81,5 +101,6 @@
         </main>
         <%- include('../partials/footer') %>
     </div>
+    <script src="/js/newProduct.js"></script>
 </body>
 </html>

@@ -3,6 +3,8 @@
 <head>
     <%- include('../partials/head') %>
     <link rel="stylesheet" href='/stylesheets/__register.css'/>
+    <link rel='stylesheet' href='/stylesheets/header2.css' />
+
 </head>
 <body>
     <div class="container">
@@ -17,16 +19,21 @@
                         
                         <div class="fullnameInputContainer">
                         <label for="Id">ID</label>
-                        <input type="number" name="id" id="id" value="<%= userEdit.id%>" readonly>   
+                        <input type="number" name="id" id="id" value="<%= userEdit.id%>" readonly>
+                        <label for="permiso">Permiso</label>
+                        <select name="permiso" id="permiso">
+                            <option value="admin" <%= userEdit.permiso=="admin" ? "selected": null %>>Administrador</option>
+                            <option value="externo" <%= userEdit.permiso=="externo" ? "selected": null %> >Externo</option>
+                        </select>        
                         <label for="fullname">NOMBRE Y APELLIDO</label>
-                        <input type="text" name="fullname" id="fullname" value="<%= userEdit.fullname %>">
+                        <input type="text" name="fullname" id="fullname" value="<%= userEdit.nombre %>">
                         </div> <br>
                         <label for="email">EMAIL</label>
                         <input type="email" name="email" id="email" value="<%= userEdit.email %>" > <br>
                         <label for="text">TELÉFONO (OPCIONAL)</label>
                         <input type="text" name="telefono" id="telefono" value="<%= userEdit.telefono %>"> <br>
                         <label for="password">CONTRASEÑA</label>
-                        <input type="password" name="password" id="password" value="<%= userEdit.password %>" readonly> <br>
+                        <input type="password" name="password" id="password" value="<%= userEdit.password %>"> <br>
 
                         <button type="submit" id="entrar">EDITAR Cuenta</button> <br>
                         <button type="reset" id="cancelar"><a href="users/userList">CANCELAR</a></button>

@@ -56,7 +56,8 @@ const adminController = {
         Promise.all ([mostrarMarcas, mostrarTalles, mostrarColores])
         .then(function([marcas, talles, colores]){
 
-            res.render('admin/newProduct', {marcas, talles, colores,usuario: req.usuarioLogueado})
+
+            res.render('admin/newProduct', {marcas, talles, colores,usuario: req.usuarioLogueado,mensaje: 'nada'})
         })
         ;
     },
@@ -144,6 +145,25 @@ const adminController = {
             res.render('admin/editProduct', {producto, marcas, talles, colores, tallesProducto, coloresProducto,usuario: req.usuarioLogueado})//enviamos a la vista los 4 objetos.
         });
     },
+    agregarMarca: (req, res, next) =>{
+        db.Marcas.findAll()//se buscan las marcas
+        .then(function(marcas){
+            res.render('admin/agregarMarcas',{
+                marcas, usuario: req.usuarioLogueado
+            })
+        })
+
+    },
+    agregarMarcaPost: (req, res, next) =>{
+        db.Marcas.create({
+            nombre: req.body.marca
+        })//se agregan marcas
+        .then(function(marcas){
+            console.log('La marca es ' + req.body.nuevaMarca);
+            res.redirect('/admin/products/create')
+        })
+
+    },
     editarProductoPost: (req, res, next) => {
         db.Productos.update({
             nombre: req.body.nombre,
@@ -195,6 +215,17 @@ const adminController = {
 
                         res.redirect("/admin/products");
                     }) 
+    },
+    cambioEstado:(req, res, next) => {
+        db.Carritos.update({
+            estado : req.body.estado
+            
+        },{
+            where :  {id: req.params.id}
+        }) .then(function(productos){
+
+            res.redirect("/admin/carritosLista/" + req.params.id);
+        }) 
     },
     destroy : (req, res) => {
             db.Producto_talle.destroy({
@@ -378,7 +409,85 @@ const adminController = {
         .catch(function(error){
             console.log(error);
         })
-    }
+    },
+    listadoCarritos: (req, res, next) =>{
+        let usuarioId = req.session.usuario.id;
+        let mostrarCarritos = db.Carritos.findAll({
+            
+            include : [{association:"carrito_productos"}]})
+        let mostrarMarcas = db.Marcas.findAll();//se buscan las marcas
+        let mostrarTalles = db.Talles.findAll({//se buscan los talles
+            order: [
+                ['id', 'ASC'],
+                ],
+        });
+        let mostrarCarritoProducto = db.Carrito_producto.findAll({where : {
+            id_usuario : usuarioId}
+            , 
+            include : [{association:"producto"}, {association:"carrito"}, {association:"talle"},
+            {association:"color"}]})
+
+        let mostrarColores = db.Colores.findAll();
+        let mostrarUsuarios = db.Usuarios.findAll();
+        let mostrarProductos = db.Productos.findAll({include : [{association:"imagenes"}]});
+        
+        Promise.all ([mostrarCarritos, mostrarCarritoProducto, mostrarMarcas, mostrarTalles, mostrarColores, mostrarUsuarios, mostrarProductos])
+        .then(function([carritos, carritoProducto, marcas, talles, colores, usuarios, productos]){
+            res.render('admin/listCarritos', {carritos, carritoProducto, marcas, talles, colores, usuarios, productos, toThousand,
+                usuario: req.usuarioLogueado
+            });
+        })
+        .catch(function(error){
+            console.log(error);
+        })
+
+    },
+    listadoCarrito: (req, res, next) =>{
+        let usuarioId = req.session.usuario.id;
+        let mostrarCarritos = db.Carritos.findAll({where : {
+            id: req.params.id
+        },
+            
+            include : [{association:"carrito_productos"}]})
+        let mostrarMarcas = db.Marcas.findAll();//se buscan las marcas
+        let mostrarTalles = db.Talles.findAll({//se buscan los talles
+            order: [
+                ['id', 'ASC'],
+                ],
+        });
+        let mostrarCarritoProducto = db.Carrito_producto.findAll({where : {
+            id_carrito : req.params.id}
+            , 
+            include : [{association:"producto"}, {association:"carrito"}, {association:"talle"},
+            {association:"color"}]})
+
+        let mostrarColores = db.Colores.findAll();
+        let mostrarUsuarios = db.Usuarios.findAll();
+        let mostrarProductos = db.Productos.findAll({include : [{association:"imagenes"}, {association:"marcas"}]});
+        
+        Promise.all ([mostrarCarritos, mostrarCarritoProducto, mostrarMarcas, mostrarTalles, mostrarColores, mostrarUsuarios, mostrarProductos])
+        .then(function([carritos, carritoProducto, marcas, talles, colores, usuarios, productos]){
+            res.render('admin/detalleCarritos', {carritos, carritoProducto, marcas, talles, colores, usuarios, productos, toThousand,
+                usuario: req.usuarioLogueado
+            });
+        })
+        .catch(function(error){
+            console.log(error);
+        })
+
+    },
+    verStocks: (req, res, next) =>{
+            let mostrarStocks = db.Stocks.findAll({
+            include : [{association:"producto"}, {association:"talle"},
+            {association:"color"}]})
+            let mostrarMarcas = db.Marcas.findAll();
+            Promise.all([mostrarStocks, mostrarMarcas])
+            .then(function([stocks, marcas]){
+                console.log(stocks[1]);
+                res.render('admin/listStocks.ejs', {stocks, marcas, toThousand,
+                    usuario: req.usuarioLogueado
+                })
+    })}
 }
 
 module.exports = adminController;
