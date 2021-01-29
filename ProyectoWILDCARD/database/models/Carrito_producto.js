@@ -30,6 +30,10 @@ module.exports = function(sequelize, dataTypes){
             type: dataTypes.INTEGER,
             allowNull: false,
         },
+        subtotal : {
+            type: dataTypes.INTEGER,
+            allowNull: false,
+        },
         id_usuario : {
             type: dataTypes.INTEGER,
             allowNull: false,

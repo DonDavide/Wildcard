@@ -155,13 +155,79 @@ const usersController = {
             console.log(error);
         })
     },
+    cambiarCantidad: (req,res,next) =>{
+        var cantidadNueva = req.params.cantidadBuscada;
+        if (cantidadNueva <0){
+            cantidadNueva = 1;
+        
+        var idBuscado = req.params.idBuscado;
+        db.Carrito_producto.update({
+            cantidad : cantidadNueva
+        },{
+        where : {
+            id : idBuscado
+        }}).then(function(){ console.log('modificado'); res.redirect ('/users/carrito')})
+        .catch(function(error){
+            console.log(error);
+        })
+    }else{
+        var cantidadNueva = req.params.cantidadBuscada;
+        var idBuscado = req.params.idBuscado;
+        db.Carrito_producto.update({
+            cantidad : cantidadNueva
+        },{
+        where : {
+            id : idBuscado
+        }}).then(function(){ console.log('modificado'); res.redirect ('/users/carrito')})
+        .catch(function(error){
+            console.log(error);
+        })
+    }},
     finalizarCompra: (req, res, next) =>{
-        db.Carritos.update({
+        console.log(req.params.id);
+        var arrayPrecios = [];
+        var arrayIdProductos = [];
+        let cambiarEstado = db.Carritos.update({
             estado: "pedido"
             
         },{
             where :  {id: req.params.id}
-        }).then(function(){ console.log('Compra Finalizada'); res.render('users/comprado', {usuario :req.session.usuario.nombre,  mensaje: 'nada'})})
+        })
+        
+     let buscarCarritoProducto =   db.Carrito_producto.findAll({
+                where : {
+                    id_carrito :req.params.id
+                }
+            })
+        .then(function(resultado){
+            for(i = 0; i < resultado.length; i++){
+               db.Productos.findAll({
+                where : {
+                    id :resultado[i].id_producto
+                }
+            }).then(function(producto){
+                producto.forEach(productos => {
+                    arrayPrecios.push(productos.precio);
+                    arrayIdProductos.push(productos.id);
+                    db.Carrito_producto.update({
+                        subtotal:(productos.precio)-(productos.precio*(productos.descuento/100))
+                    },
+                        {
+                        where : {
+                            id_carrito :req.params.id,
+                            id_producto :productos.id
+                        }
+                    }).then(function(carrito){
+                        console.log(carrito);
+                    })                
+                });
+                
+            })
+            };
+        })
+        Promise.all ([cambiarEstado, buscarCarritoProducto])
+        
+        .then(function(){ console.log('Compra Finalizada'); res.render('users/comprado', {usuario :req.session.usuario.nombre,  mensaje: 'nada'})})
         .catch(function(error){
             console.log(error);
         })

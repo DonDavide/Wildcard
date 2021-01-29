@@ -1,6 +1,19 @@
 window.onload = function () {
 
+    const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
     var formulario = document.querySelector('#formulario');
+
+    var precio = document.querySelector('#inputPrecio');
+    console.log(precio.value);
+    var cantidad = document.querySelector('#inputCantidad');
+    console.log(cantidad.value);
+    var subtotal = document.querySelector('#subtotal');
+    console.log(subtotal);
+
+   cantidad.addEventListener('input', function(event){
+       subtotal.innerHTML ="Subtotal: $"+  toThousand (cantidad.value*precio.value)
+   })
 
     var talles = document.querySelectorAll('input#talle');
     var colores = document.querySelectorAll('input#color');

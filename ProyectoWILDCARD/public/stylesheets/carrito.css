@@ -8,6 +8,14 @@
     font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
     margin: 0 0 0 0;
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0px;
+    padding: 0px;
   }
   
   a {
@@ -87,7 +95,7 @@
     flex-direction: column;
     padding-left: 20px;
     width: 35vw;
-    height: 20vh;
+    height: 25vh;
   }
   .container main.carrito div.tarjetas div.tarjetaProducto div.descripcion p.cantidad{
     display: none;
@@ -128,16 +136,20 @@
   }
   .container main.carrito div.cantidadSubtotal div.cantidad div{
     display: flex;
-    height: 20vh;
+    height: 25vh;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     justify-content: center;
     align-items: center;
   }
-  .container main.carrito div.cantidadSubtotal div.cantidad div p.cantidad{
+
+  .container main.carrito div.cantidadSubtotal div.cantidad div input.cantidad{
     border: 2px solid black;
     width: 50%;
+    text-align: center;
+    justify-content: center;
   }
+  
   .container main.carrito div.cantidadSubtotal div.cantidad p.envio{
     align-self: stretch;
     width: 100%;
@@ -164,7 +176,7 @@
   }
   .container main.carrito div.cantidadSubtotal div.subtotal div.precio{
     display: flex;
-    height: 20vh;
+    height: 25vh;
     text-align: center;
     margin-bottom: 20px;
     justify-content: center;
@@ -177,7 +189,7 @@
   }
   .container main.carrito div.cantidadSubtotal div.subtotal div.precio i{
     margin-left: 10px;
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 900;
     color: black;
   }
@@ -241,7 +253,7 @@
   .container main.carrito div.cantidadSubtotal div.botones button.mas a{
     width: 50%;
     height: 8vh;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     background-color: grey;
     color: black;
     font-family: montserrat;
@@ -389,6 +401,9 @@
     width: 25vw;
     height: 15vw;
   }
+  #sinDesc{
+    font-size: 8px !important;
+  }
   .container main.carrito div.cantidadSubtotal div.cantidad{
    position: relative;
 }
@@ -403,7 +418,7 @@
     height: 15VW;
   }
   .container main.carrito div.cantidadSubtotal div.subtotal div.precio p {
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: 900;
     padding: 1px;
   }
@@ -491,7 +506,7 @@
 
   .container main.carrito div.cantidadSubtotal {
     width: 35%;
-    font-size: 14px;
+    font-size: 12px;
     align-items: flex-start;
   }
   .container main.carrito div.cantidadSubtotal div.cantidad div {
@@ -506,7 +521,7 @@
 }
 .container main.carrito div.cantidadSubtotal div.cantidad {
   position: relative;
-  width: 30%;
+  width: 50%;
 }
 .container main.carrito div.cantidadSubtotal div.cantidad div {
   height: 15vh;
@@ -568,5 +583,32 @@
   }
 .container main.carrito div.cantidadSubtotal div.cantidad h2.titulo2 {
   font-weight: 500;
+}
+.container main.carrito div.cantidadSubtotal div.subtotal div.precio p {
+  font-size: 0.7rem;
+}
+/* ------------------------Modo tablet xs 485px-------------------------------------------------*/
+@media(max-width: 485px){
+  .container main.carrito div.tarjetas div.tarjetaProducto div.descripcion {
+    border: none;
+    width: 30vw;
+    height: 25vh;
+    padding-left: 5px;
+}
+.container main.carrito div.cantidadSubtotal div.cantidad div {
+  height: 25vh;
+  width: 100%;
+}
+.container main.carrito div.cantidadSubtotal div.subtotal div.precio {
+  height: 25vh;
+  width: 100%;
+}
+.container main.carrito div.cantidadSubtotal div.subtotal div.precio p {
+  font-size: 7px;
+}
+.container main.carrito div.cantidadSubtotal div.subtotal {
+  padding-left: 0px;
+}
+
 }
   }
