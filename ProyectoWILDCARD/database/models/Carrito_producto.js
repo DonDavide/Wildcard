@@ -32,7 +32,7 @@ module.exports = function(sequelize, dataTypes){
         },
         subtotal : {
             type: dataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true,
         },
         id_usuario : {
             type: dataTypes.INTEGER,
