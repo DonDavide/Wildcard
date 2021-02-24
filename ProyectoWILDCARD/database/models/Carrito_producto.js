@@ -30,7 +30,7 @@ module.exports = function(sequelize, dataTypes){
             type: dataTypes.INTEGER,
             allowNull: false,
         },
-        subtotal : {
+        subtotal : { 
             type: dataTypes.INTEGER,
             allowNull: true,
         },
@@ -52,7 +52,7 @@ module.exports = function(sequelize, dataTypes){
 
         Carrito_producto.belongsTo(models.Carritos, {
             as: "carrito",
-            foreignKey :"id"
+            foreignKey :"id_carrito"
         });
         Carrito_producto.belongsTo(models.Productos, {
             as: "producto",
